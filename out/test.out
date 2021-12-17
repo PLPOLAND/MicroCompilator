@@ -1,0 +1,61 @@
+1: PROGRAM assign;
+2: VAR a : integer;
+3: BEGIN
+4:     a := 0;
+5: END.
+--------- Symbol Table ----------
+-> do
+-> while
+-> then
+-> if
+-> real
+-> integer
+-> var
+-> write
+-> read
+-> end
+-> end.
+-> begin
+-> program
+
+Total: 13
+ 
+----- END Symbol Table ----------
+
+PROGRAM assign;
+ 
+<0, > <11, assign> <29, > 
+VAR a : integer;
+ 
+<6, > <11, a> <12, > <29, > 
+BEGIN
+ 
+<1, > 
+    a := 0;
+ 
+<11, a> <28, > <13, 0> <29, > 
+END.
+ 
+<2, > 
+ÿ 
+<31, > 
+--------- Symbol Table ----------
+-> a
+-> assign
+-> program
+-> begin
+-> end.
+-> end
+-> read
+-> write
+-> var
+-> integer
+-> real
+-> if
+-> then
+-> while
+-> do
+
+Total: 15
+ 
+----- END Symbol Table ----------

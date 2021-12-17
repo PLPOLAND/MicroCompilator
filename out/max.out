@@ -1,0 +1,98 @@
+1: program max;
+2: 
+3: -- Reads two integers and prints the maximum
+4: 
+5: var a, b : integer;
+6: 
+7: begin
+8: read(a,b);
+9: 
+10: if (a >= b) then
+11: write(a);
+12: if (b > a) then
+13: write(b);
+14: end.
+--------- Symbol Table ----------
+-> do
+-> while
+-> then
+-> if
+-> real
+-> integer
+-> var
+-> write
+-> read
+-> end
+-> end.
+-> begin
+-> program
+
+Total: 13
+ 
+----- END Symbol Table ----------
+
+program max;
+ 
+<0, > <11, max> <29, > 
+
+ 
+
+-- Reads two integers and prints the maximum
+ 
+
+
+ 
+
+var a, b : integer;
+ 
+<6, > <11, a> <30, > <11, b> <12, > <29, > 
+
+ 
+
+begin
+ 
+<1, > 
+read(a,b);
+ 
+<4, > <26, > <11, a> <30, > <11, b> <27, > <29, > 
+
+ 
+
+if (a >= b) then
+ 
+<7, > <26, > <11, a> <23, > <11, b> <27, > <8, > 
+write(a);
+ 
+<5, > <26, > <11, a> <27, > <29, > 
+if (b > a) then
+ 
+<7, > <26, > <11, b> <22, > <11, a> <27, > <8, > 
+write(b);
+ 
+<5, > <26, > <11, b> <27, > <29, > 
+end.
+ 
+<2, > 
+ÿ 
+<31, > 
+--------- Symbol Table ----------
+-> b
+-> a
+-> max
+-> program
+-> begin
+-> end.
+-> end
+-> read
+-> write
+-> var
+-> integer
+-> real
+-> if
+-> then
+-> while
+-> do
+
+Total: 16
+ 
+----- END Symbol Table ----------

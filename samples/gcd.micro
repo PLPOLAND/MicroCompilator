@@ -1,0 +1,18 @@
+program gcd;
+
+-- Finds the greatest common divisor (gcd) of a and b
+
+var a, b : integer;
+
+begin
+read(a, b);
+
+while (a <> b) do
+begin
+if (a < b) then
+b := b - a;
+if (b < a) then
+a := a - b;
+end;
+write(a);
+end.

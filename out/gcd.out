@@ -1,0 +1,114 @@
+1: program gcd;
+2: 
+3: -- Finds the greatest common divisor (gcd) of a and b
+4: 
+5: var a, b : integer;
+6: 
+7: begin
+8: read(a, b);
+9: 
+10: while (a <> b) do
+11: begin
+12: if (a < b) then
+13: b := b - a;
+14: if (b < a) then
+15: a := a - b;
+16: end;
+17: write(a);
+18: end.
+--------- Symbol Table ----------
+-> do
+-> while
+-> then
+-> if
+-> real
+-> integer
+-> var
+-> write
+-> read
+-> end
+-> end.
+-> begin
+-> program
+
+Total: 13
+ 
+----- END Symbol Table ----------
+
+program gcd;
+ 
+<0, > <11, gcd> <29, > 
+
+ 
+
+-- Finds the greatest common divisor (gcd) of a and b
+ 
+
+
+ 
+
+var a, b : integer;
+ 
+<6, > <11, a> <30, > <11, b> <12, > <29, > 
+
+ 
+
+begin
+ 
+<1, > 
+read(a, b);
+ 
+<4, > <26, > <11, a> <30, > <11, b> <27, > <29, > 
+
+ 
+
+while (a <> b) do
+ 
+<9, > <26, > <11, a> <25, > <11, b> <27, > <10, > 
+begin
+ 
+<1, > 
+if (a < b) then
+ 
+<7, > <26, > <11, a> <20, > <11, b> <27, > <8, > 
+b := b - a;
+ 
+<11, b> <28, > <11, b> <17, > <11, a> <29, > 
+if (b < a) then
+ 
+<7, > <26, > <11, b> <20, > <11, a> <27, > <8, > 
+a := a - b;
+ 
+<11, a> <28, > <11, a> <17, > <11, b> <29, > 
+end;
+ 
+<3, > <29, > 
+write(a);
+ 
+<5, > <26, > <11, a> <27, > <29, > 
+end.
+ 
+<2, > 
+ÿ 
+<31, > 
+--------- Symbol Table ----------
+-> b
+-> a
+-> gcd
+-> program
+-> begin
+-> end.
+-> end
+-> read
+-> write
+-> var
+-> integer
+-> real
+-> if
+-> then
+-> while
+-> do
+
+Total: 16
+ 
+----- END Symbol Table ----------
