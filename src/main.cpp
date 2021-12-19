@@ -29,7 +29,7 @@ int main(int argc, char const *argv[])
 {
     
     cout << argc<<endl<<endl;
-    string program = "PROGRAM assign; \n VAR a : integer;\n BEGIN \n a := 0;\n END.";
+    string program = "PROGRAM assign; \n VAR a : integer;\n BEGIN \n a := 0;\n END.\n ";
     program += EOF;
     ofstream* outFile = nullptr;
     if (argc == 2)//jeśli podano nazwę pliku wejściowego, wczytaj ją
