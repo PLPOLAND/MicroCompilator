@@ -1,0 +1,19 @@
+program gcd;
+
+-- Program with error (duplicated declaration of a)
+
+var a, b : integer;
+var a : integer;
+
+begin
+read(a, b);
+
+while (a <> b) do
+begin
+if (a < b) then
+b := b - a;
+if (b < a) then
+a := a - b;
+end;
+write(a);
+end.

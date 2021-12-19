@@ -23,7 +23,10 @@ class Parser
 	public :
 		Parser(std::string program);
 		~Parser();
-
+		/**
+		*@brief Sprawdza czy kolejny Token w kodzie jest tym który otrzymuje jako argument. Następnie prosi scanner o znalezienie kolejnego Tokena.
+		*@param T Token do którego będzie porównywany następny token w kodzie
+		 */
 		void Match(Token);
 
 		void SyntaxError(Token T);
@@ -64,12 +67,12 @@ class Parser
 		*@brief parse : <id list>               -> <ident> <id list tail>
 		*
 		*/
-		void parseIdList();
+		void parseIdList(bool sprawdzZadeklarowanie = false, bool niePowinnaBycZadeklarowana = false);
 		/**
 		*@brief parse : <id list tail>          -> NULL | ,<ident> <id list tail>
 		*
 		*/
-		void parseIdListTail();
+		void parseIdListTail(bool sprawdzZadeklarowanie = false, bool niePowinnaBycZadeklarowana = false);
 		/**
 		*@brief parse : <type>                  -> INTEGER | REAL
 		*
@@ -159,5 +162,18 @@ class Parser
 		*@return false nie jest jednym z tokenów rozpoczynających <statemnt>
 		 */
 		bool isBeginOfStatemnt(Token token);
+
+		/**
+		*@brief Sprawdza czy następna napotkana zmienna była już zadeklarowana wcześniej. Jeśli tak to wypisuje error, i kończy parser
+		*
+		 */
+		void sprawdzCzyZadeklarowanaWczesniej();
+
+
+		/**
+		*@brief Sprawdza czy następna napotkana zmienna była już zadeklarowana i następuje jej ponowna deklaracja. Jeśli tak, to wypisuje error i kończy parser
+		*
+		*/
+		void sprawdzCzyPonownaDeklaracja();
 };
 #endif

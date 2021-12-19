@@ -53,8 +53,9 @@ void Scanner::GetNewLine()
     {
         lastChar = EOF;
     }
-
-    ListThisLine();
+    #ifdef DEBUG
+        ListThisLine();
+    #endif // DEBUG
 
     LinePtr = -1;
 
@@ -176,6 +177,10 @@ Token Scanner::GetNextToken()
     char CurrentChar, Inspect;
 
     int IdVal = NONE;
+
+    lastSymbolID = NONE;
+    czyZadeklarowanoNowaZmienna = false;
+
     ClearBuffer();
 
     while (lastChar != EOF)
@@ -186,9 +191,12 @@ Token Scanner::GetNextToken()
         else if (isalpha(CurrentChar))
         {
             BufferName(CurrentChar);
-            if ((IdVal = LookUp(tokenBuffer)) == 0) /* a new identifier */
+            IdVal = LookUp(tokenBuffer);
+            if (IdVal == 0)
+            { /* a new identifier */
                 IdVal = Enter(tokenBuffer, Id);
-            
+                czyZadeklarowanoNowaZmienna = true;
+            }
             return CheckReserved();
         }
         else if (isdigit(CurrentChar))
@@ -365,6 +373,7 @@ void Scanner::printOutProgramCodeWithLines(){
         }
         
     }
+    std::cout << std::endl;
     std::cout.flush();
 }
 
@@ -544,4 +553,20 @@ void Scanner::scan(std::string program)
 void Scanner::addProgram(std::string program){
     this->programString = program;
     printOutProgramCodeWithLines();
+}
+
+Symbol Scanner::getSymbolFromHashTableById(int id){
+    Symbol tmp;
+    for (auto &item : *hashtable)
+    {
+        if (id == (item.first))
+        {
+            return item.second;
+        }
+        else{
+            tmp.name= item.second.name;
+            tmp.token = item.second.token;
+        }
+    }
+    return tmp;
 }

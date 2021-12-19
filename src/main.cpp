@@ -29,16 +29,22 @@ int main(int argc, char const *argv[])
 {
     
     cout << argc<<endl<<endl;
-    string program = "PROGRAM assign; \n VAR a : integer;\n BEGIN \n a: = 0;\n END.";
+    string program = "PROGRAM assign; \n VAR a : integer;\n BEGIN \n a := 0;\n END.";
     program += EOF;
     ofstream* outFile = nullptr;
     if (argc == 2)//jeśli podano nazwę pliku wejściowego, wczytaj ją
     {
-        program = readFile(argv[1]);//wczytaj plik wejściowy
+        program = readFile(argv[1]); //wczytaj plik wejściowy
+        D("argv[1]: ");
+        D_LN(argv[1]);
     }
     if (argc == 3)//jeśli podano nazwkę pliku wyjściowego podmień strumień cout na plik
     {
         program = readFile(argv[1]);//wczytaj plik wejściowy
+        D("argv[1]: ");
+        D_LN(argv[1]);
+        D("argv[2]: ");
+        D_LN(argv[2]);
         outFile = new ofstream(argv[2]);
         cout.rdbuf(outFile->rdbuf());
     }

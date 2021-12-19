@@ -1,0 +1,5 @@
+PROGRAM assign;
+VAR a : integer;
+BEGIN
+    a := 0;
+END.

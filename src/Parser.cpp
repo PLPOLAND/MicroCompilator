@@ -40,12 +40,14 @@ void Parser::Match(Token T)
 
 void Parser::SyntaxError(Token T)
 {
-    cout << "######Syntax Error : line " << scanner->LineCount << " at token: ";
+    cout << "Syntax Error : on line: " << scanner->LineCount << ", at token: ";
     scanner->printTokenName(T);
-    cout << endl;
+    cout <<endl;
 
     cout << endl
-         << "PANIC STOP!!!" << endl;
+         << "PANIC STOP!!!" << endl
+         << endl
+         << endl;
     exit(1);
 }
 
@@ -59,7 +61,8 @@ void Parser::parseProgram()
     Match(Token::EndProgramSym);
     Match(Token::EofSym);
 
-    cout<< "Compilation Successful."<<endl;
+    scanner->ListSymbolTable();
+    cout <<endl<< "Compilation Successful." << endl;
 }
 
 void Parser::parseIdent()
@@ -113,18 +116,28 @@ void Parser::parseDeclarationListTail()
 
 void Parser::parseDeclaration()
 {
-    Match(Token::VarSym);    //VAR
-    parseIdList();           //<id list>
-    parseType();             //:<type>
-    Match(Token::SemiColon); //;
+    Match(Token::VarSym);     //VAR
+    parseIdList(false, true); //<id list>
+    parseType();              //:<type>
+    Match(Token::SemiColon);  //;
 }
 
-void Parser::parseIdList()
+void Parser::parseIdList(bool sprawdzZadeklarowanie, bool niePowinnaBycZadeklarowana)
 {
+    if (sprawdzZadeklarowanie == true)
+    {
+        this->sprawdzCzyZadeklarowanaWczesniej();
+    }
+    if (niePowinnaBycZadeklarowana == true) //sprawdz czy dodano nową zmienną
+    {
+        this->sprawdzCzyPonownaDeklaracja();
+    }
+
     Match(Token::Id); //<ident>
+
     if (this->lookahead == Token::Comma)
     {
-        parseIdListTail(); //<id list tail>
+        parseIdListTail(sprawdzZadeklarowanie, niePowinnaBycZadeklarowana); //<id list tail>
     }
     else
     {
@@ -132,13 +145,24 @@ void Parser::parseIdList()
     }
 }
 
-void Parser::parseIdListTail()
+void Parser::parseIdListTail(bool sprawdzZadeklarowanie, bool niePowinnaBycZadeklarowana)
 {
     Match(Token::Comma); //,
-    Match(Token::Id);    //<ident>
+
+    if (niePowinnaBycZadeklarowana == true) //sprawdz czy dodano nową zmienną
+    {
+        this->sprawdzCzyPonownaDeklaracja();
+    }
+    if (sprawdzZadeklarowanie == true)
+    {
+        this->sprawdzCzyZadeklarowanaWczesniej();
+    }
+
+    Match(Token::Id); //<ident>
+
     if (this->lookahead == Token::Comma)
     {
-        parseIdListTail(); //<id list tail>
+        parseIdListTail(sprawdzZadeklarowanie, niePowinnaBycZadeklarowana); //<id list tail>
     }
     else
     {
@@ -190,7 +214,7 @@ void Parser::parseStatementListTail()
 {
     if (isBeginOfStatemnt(this->lookahead))
     {
-        parseStatement();     //<statement>
+        parseStatement();         //<statement>
         parseStatementListTail(); //<statement list tail>
     }
     else
@@ -210,6 +234,7 @@ void Parser::parseStatement()
     }
     else if (this->lookahead == Token::Id) //<ident> := <expression>;
     {
+        this->sprawdzCzyZadeklarowanaWczesniej();
         Match(Token::Id);
         Match(Token::Assign);
         parseExpression();
@@ -219,7 +244,7 @@ void Parser::parseStatement()
     {
         Match(Token::ReadSym);
         Match(Token::LParen);
-        parseIdList(); //TODO czy nie powinienem tutaj sprawdzać czy id na tej liscie już występują???
+        parseIdList(true);
         Match(Token::RParen);
         Match(Token::SemiColon);
     }
@@ -248,6 +273,9 @@ void Parser::parseStatement()
         Match(Token::RParen);
         Match(Token::DoSym);
         parseStatement();
+    }
+    else{
+        this->SyntaxError(this->lookahead);
     }
 }
 
@@ -339,6 +367,7 @@ void Parser::parseFactor()
     }
     else if (this->lookahead == Token::Id)
     {
+        this->sprawdzCzyZadeklarowanaWczesniej();
         Match(Token::Id);
     }
 }
@@ -375,5 +404,28 @@ void Parser::parseRelationOp()
     else
     {
         Match(Token::GreaterEq);
+    }
+}
+
+void Parser::sprawdzCzyPonownaDeklaracja()
+{
+    if (scanner->czyZadeklarowanoNowaZmienna == false)
+    {
+        cout << "##########################"
+             << "ERROR"
+             << "##########################" << endl;
+        cout << "Zmienna: " << scanner->getSymbolFromHashTableById(scanner->lastSymbolID).name << " została już zadeklarowana!" << endl;
+        this->SyntaxError(Token::Id);
+    }
+}
+void Parser::sprawdzCzyZadeklarowanaWczesniej()
+{
+    if (scanner->czyZadeklarowanoNowaZmienna == true)
+    {
+        cout << "##########################"
+             << "ERROR"
+             << "##########################" << endl;
+        cout << "Zmienna: " << scanner->getSymbolFromHashTableById(scanner->lastSymbolID).name << " nie została jeszcze zadeklarowana!" << endl;
+        this->SyntaxError(Token::Id);
     }
 }

@@ -5,7 +5,7 @@
 <declaration>           -> VAR <id list> : <type> ;
 <id list>               -> <id list> , <ident> | <ident>
 <type>                  -> INTEGER | REAL
-<optional statement>    -> <statement list> <statement> | NULL
+<optional statement>    -> <statement list> | NULL
 <statement list>        -> <statement list> <statement> | <statement>
 <statement>             -> BEGIN <statement list> END; 
                          | <ident> := <expression>;
@@ -39,7 +39,7 @@
 
 <type>                  -> INTEGER | REAL
 
-<optional statement>    -> <statement list> <statement> | NULL
+<optional statement>    -> <statement list> | NULL
 
 <statement list>        -> <statement> <statement list tail> 
 <statement list tail>   -> NULL | <statement> <statement list tail> 

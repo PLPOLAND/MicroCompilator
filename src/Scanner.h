@@ -41,6 +41,8 @@ class Scanner
 		///Do tymczasowego przechowawania wartości zmiennej numerycznej (w postaci stringa)
 		std::string NumLexeme = "";
 
+		///Zmienna przechowująca czy ostatnio znalezione id zostało dodane do listy(true), czy była już wcześniej dodana (false)
+		bool czyZadeklarowanoNowaZmienna = false;	
 		///hash tablica 
 		//TODO czy to na pewno o to chodziło???
 		std::unordered_map<int, Symbol> *hashtable;
@@ -177,6 +179,7 @@ class Scanner
 		 */
 		std::string getTokenName(Token token);
 
+		Symbol getSymbolFromHashTableById(int id);
 
 		void addProgram(std::string program);
 };
