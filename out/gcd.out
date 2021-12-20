@@ -16,6 +16,7 @@
 16: end;
 17: write(a);
 18: end.
+
 --------- Symbol Table ----------
 -> do
 -> while
@@ -37,7 +38,10 @@ Total: 13
 
 program gcd;
  
-<0, > <11, gcd> <29, > 
+Matched :ProgramSym
+Matched :Id
+Matched :SemiColon
+
 
  
 
@@ -49,48 +53,105 @@ program gcd;
 
 var a, b : integer;
  
-<6, > <11, a> <30, > <11, b> <12, > <29, > 
+Matched :VarSym
+Matched :Id
+Matched :Comma
+Matched :Id
+Matched :IntSym
+Matched :SemiColon
+
 
  
 
 begin
  
-<1, > 
+Matched :BeginSym
+
 read(a, b);
  
-<4, > <26, > <11, a> <30, > <11, b> <27, > <29, > 
+Matched :ReadSym
+Matched :LParen
+Matched :Id
+Matched :Comma
+Matched :Id
+Matched :RParen
+Matched :SemiColon
+
 
  
 
 while (a <> b) do
  
-<9, > <26, > <11, a> <25, > <11, b> <27, > <10, > 
+Matched :WhileSym
+Matched :LParen
+Matched :Id
+Matched :Diffrent
+Matched :Id
+Matched :RParen
+Matched :DoSym
+
 begin
  
-<1, > 
+Matched :BeginSym
+
 if (a < b) then
  
-<7, > <26, > <11, a> <20, > <11, b> <27, > <8, > 
+Matched :IfSym
+Matched :LParen
+Matched :Id
+Matched :Less
+Matched :Id
+Matched :RParen
+Matched :ThenSym
+
 b := b - a;
  
-<11, b> <28, > <11, b> <17, > <11, a> <29, > 
+Matched :Id
+Matched :Assign
+Matched :Id
+Matched :Minus
+Matched :Id
+Matched :SemiColon
+
 if (b < a) then
  
-<7, > <26, > <11, b> <20, > <11, a> <27, > <8, > 
+Matched :IfSym
+Matched :LParen
+Matched :Id
+Matched :Less
+Matched :Id
+Matched :RParen
+Matched :ThenSym
+
 a := a - b;
  
-<11, a> <28, > <11, a> <17, > <11, b> <29, > 
+Matched :Id
+Matched :Assign
+Matched :Id
+Matched :Minus
+Matched :Id
+Matched :SemiColon
+
 end;
  
-<3, > <29, > 
+Matched :EndSym
+Matched :SemiColon
+
 write(a);
  
-<5, > <26, > <11, a> <27, > <29, > 
+Matched :WriteSym
+Matched :LParen
+Matched :Id
+Matched :RParen
+Matched :SemiColon
+
 end.
  
-<2, > 
+Matched :EndProgramSym
+
 ÿ 
-<31, > 
+Matched :EofSym
+
 --------- Symbol Table ----------
 -> b
 -> a
@@ -112,3 +173,5 @@ end.
 Total: 16
  
 ----- END Symbol Table ----------
+
+Compilation Successful.

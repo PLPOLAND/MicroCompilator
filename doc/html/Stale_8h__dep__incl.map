@@ -1,6 +1,8 @@
 <map id="Stale.h" name="Stale.h">
-<area shape="rect" id="node1" title=" " alt="" coords="79,5,146,32"/>
-<area shape="rect" id="node2" href="$Scanner_8h.html" title=" " alt="" coords="70,80,155,107"/>
-<area shape="rect" id="node3" href="$Scanner_8cpp.html" title=" " alt="" coords="5,155,105,181"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title=" " alt="" coords="129,155,211,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="125,5,192,32"/>
+<area shape="rect" id="node2" href="$Scanner_8h.html" title=" " alt="" coords="116,80,201,107"/>
+<area shape="rect" id="node3" href="$Parser_8hh.html" title=" " alt="" coords="39,155,121,181"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="117,229,200,256"/>
+<area shape="rect" id="node6" href="$Scanner_8cpp.html" title=" " alt="" coords="197,155,297,181"/>
+<area shape="rect" id="node4" href="$Parser_8cpp.html" title=" " alt="" coords="5,229,93,256"/>
 </map>

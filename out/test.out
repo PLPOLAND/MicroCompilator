@@ -1,8 +1,18 @@
-1: PROGRAM assign;
-2: VAR a : integer;
-3: BEGIN
-4:     a := 0;
-5: END.
+1: program max;
+2: 
+3: -- Reads two integers and prints the maximum
+4: 
+5: var a, b : integer;
+6: 
+7: begin
+8: read(a,b);
+9: 
+10: if (a >= b) then
+11: write(a);
+12: if (b > a) then
+13: write(b);
+14: end.
+
 --------- Symbol Table ----------
 -> do
 -> while
@@ -22,26 +32,97 @@ Total: 13
  
 ----- END Symbol Table ----------
 
-PROGRAM assign;
+program max;
  
-<0, > <11, assign> <29, > 
-VAR a : integer;
+Matched :ProgramSym
+Matched :Id
+Matched :SemiColon
+
+
  
-<6, > <11, a> <12, > <29, > 
-BEGIN
+
+-- Reads two integers and prints the maximum
  
-<1, > 
-    a := 0;
+
+
  
-<11, a> <28, > <13, 0> <29, > 
-END.
+
+var a, b : integer;
  
-<2, > 
+Matched :VarSym
+Matched :Id
+Matched :Comma
+Matched :Id
+Matched :IntSym
+Matched :SemiColon
+
+
+ 
+
+begin
+ 
+Matched :BeginSym
+
+read(a,b);
+ 
+Matched :ReadSym
+Matched :LParen
+Matched :Id
+Matched :Comma
+Matched :Id
+Matched :RParen
+Matched :SemiColon
+
+
+ 
+
+if (a >= b) then
+ 
+Matched :IfSym
+Matched :LParen
+Matched :Id
+Matched :GreaterEq
+Matched :Id
+Matched :RParen
+Matched :ThenSym
+
+write(a);
+ 
+Matched :WriteSym
+Matched :LParen
+Matched :Id
+Matched :RParen
+Matched :SemiColon
+
+if (b > a) then
+ 
+Matched :IfSym
+Matched :LParen
+Matched :Id
+Matched :Greater
+Matched :Id
+Matched :RParen
+Matched :ThenSym
+
+write(b);
+ 
+Matched :WriteSym
+Matched :LParen
+Matched :Id
+Matched :RParen
+Matched :SemiColon
+
+end.
+ 
+Matched :EndProgramSym
+
 ÿ 
-<31, > 
+Matched :EofSym
+
 --------- Symbol Table ----------
+-> b
 -> a
--> assign
+-> max
 -> program
 -> begin
 -> end.
@@ -56,6 +137,8 @@ END.
 -> while
 -> do
 
-Total: 15
+Total: 16
  
 ----- END Symbol Table ----------
+
+Compilation Successful.

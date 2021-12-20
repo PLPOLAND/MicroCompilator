@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['programstring_0',['programString',['../classScanner.html#a7f74fe8f4cd6a7e2b729d8e185af1872',1,'Scanner']]],
-  ['programstringpointer_1',['programStringPointer',['../classScanner.html#a852900c5b131f61d0ac602705add57e4',1,'Scanner']]]
+  ['name_0',['name',['../classSymbol.html#aae414c7ddc8c0cfcd3678d5142490f11',1,'Symbol']]],
+  ['numlexeme_1',['NumLexeme',['../classScanner.html#add173a0eb76154342eb13231428ad432',1,'Scanner']]]
 ];

@@ -7,12 +7,18 @@ HTML -> ./doc/html/index.html
 
 Komentarz:
 
-"Przepisałem" cały kod na C++. 
-Klasa Scanner realizuje całą funkcjonalność Scanner.
+
+Ponownie kod napisany w C++;
+gramatyka LL(1) i First()/Follow() sety znajdują się w pliku grammar.txt
+
+Klasa Parser realizuje całą funkcjonalność parsera kodu Micro.
+
 Program bez podanych argumentów uruchomi się i przeskanuje kod programu zapisany ręczenie w zmiennej program w main.cpp;
 Program może wczytać plik tekstowy (podać jako pierwszy argument sciezke do pliku);
 Program może wypisać wyjście na konsole do pliku (podać jako drugi argument sciezke do pliku)(UWAGA! foldery w ścieżce muszą już istnieć!);
 
 W folderze ./out znajdują się wyjścia dla przeskanowanych wcześniej odpowiednich plików znajdujących się w folderze ./samples
+Plik ./parser to plik wynikowy (skompilowany program) gotowy do uruchomienia.
 
-Plik ./scanner to plik wynikowy (skompilowany program) gotowy do uruchomienia.
+Dodatkowo bezpośrednio w kodzie została zaprogramowana opcja debug (wypisuje kolejne linie kodu i komunikaty o prawidłowym dopasowaniu słów), domyślnie jest ona włączona,
+ale można ją wyłączyć w pliku "Stale.h" zakomentowująć linię kodu 17 :"#define DEBUG".

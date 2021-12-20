@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['max_5fline_5flength_0',['MAX_LINE_LENGTH',['../Stale_8h.html#af0f2173e3b202ddf5756531b4471dcb2',1,'Stale.h']]],
-  ['max_5fsymbol_1',['MAX_SYMBOL',['../Stale_8h.html#a59d07948755f59b9ab68596ffefef564',1,'Stale.h']]]
+  ['id_5fstring_5flength_0',['ID_STRING_LENGTH',['../Stale_8h.html#ac6eaf148a8d3f37958265a8044aee619',1,'Stale.h']]]
 ];

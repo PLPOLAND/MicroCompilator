@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['checkreserved_0',['CheckReserved',['../classScanner.html#a64b9f34739b046b1a0c5969274a48972',1,'Scanner']]],
-  ['clearbuffer_1',['ClearBuffer',['../classScanner.html#a0c9aa35c727763193dd5c025acc0a6fe',1,'Scanner']]]
+  ['bufferchar_0',['BufferChar',['../classScanner.html#a3b1d419bd706fcb1db35ae3e1a30b91f',1,'Scanner']]],
+  ['buffername_1',['BufferName',['../classScanner.html#a2696c355b1632b58cf9c03f8cbca568d',1,'Scanner']]],
+  ['buffernumliterals_2',['BufferNumLiterals',['../classScanner.html#abb315507f613b6e80e2c3e5ac6a316af',1,'Scanner']]]
 ];

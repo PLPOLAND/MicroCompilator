@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['enter_0',['Enter',['../classScanner.html#ada46be693f1347447ea9e1e4d3a42a5e',1,'Scanner']]]
+  ['checkreserved_0',['CheckReserved',['../classScanner.html#a64b9f34739b046b1a0c5969274a48972',1,'Scanner']]],
+  ['clearbuffer_1',['ClearBuffer',['../classScanner.html#a0c9aa35c727763193dd5c025acc0a6fe',1,'Scanner']]]
 ];

@@ -1,0 +1,855 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Micro Scanner: Dokumentacja klasy Parser</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Micro Scanner<span id="projectnumber">&#160;1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pri-attribs">Atrybuty prywatne</a>  </div>
+  <div class="headertitle"><div class="title">Dokumentacja klasy Parser</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Klasa realizująca funkcje parsera kodu Micro.  
+ <a href="classParser.html#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Parser_8hh_source.html">Parser.hh</a>&gt;</code></p>
+<div class="dynheader">
+Diagram współpracy dla Parser:</div>
+<div class="dyncontent">
+<div class="center"><img src="classParser__coll__graph.png" border="0" usemap="#aParser_coll__map" alt="Collaboration graph"/></div>
+<map name="aParser_coll__map" id="aParser_coll__map">
+<area shape="rect" title="Klasa realizująca funkcje parsera kodu Micro." alt="" coords="26,453,239,677"/>
+<area shape="rect" href="classScanner.html" title="Klasa realizująca funkcje skanera kodu." alt="" coords="5,5,260,391"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a595a8a5d003007c4a43b6d859d4a47e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a595a8a5d003007c4a43b6d859d4a47e2">Parser</a> (std::string program)</td></tr>
+<tr class="separator:a595a8a5d003007c4a43b6d859d4a47e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e658b5917a93a3ef648050d060e3a93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a3e658b5917a93a3ef648050d060e3a93">~Parser</a> ()</td></tr>
+<tr class="separator:a3e658b5917a93a3ef648050d060e3a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74a0d28f1ddd6132e91ec9b14462e723"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a74a0d28f1ddd6132e91ec9b14462e723">Match</a> (<a class="el" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a>)</td></tr>
+<tr class="memdesc:a74a0d28f1ddd6132e91ec9b14462e723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza czy kolejny Token w kodzie jest tym który otrzymuje jako argument. Następnie prosi scanner o znalezienie kolejnego Tokena.  <a href="classParser.html#a74a0d28f1ddd6132e91ec9b14462e723">Więcej...</a><br /></td></tr>
+<tr class="separator:a74a0d28f1ddd6132e91ec9b14462e723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39d49983c29b48f9a2e1803382c0ff57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a39d49983c29b48f9a2e1803382c0ff57">SyntaxError</a> (<a class="el" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> T)</td></tr>
+<tr class="separator:a39d49983c29b48f9a2e1803382c0ff57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8cad58e60a2d72614063754ff2b766d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#ae8cad58e60a2d72614063754ff2b766d">parseProgram</a> ()</td></tr>
+<tr class="memdesc:ae8cad58e60a2d72614063754ff2b766d"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse &lt;program&gt; -&gt; PROGRAM &lt;name&gt; &lt;optional declaration&gt; BEGIN &lt;optional statement&gt; END.  <a href="classParser.html#ae8cad58e60a2d72614063754ff2b766d">Więcej...</a><br /></td></tr>
+<tr class="separator:ae8cad58e60a2d72614063754ff2b766d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac96f6765bc7387dcc924b811965be3d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#ac96f6765bc7387dcc924b811965be3d2">parseName</a> ()</td></tr>
+<tr class="memdesc:ac96f6765bc7387dcc924b811965be3d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse &lt;name&gt; -&gt; &lt;ident&gt;;  <a href="classParser.html#ac96f6765bc7387dcc924b811965be3d2">Więcej...</a><br /></td></tr>
+<tr class="separator:ac96f6765bc7387dcc924b811965be3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98f0010156d3119af1b8782c5e965a52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a98f0010156d3119af1b8782c5e965a52">parseOptionalDeclaration</a> ()</td></tr>
+<tr class="memdesc:a98f0010156d3119af1b8782c5e965a52"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;optional declaration&gt; -&gt; &lt;declaration list&gt; | NULL  <a href="classParser.html#a98f0010156d3119af1b8782c5e965a52">Więcej...</a><br /></td></tr>
+<tr class="separator:a98f0010156d3119af1b8782c5e965a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf54d7d6491fae50482b57f291639b92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#aaf54d7d6491fae50482b57f291639b92">parseDeclarationList</a> ()</td></tr>
+<tr class="memdesc:aaf54d7d6491fae50482b57f291639b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;declaration list&gt; -&gt; &lt;declaration&gt; &lt;declaration list tail&gt;  <a href="classParser.html#aaf54d7d6491fae50482b57f291639b92">Więcej...</a><br /></td></tr>
+<tr class="separator:aaf54d7d6491fae50482b57f291639b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc6c0b1c9e52c3a28ce5e10ee08a4886"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#acc6c0b1c9e52c3a28ce5e10ee08a4886">parseDeclarationListTail</a> ()</td></tr>
+<tr class="memdesc:acc6c0b1c9e52c3a28ce5e10ee08a4886"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;declaration list tail&gt; -&gt; NULL | &lt;declaration&gt; &lt;declaration list&gt;  <a href="classParser.html#acc6c0b1c9e52c3a28ce5e10ee08a4886">Więcej...</a><br /></td></tr>
+<tr class="separator:acc6c0b1c9e52c3a28ce5e10ee08a4886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2beec21352fb03f98702cadd5d5aadbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a2beec21352fb03f98702cadd5d5aadbf">parseDeclaration</a> ()</td></tr>
+<tr class="memdesc:a2beec21352fb03f98702cadd5d5aadbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;declaration&gt; -&gt; VAR &lt;id list&gt; : &lt;type&gt; ;  <a href="classParser.html#a2beec21352fb03f98702cadd5d5aadbf">Więcej...</a><br /></td></tr>
+<tr class="separator:a2beec21352fb03f98702cadd5d5aadbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88e2dc06934858823287b4cf8db8f4ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a88e2dc06934858823287b4cf8db8f4ee">parseIdList</a> (bool sprawdzZadeklarowanie=false, bool niePowinnaBycZadeklarowana=false)</td></tr>
+<tr class="memdesc:a88e2dc06934858823287b4cf8db8f4ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;id list&gt; -&gt; &lt;ident&gt; &lt;id list tail&gt;  <a href="classParser.html#a88e2dc06934858823287b4cf8db8f4ee">Więcej...</a><br /></td></tr>
+<tr class="separator:a88e2dc06934858823287b4cf8db8f4ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28fbc15643fd272d21e25ea0dacf161d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a28fbc15643fd272d21e25ea0dacf161d">parseIdListTail</a> (bool sprawdzZadeklarowanie=false, bool niePowinnaBycZadeklarowana=false)</td></tr>
+<tr class="memdesc:a28fbc15643fd272d21e25ea0dacf161d"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;id list tail&gt; -&gt; NULL | ,&lt;ident&gt; &lt;id list tail&gt;  <a href="classParser.html#a28fbc15643fd272d21e25ea0dacf161d">Więcej...</a><br /></td></tr>
+<tr class="separator:a28fbc15643fd272d21e25ea0dacf161d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff7e53d7c2672792bef29c7d80c305a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#aff7e53d7c2672792bef29c7d80c305a7">parseType</a> ()</td></tr>
+<tr class="memdesc:aff7e53d7c2672792bef29c7d80c305a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;type&gt; -&gt; INTEGER | REAL  <a href="classParser.html#aff7e53d7c2672792bef29c7d80c305a7">Więcej...</a><br /></td></tr>
+<tr class="separator:aff7e53d7c2672792bef29c7d80c305a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7be2f45f46e1734331ea02f4a2ab197"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#ad7be2f45f46e1734331ea02f4a2ab197">parseOptionalStatement</a> ()</td></tr>
+<tr class="memdesc:ad7be2f45f46e1734331ea02f4a2ab197"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;optional statement&gt; -&gt; &lt;statement list&gt; &lt;statement&gt; | NULL  <a href="classParser.html#ad7be2f45f46e1734331ea02f4a2ab197">Więcej...</a><br /></td></tr>
+<tr class="separator:ad7be2f45f46e1734331ea02f4a2ab197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0398f1f05b70f777b192538aa843dac2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a0398f1f05b70f777b192538aa843dac2">parseStatementList</a> ()</td></tr>
+<tr class="memdesc:a0398f1f05b70f777b192538aa843dac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;statement list&gt; -&gt; &lt;statement&gt; &lt;statement list tail&gt;  <a href="classParser.html#a0398f1f05b70f777b192538aa843dac2">Więcej...</a><br /></td></tr>
+<tr class="separator:a0398f1f05b70f777b192538aa843dac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19e5fff6b1d4b02da353359993c68f65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a19e5fff6b1d4b02da353359993c68f65">parseStatementListTail</a> ()</td></tr>
+<tr class="memdesc:a19e5fff6b1d4b02da353359993c68f65"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;statement list tail&gt; -&gt; NULL | &lt;statement&gt; &lt;statement list tail&gt;  <a href="classParser.html#a19e5fff6b1d4b02da353359993c68f65">Więcej...</a><br /></td></tr>
+<tr class="separator:a19e5fff6b1d4b02da353359993c68f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f0f8661fc0f1e3e479bacfd41e92b62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a4f0f8661fc0f1e3e479bacfd41e92b62">parseStatement</a> ()</td></tr>
+<tr class="memdesc:a4f0f8661fc0f1e3e479bacfd41e92b62"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;statement&gt; -&gt; BEGIN &lt;statement list&gt; END; <br  />
+ | &lt;ident&gt; := &lt;expression&gt;; | READ( &lt;id list&gt;); | WRITE( &lt;expression list&gt;); | IF(&lt;bool&gt;) THEN &lt;statement&gt; | WHILE(&lt;bool&gt;) DO &lt;statement&gt;  <a href="classParser.html#a4f0f8661fc0f1e3e479bacfd41e92b62">Więcej...</a><br /></td></tr>
+<tr class="separator:a4f0f8661fc0f1e3e479bacfd41e92b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86f0e2d9a45411bd46c3357ab5b6f6fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a86f0e2d9a45411bd46c3357ab5b6f6fb">parseExpressionList</a> ()</td></tr>
+<tr class="memdesc:a86f0e2d9a45411bd46c3357ab5b6f6fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;expression list&gt; -&gt; &lt;expression&gt; &lt;expression list tail&gt;  <a href="classParser.html#a86f0e2d9a45411bd46c3357ab5b6f6fb">Więcej...</a><br /></td></tr>
+<tr class="separator:a86f0e2d9a45411bd46c3357ab5b6f6fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a736c1e677eb262e35468f7d16f760abb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a736c1e677eb262e35468f7d16f760abb">parseExpressionListTail</a> ()</td></tr>
+<tr class="memdesc:a736c1e677eb262e35468f7d16f760abb"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;expression list tail&gt; -&gt; NULL | , &lt;expression&gt; &lt;expression list tail&gt;  <a href="classParser.html#a736c1e677eb262e35468f7d16f760abb">Więcej...</a><br /></td></tr>
+<tr class="separator:a736c1e677eb262e35468f7d16f760abb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8d6418d0694392ffefbd7ee486060f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#af8d6418d0694392ffefbd7ee486060f8">parseExpression</a> ()</td></tr>
+<tr class="memdesc:af8d6418d0694392ffefbd7ee486060f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;expression&gt; -&gt;  &lt;expression tail&gt;  <a href="classParser.html#af8d6418d0694392ffefbd7ee486060f8">Więcej...</a><br /></td></tr>
+<tr class="separator:af8d6418d0694392ffefbd7ee486060f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdc2076eb52bf456bff6a7f21401996c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#abdc2076eb52bf456bff6a7f21401996c">parseExpressionTail</a> ()</td></tr>
+<tr class="memdesc:abdc2076eb52bf456bff6a7f21401996c"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;expression tail&gt; -&gt; NULL | +  &lt;expression tail&gt; | - &lt;expression tail&gt;  <a href="classParser.html#abdc2076eb52bf456bff6a7f21401996c">Więcej...</a><br /></td></tr>
+<tr class="separator:abdc2076eb52bf456bff6a7f21401996c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7efeff019869a5d4c36bd18b32ee04c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a7efeff019869a5d4c36bd18b32ee04c3">parseTerm</a> ()</td></tr>
+<tr class="memdesc:a7efeff019869a5d4c36bd18b32ee04c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse :  -&gt; &lt;factor&gt;   <a href="classParser.html#a7efeff019869a5d4c36bd18b32ee04c3">Więcej...</a><br /></td></tr>
+<tr class="separator:a7efeff019869a5d4c36bd18b32ee04c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aded9fe51f29a91a50d14a541a4dee118"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#aded9fe51f29a91a50d14a541a4dee118">parseTermTail</a> ()</td></tr>
+<tr class="memdesc:aded9fe51f29a91a50d14a541a4dee118"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse :  -&gt; NULL | * &lt;factor&gt;  | / &lt;factor&gt;   <a href="classParser.html#aded9fe51f29a91a50d14a541a4dee118">Więcej...</a><br /></td></tr>
+<tr class="separator:aded9fe51f29a91a50d14a541a4dee118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62b538e4d2f40ebf3b89d6b6c0224bf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a62b538e4d2f40ebf3b89d6b6c0224bf8">parseFactor</a> ()</td></tr>
+<tr class="memdesc:a62b538e4d2f40ebf3b89d6b6c0224bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;factor&gt; -&gt; ( &lt;expression&gt; ) | &lt;ident&gt; | INTNUM | FLOATNUM  <a href="classParser.html#a62b538e4d2f40ebf3b89d6b6c0224bf8">Więcej...</a><br /></td></tr>
+<tr class="separator:a62b538e4d2f40ebf3b89d6b6c0224bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeb97de27e4d788e60c5f45b19ef3dc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#aeeb97de27e4d788e60c5f45b19ef3dc5">parseIdent</a> ()</td></tr>
+<tr class="memdesc:aeeb97de27e4d788e60c5f45b19ef3dc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;ident&gt; -&gt; ID  <a href="classParser.html#aeeb97de27e4d788e60c5f45b19ef3dc5">Więcej...</a><br /></td></tr>
+<tr class="separator:aeeb97de27e4d788e60c5f45b19ef3dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf2a9057c5adfdcac9cabfbfd7bf1a02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#acf2a9057c5adfdcac9cabfbfd7bf1a02">parseBool</a> ()</td></tr>
+<tr class="memdesc:acf2a9057c5adfdcac9cabfbfd7bf1a02"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;bool&gt; -&gt; &lt;expression&gt; &lt;relation op&gt; &lt;expression&gt;  <a href="classParser.html#acf2a9057c5adfdcac9cabfbfd7bf1a02">Więcej...</a><br /></td></tr>
+<tr class="separator:acf2a9057c5adfdcac9cabfbfd7bf1a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ec27b97fc809db87e7a9d7502f4d86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#ad6ec27b97fc809db87e7a9d7502f4d86">parseRelationOp</a> ()</td></tr>
+<tr class="memdesc:ad6ec27b97fc809db87e7a9d7502f4d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse : &lt;relation op&gt; -&gt; &lt; | = | &gt; | &lt;= | &lt;&gt; | &gt;=  <a href="classParser.html#ad6ec27b97fc809db87e7a9d7502f4d86">Więcej...</a><br /></td></tr>
+<tr class="separator:ad6ec27b97fc809db87e7a9d7502f4d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe1ed8678beb34ca1672e2dd3802c952"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#afe1ed8678beb34ca1672e2dd3802c952">isBeginOfStatemnt</a> (<a class="el" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> token)</td></tr>
+<tr class="memdesc:afe1ed8678beb34ca1672e2dd3802c952"><td class="mdescLeft">&#160;</td><td class="mdescRight">sprawdza czy token jest jednym z tokenów rozpoczynających &lt;statemnt&gt;  <a href="classParser.html#afe1ed8678beb34ca1672e2dd3802c952">Więcej...</a><br /></td></tr>
+<tr class="separator:afe1ed8678beb34ca1672e2dd3802c952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7025dba6804a013d891848565c0e113"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#aa7025dba6804a013d891848565c0e113">sprawdzCzyZadeklarowanaWczesniej</a> ()</td></tr>
+<tr class="memdesc:aa7025dba6804a013d891848565c0e113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza czy następna napotkana zmienna była już zadeklarowana wcześniej. Jeśli tak to wypisuje error, i kończy parser.  <a href="classParser.html#aa7025dba6804a013d891848565c0e113">Więcej...</a><br /></td></tr>
+<tr class="separator:aa7025dba6804a013d891848565c0e113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3cc364e8e05522acd9c34c12774e886"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#ab3cc364e8e05522acd9c34c12774e886">sprawdzCzyPonownaDeklaracja</a> ()</td></tr>
+<tr class="memdesc:ab3cc364e8e05522acd9c34c12774e886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza czy następna napotkana zmienna była już zadeklarowana i następuje jej ponowna deklaracja. Jeśli tak, to wypisuje error i kończy parser.  <a href="classParser.html#ab3cc364e8e05522acd9c34c12774e886">Więcej...</a><br /></td></tr>
+<tr class="separator:ab3cc364e8e05522acd9c34c12774e886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Atrybuty prywatne</h2></td></tr>
+<tr class="memitem:a0d4316d908278c74512b02d78f500ad1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classScanner.html">Scanner</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a0d4316d908278c74512b02d78f500ad1">scanner</a></td></tr>
+<tr class="memdesc:a0d4316d908278c74512b02d78f500ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">wskaźnik na obiekt realizujący funkcję skanera  <a href="classParser.html#a0d4316d908278c74512b02d78f500ad1">Więcej...</a><br /></td></tr>
+<tr class="separator:a0d4316d908278c74512b02d78f500ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4be829161a99b8e7fee6f63c466cf26a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a4be829161a99b8e7fee6f63c466cf26a">lookahead</a></td></tr>
+<tr class="memdesc:a4be829161a99b8e7fee6f63c466cf26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kolejny znaleziony token.  <a href="classParser.html#a4be829161a99b8e7fee6f63c466cf26a">Więcej...</a><br /></td></tr>
+<tr class="separator:a4be829161a99b8e7fee6f63c466cf26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p >Klasa realizująca funkcje parsera kodu Micro. </p>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a id="a595a8a5d003007c4a43b6d859d4a47e2" name="a595a8a5d003007c4a43b6d859d4a47e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a595a8a5d003007c4a43b6d859d4a47e2">&#9670;&nbsp;</a></span>Parser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Parser::Parser </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>program</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e658b5917a93a3ef648050d060e3a93" name="a3e658b5917a93a3ef648050d060e3a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e658b5917a93a3ef648050d060e3a93">&#9670;&nbsp;</a></span>~Parser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Parser::~Parser </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="afe1ed8678beb34ca1672e2dd3802c952" name="afe1ed8678beb34ca1672e2dd3802c952"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe1ed8678beb34ca1672e2dd3802c952">&#9670;&nbsp;</a></span>isBeginOfStatemnt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parser::isBeginOfStatemnt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a>&#160;</td>
+          <td class="paramname"><em>token</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>sprawdza czy token jest jednym z tokenów rozpoczynających &lt;statemnt&gt; </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">token</td><td>token do sprawdzenia </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>true jest jednym z tokenów rozpoczynających &lt;statemnt&gt; </dd>
+<dd>
+false nie jest jednym z tokenów rozpoczynających &lt;statemnt&gt; </dd></dl>
+
+</div>
+</div>
+<a id="a74a0d28f1ddd6132e91ec9b14462e723" name="a74a0d28f1ddd6132e91ec9b14462e723"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74a0d28f1ddd6132e91ec9b14462e723">&#9670;&nbsp;</a></span>Match()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::Match </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a>&#160;</td>
+          <td class="paramname"><em>T</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sprawdza czy kolejny Token w kodzie jest tym który otrzymuje jako argument. Następnie prosi scanner o znalezienie kolejnego Tokena. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td>Token do którego będzie porównywany następny token w kodzie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acf2a9057c5adfdcac9cabfbfd7bf1a02" name="acf2a9057c5adfdcac9cabfbfd7bf1a02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf2a9057c5adfdcac9cabfbfd7bf1a02">&#9670;&nbsp;</a></span>parseBool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseBool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;bool&gt; -&gt; &lt;expression&gt; &lt;relation op&gt; &lt;expression&gt; </p>
+
+</div>
+</div>
+<a id="a2beec21352fb03f98702cadd5d5aadbf" name="a2beec21352fb03f98702cadd5d5aadbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2beec21352fb03f98702cadd5d5aadbf">&#9670;&nbsp;</a></span>parseDeclaration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseDeclaration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;declaration&gt; -&gt; VAR &lt;id list&gt; : &lt;type&gt; ; </p>
+
+</div>
+</div>
+<a id="aaf54d7d6491fae50482b57f291639b92" name="aaf54d7d6491fae50482b57f291639b92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf54d7d6491fae50482b57f291639b92">&#9670;&nbsp;</a></span>parseDeclarationList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseDeclarationList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;declaration list&gt; -&gt; &lt;declaration&gt; &lt;declaration list tail&gt; </p>
+
+</div>
+</div>
+<a id="acc6c0b1c9e52c3a28ce5e10ee08a4886" name="acc6c0b1c9e52c3a28ce5e10ee08a4886"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc6c0b1c9e52c3a28ce5e10ee08a4886">&#9670;&nbsp;</a></span>parseDeclarationListTail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseDeclarationListTail </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;declaration list tail&gt; -&gt; NULL | &lt;declaration&gt; &lt;declaration list&gt; </p>
+
+</div>
+</div>
+<a id="af8d6418d0694392ffefbd7ee486060f8" name="af8d6418d0694392ffefbd7ee486060f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8d6418d0694392ffefbd7ee486060f8">&#9670;&nbsp;</a></span>parseExpression()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseExpression </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;expression&gt; -&gt;  &lt;expression tail&gt; </p>
+
+</div>
+</div>
+<a id="a86f0e2d9a45411bd46c3357ab5b6f6fb" name="a86f0e2d9a45411bd46c3357ab5b6f6fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86f0e2d9a45411bd46c3357ab5b6f6fb">&#9670;&nbsp;</a></span>parseExpressionList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseExpressionList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;expression list&gt; -&gt; &lt;expression&gt; &lt;expression list tail&gt; </p>
+
+</div>
+</div>
+<a id="a736c1e677eb262e35468f7d16f760abb" name="a736c1e677eb262e35468f7d16f760abb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a736c1e677eb262e35468f7d16f760abb">&#9670;&nbsp;</a></span>parseExpressionListTail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseExpressionListTail </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;expression list tail&gt; -&gt; NULL | , &lt;expression&gt; &lt;expression list tail&gt; </p>
+
+</div>
+</div>
+<a id="abdc2076eb52bf456bff6a7f21401996c" name="abdc2076eb52bf456bff6a7f21401996c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdc2076eb52bf456bff6a7f21401996c">&#9670;&nbsp;</a></span>parseExpressionTail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseExpressionTail </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;expression tail&gt; -&gt; NULL | +  &lt;expression tail&gt; | - &lt;expression tail&gt; </p>
+
+</div>
+</div>
+<a id="a62b538e4d2f40ebf3b89d6b6c0224bf8" name="a62b538e4d2f40ebf3b89d6b6c0224bf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b538e4d2f40ebf3b89d6b6c0224bf8">&#9670;&nbsp;</a></span>parseFactor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseFactor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;factor&gt; -&gt; ( &lt;expression&gt; ) | &lt;ident&gt; | INTNUM | FLOATNUM </p>
+
+</div>
+</div>
+<a id="aeeb97de27e4d788e60c5f45b19ef3dc5" name="aeeb97de27e4d788e60c5f45b19ef3dc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeb97de27e4d788e60c5f45b19ef3dc5">&#9670;&nbsp;</a></span>parseIdent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseIdent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;ident&gt; -&gt; ID </p>
+
+</div>
+</div>
+<a id="a88e2dc06934858823287b4cf8db8f4ee" name="a88e2dc06934858823287b4cf8db8f4ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88e2dc06934858823287b4cf8db8f4ee">&#9670;&nbsp;</a></span>parseIdList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseIdList </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sprawdzZadeklarowanie</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>niePowinnaBycZadeklarowana</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;id list&gt; -&gt; &lt;ident&gt; &lt;id list tail&gt; </p>
+
+</div>
+</div>
+<a id="a28fbc15643fd272d21e25ea0dacf161d" name="a28fbc15643fd272d21e25ea0dacf161d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28fbc15643fd272d21e25ea0dacf161d">&#9670;&nbsp;</a></span>parseIdListTail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseIdListTail </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sprawdzZadeklarowanie</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>niePowinnaBycZadeklarowana</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;id list tail&gt; -&gt; NULL | ,&lt;ident&gt; &lt;id list tail&gt; </p>
+
+</div>
+</div>
+<a id="ac96f6765bc7387dcc924b811965be3d2" name="ac96f6765bc7387dcc924b811965be3d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac96f6765bc7387dcc924b811965be3d2">&#9670;&nbsp;</a></span>parseName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse &lt;name&gt; -&gt; &lt;ident&gt;; </p>
+
+</div>
+</div>
+<a id="a98f0010156d3119af1b8782c5e965a52" name="a98f0010156d3119af1b8782c5e965a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98f0010156d3119af1b8782c5e965a52">&#9670;&nbsp;</a></span>parseOptionalDeclaration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseOptionalDeclaration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;optional declaration&gt; -&gt; &lt;declaration list&gt; | NULL </p>
+
+</div>
+</div>
+<a id="ad7be2f45f46e1734331ea02f4a2ab197" name="ad7be2f45f46e1734331ea02f4a2ab197"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7be2f45f46e1734331ea02f4a2ab197">&#9670;&nbsp;</a></span>parseOptionalStatement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseOptionalStatement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;optional statement&gt; -&gt; &lt;statement list&gt; &lt;statement&gt; | NULL </p>
+
+</div>
+</div>
+<a id="ae8cad58e60a2d72614063754ff2b766d" name="ae8cad58e60a2d72614063754ff2b766d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8cad58e60a2d72614063754ff2b766d">&#9670;&nbsp;</a></span>parseProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseProgram </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse &lt;program&gt; -&gt; PROGRAM &lt;name&gt; &lt;optional declaration&gt; BEGIN &lt;optional statement&gt; END. </p>
+
+</div>
+</div>
+<a id="ad6ec27b97fc809db87e7a9d7502f4d86" name="ad6ec27b97fc809db87e7a9d7502f4d86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ec27b97fc809db87e7a9d7502f4d86">&#9670;&nbsp;</a></span>parseRelationOp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseRelationOp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;relation op&gt; -&gt; &lt; | = | &gt; | &lt;= | &lt;&gt; | &gt;= </p>
+
+</div>
+</div>
+<a id="a4f0f8661fc0f1e3e479bacfd41e92b62" name="a4f0f8661fc0f1e3e479bacfd41e92b62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f0f8661fc0f1e3e479bacfd41e92b62">&#9670;&nbsp;</a></span>parseStatement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseStatement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;statement&gt; -&gt; BEGIN &lt;statement list&gt; END; <br  />
+ | &lt;ident&gt; := &lt;expression&gt;; | READ( &lt;id list&gt;); | WRITE( &lt;expression list&gt;); | IF(&lt;bool&gt;) THEN &lt;statement&gt; | WHILE(&lt;bool&gt;) DO &lt;statement&gt; </p>
+
+</div>
+</div>
+<a id="a0398f1f05b70f777b192538aa843dac2" name="a0398f1f05b70f777b192538aa843dac2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0398f1f05b70f777b192538aa843dac2">&#9670;&nbsp;</a></span>parseStatementList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseStatementList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;statement list&gt; -&gt; &lt;statement&gt; &lt;statement list tail&gt; </p>
+
+</div>
+</div>
+<a id="a19e5fff6b1d4b02da353359993c68f65" name="a19e5fff6b1d4b02da353359993c68f65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19e5fff6b1d4b02da353359993c68f65">&#9670;&nbsp;</a></span>parseStatementListTail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseStatementListTail </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;statement list tail&gt; -&gt; NULL | &lt;statement&gt; &lt;statement list tail&gt; </p>
+
+</div>
+</div>
+<a id="a7efeff019869a5d4c36bd18b32ee04c3" name="a7efeff019869a5d4c36bd18b32ee04c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7efeff019869a5d4c36bd18b32ee04c3">&#9670;&nbsp;</a></span>parseTerm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseTerm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse :  -&gt; &lt;factor&gt;  </p>
+
+</div>
+</div>
+<a id="aded9fe51f29a91a50d14a541a4dee118" name="aded9fe51f29a91a50d14a541a4dee118"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aded9fe51f29a91a50d14a541a4dee118">&#9670;&nbsp;</a></span>parseTermTail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseTermTail </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse :  -&gt; NULL | * &lt;factor&gt;  | / &lt;factor&gt;  </p>
+
+</div>
+</div>
+<a id="aff7e53d7c2672792bef29c7d80c305a7" name="aff7e53d7c2672792bef29c7d80c305a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff7e53d7c2672792bef29c7d80c305a7">&#9670;&nbsp;</a></span>parseType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::parseType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parse : &lt;type&gt; -&gt; INTEGER | REAL </p>
+
+</div>
+</div>
+<a id="ab3cc364e8e05522acd9c34c12774e886" name="ab3cc364e8e05522acd9c34c12774e886"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3cc364e8e05522acd9c34c12774e886">&#9670;&nbsp;</a></span>sprawdzCzyPonownaDeklaracja()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::sprawdzCzyPonownaDeklaracja </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sprawdza czy następna napotkana zmienna była już zadeklarowana i następuje jej ponowna deklaracja. Jeśli tak, to wypisuje error i kończy parser. </p>
+
+</div>
+</div>
+<a id="aa7025dba6804a013d891848565c0e113" name="aa7025dba6804a013d891848565c0e113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7025dba6804a013d891848565c0e113">&#9670;&nbsp;</a></span>sprawdzCzyZadeklarowanaWczesniej()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::sprawdzCzyZadeklarowanaWczesniej </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sprawdza czy następna napotkana zmienna była już zadeklarowana wcześniej. Jeśli tak to wypisuje error, i kończy parser. </p>
+
+</div>
+</div>
+<a id="a39d49983c29b48f9a2e1803382c0ff57" name="a39d49983c29b48f9a2e1803382c0ff57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39d49983c29b48f9a2e1803382c0ff57">&#9670;&nbsp;</a></span>SyntaxError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::SyntaxError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a>&#160;</td>
+          <td class="paramname"><em>T</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja pól</h2>
+<a id="a4be829161a99b8e7fee6f63c466cf26a" name="a4be829161a99b8e7fee6f63c466cf26a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4be829161a99b8e7fee6f63c466cf26a">&#9670;&nbsp;</a></span>lookahead</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> Parser::lookahead</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Kolejny znaleziony token. </p>
+
+</div>
+</div>
+<a id="a0d4316d908278c74512b02d78f500ad1" name="a0d4316d908278c74512b02d78f500ad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d4316d908278c74512b02d78f500ad1">&#9670;&nbsp;</a></span>scanner</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classScanner.html">Scanner</a>* Parser::scanner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>wskaźnik na obiekt realizujący funkcję skanera </p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="Parser_8hh_source.html">Parser.hh</a></li>
+<li><a class="el" href="Parser_8cpp.html">Parser.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+</small></address>
+</body>
+</html>

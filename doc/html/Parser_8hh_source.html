@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Micro Scanner: Plik źródłowy Parser.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Micro Scanner<span id="projectnumber">&#160;1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Parser.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Parser_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PARSER_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PARSER_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="Token_8h.html">Token.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="Scanner_8h.html">Scanner.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classParser.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="classParser.html">Parser</a>  </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classParser.html#a0d4316d908278c74512b02d78f500ad1">   23</a></span>    <a class="code hl_class" href="classScanner.html">Scanner</a>* <a class="code hl_variable" href="classParser.html#a0d4316d908278c74512b02d78f500ad1">scanner</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classParser.html#a4be829161a99b8e7fee6f63c466cf26a">   26</a></span>    <a class="code hl_enumeration" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> <a class="code hl_variable" href="classParser.html#a4be829161a99b8e7fee6f63c466cf26a">lookahead</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    public :</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_function" href="classParser.html#a595a8a5d003007c4a43b6d859d4a47e2">Parser</a>(std::string program);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <a class="code hl_function" href="classParser.html#a3e658b5917a93a3ef648050d060e3a93">~Parser</a>();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a74a0d28f1ddd6132e91ec9b14462e723">Match</a>(<a class="code hl_enumeration" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a39d49983c29b48f9a2e1803382c0ff57">SyntaxError</a>(<a class="code hl_enumeration" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> T);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#ae8cad58e60a2d72614063754ff2b766d">parseProgram</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#ac96f6765bc7387dcc924b811965be3d2">parseName</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a98f0010156d3119af1b8782c5e965a52">parseOptionalDeclaration</a>();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#aaf54d7d6491fae50482b57f291639b92">parseDeclarationList</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#acc6c0b1c9e52c3a28ce5e10ee08a4886">parseDeclarationListTail</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a2beec21352fb03f98702cadd5d5aadbf">parseDeclaration</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a88e2dc06934858823287b4cf8db8f4ee">parseIdList</a>(<span class="keywordtype">bool</span> sprawdzZadeklarowanie = <span class="keyword">false</span>, <span class="keywordtype">bool</span> niePowinnaBycZadeklarowana = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a28fbc15643fd272d21e25ea0dacf161d">parseIdListTail</a>(<span class="keywordtype">bool</span> sprawdzZadeklarowanie = <span class="keyword">false</span>, <span class="keywordtype">bool</span> niePowinnaBycZadeklarowana = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#aff7e53d7c2672792bef29c7d80c305a7">parseType</a>();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#ad7be2f45f46e1734331ea02f4a2ab197">parseOptionalStatement</a>();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a0398f1f05b70f777b192538aa843dac2">parseStatementList</a>();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a19e5fff6b1d4b02da353359993c68f65">parseStatementListTail</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a4f0f8661fc0f1e3e479bacfd41e92b62">parseStatement</a>();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a86f0e2d9a45411bd46c3357ab5b6f6fb">parseExpressionList</a>();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a736c1e677eb262e35468f7d16f760abb">parseExpressionListTail</a>();</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#af8d6418d0694392ffefbd7ee486060f8">parseExpression</a>();</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#abdc2076eb52bf456bff6a7f21401996c">parseExpressionTail</a>();</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a7efeff019869a5d4c36bd18b32ee04c3">parseTerm</a>();</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#aded9fe51f29a91a50d14a541a4dee118">parseTermTail</a>();</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#a62b538e4d2f40ebf3b89d6b6c0224bf8">parseFactor</a>();</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#aeeb97de27e4d788e60c5f45b19ef3dc5">parseIdent</a>();</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#acf2a9057c5adfdcac9cabfbfd7bf1a02">parseBool</a>();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#ad6ec27b97fc809db87e7a9d7502f4d86">parseRelationOp</a>();</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classParser.html#afe1ed8678beb34ca1672e2dd3802c952">isBeginOfStatemnt</a>(<a class="code hl_enumeration" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> token);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#aa7025dba6804a013d891848565c0e113">sprawdzCzyZadeklarowanaWczesniej</a>();</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classParser.html#ab3cc364e8e05522acd9c34c12774e886">sprawdzCzyPonownaDeklaracja</a>();</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>};</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aScanner_8h_html"><div class="ttname"><a href="Scanner_8h.html">Scanner.h</a></div></div>
+<div class="ttc" id="aToken_8h_html"><div class="ttname"><a href="Token_8h.html">Token.h</a></div></div>
+<div class="ttc" id="aToken_8h_html_a6a9e93b081bad7fc74c17306fb168c1f"><div class="ttname"><a href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a></div><div class="ttdeci">Token</div><div class="ttdoc">Tokeny.</div><div class="ttdef"><b>Definition:</b> Token.h:8</div></div>
+<div class="ttc" id="aclassParser_html"><div class="ttname"><a href="classParser.html">Parser</a></div><div class="ttdoc">Klasa realizująca funkcje parsera kodu Micro.</div><div class="ttdef"><b>Definition:</b> Parser.hh:20</div></div>
+<div class="ttc" id="aclassParser_html_a0398f1f05b70f777b192538aa843dac2"><div class="ttname"><a href="classParser.html#a0398f1f05b70f777b192538aa843dac2">Parser::parseStatementList</a></div><div class="ttdeci">void parseStatementList()</div><div class="ttdoc">parse : &lt;statement list&gt; -&gt; &lt;statement&gt; &lt;statement list tail&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:207</div></div>
+<div class="ttc" id="aclassParser_html_a0d4316d908278c74512b02d78f500ad1"><div class="ttname"><a href="classParser.html#a0d4316d908278c74512b02d78f500ad1">Parser::scanner</a></div><div class="ttdeci">Scanner * scanner</div><div class="ttdoc">wskaźnik na obiekt realizujący funkcję skanera</div><div class="ttdef"><b>Definition:</b> Parser.hh:23</div></div>
+<div class="ttc" id="aclassParser_html_a19e5fff6b1d4b02da353359993c68f65"><div class="ttname"><a href="classParser.html#a19e5fff6b1d4b02da353359993c68f65">Parser::parseStatementListTail</a></div><div class="ttdeci">void parseStatementListTail()</div><div class="ttdoc">parse : &lt;statement list tail&gt; -&gt; NULL | &lt;statement&gt; &lt;statement list tail&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:213</div></div>
+<div class="ttc" id="aclassParser_html_a28fbc15643fd272d21e25ea0dacf161d"><div class="ttname"><a href="classParser.html#a28fbc15643fd272d21e25ea0dacf161d">Parser::parseIdListTail</a></div><div class="ttdeci">void parseIdListTail(bool sprawdzZadeklarowanie=false, bool niePowinnaBycZadeklarowana=false)</div><div class="ttdoc">parse : &lt;id list tail&gt; -&gt; NULL | ,&lt;ident&gt; &lt;id list tail&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:148</div></div>
+<div class="ttc" id="aclassParser_html_a2beec21352fb03f98702cadd5d5aadbf"><div class="ttname"><a href="classParser.html#a2beec21352fb03f98702cadd5d5aadbf">Parser::parseDeclaration</a></div><div class="ttdeci">void parseDeclaration()</div><div class="ttdoc">parse : &lt;declaration&gt; -&gt; VAR &lt;id list&gt; : &lt;type&gt; ;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:117</div></div>
+<div class="ttc" id="aclassParser_html_a39d49983c29b48f9a2e1803382c0ff57"><div class="ttname"><a href="classParser.html#a39d49983c29b48f9a2e1803382c0ff57">Parser::SyntaxError</a></div><div class="ttdeci">void SyntaxError(Token T)</div><div class="ttdef"><b>Definition:</b> Parser.cpp:41</div></div>
+<div class="ttc" id="aclassParser_html_a3e658b5917a93a3ef648050d060e3a93"><div class="ttname"><a href="classParser.html#a3e658b5917a93a3ef648050d060e3a93">Parser::~Parser</a></div><div class="ttdeci">~Parser()</div><div class="ttdef"><b>Definition:</b> Parser.cpp:16</div></div>
+<div class="ttc" id="aclassParser_html_a4be829161a99b8e7fee6f63c466cf26a"><div class="ttname"><a href="classParser.html#a4be829161a99b8e7fee6f63c466cf26a">Parser::lookahead</a></div><div class="ttdeci">Token lookahead</div><div class="ttdoc">Kolejny znaleziony token.</div><div class="ttdef"><b>Definition:</b> Parser.hh:26</div></div>
+<div class="ttc" id="aclassParser_html_a4f0f8661fc0f1e3e479bacfd41e92b62"><div class="ttname"><a href="classParser.html#a4f0f8661fc0f1e3e479bacfd41e92b62">Parser::parseStatement</a></div><div class="ttdeci">void parseStatement()</div><div class="ttdoc">parse : &lt;statement&gt; -&gt; BEGIN &lt;statement list&gt; END;   | &lt;ident&gt; := &lt;expression&gt;; | READ( &lt;id list&gt;); |...</div><div class="ttdef"><b>Definition:</b> Parser.cpp:226</div></div>
+<div class="ttc" id="aclassParser_html_a595a8a5d003007c4a43b6d859d4a47e2"><div class="ttname"><a href="classParser.html#a595a8a5d003007c4a43b6d859d4a47e2">Parser::Parser</a></div><div class="ttdeci">Parser(std::string program)</div><div class="ttdef"><b>Definition:</b> Parser.cpp:5</div></div>
+<div class="ttc" id="aclassParser_html_a62b538e4d2f40ebf3b89d6b6c0224bf8"><div class="ttname"><a href="classParser.html#a62b538e4d2f40ebf3b89d6b6c0224bf8">Parser::parseFactor</a></div><div class="ttdeci">void parseFactor()</div><div class="ttdoc">parse : &lt;factor&gt; -&gt; ( &lt;expression&gt; ) | &lt;ident&gt; | INTNUM | FLOATNUM</div><div class="ttdef"><b>Definition:</b> Parser.cpp:352</div></div>
+<div class="ttc" id="aclassParser_html_a736c1e677eb262e35468f7d16f760abb"><div class="ttname"><a href="classParser.html#a736c1e677eb262e35468f7d16f760abb">Parser::parseExpressionListTail</a></div><div class="ttdeci">void parseExpressionListTail()</div><div class="ttdoc">parse : &lt;expression list tail&gt; -&gt; NULL | , &lt;expression&gt; &lt;expression list tail&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:288</div></div>
+<div class="ttc" id="aclassParser_html_a74a0d28f1ddd6132e91ec9b14462e723"><div class="ttname"><a href="classParser.html#a74a0d28f1ddd6132e91ec9b14462e723">Parser::Match</a></div><div class="ttdeci">void Match(Token)</div><div class="ttdoc">Sprawdza czy kolejny Token w kodzie jest tym który otrzymuje jako argument. Następnie prosi scanner o...</div><div class="ttdef"><b>Definition:</b> Parser.cpp:21</div></div>
+<div class="ttc" id="aclassParser_html_a7efeff019869a5d4c36bd18b32ee04c3"><div class="ttname"><a href="classParser.html#a7efeff019869a5d4c36bd18b32ee04c3">Parser::parseTerm</a></div><div class="ttdeci">void parseTerm()</div><div class="ttdoc">parse :  -&gt; &lt;factor&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:327</div></div>
+<div class="ttc" id="aclassParser_html_a86f0e2d9a45411bd46c3357ab5b6f6fb"><div class="ttname"><a href="classParser.html#a86f0e2d9a45411bd46c3357ab5b6f6fb">Parser::parseExpressionList</a></div><div class="ttdeci">void parseExpressionList()</div><div class="ttdoc">parse : &lt;expression list&gt; -&gt; &lt;expression&gt; &lt;expression list tail&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:282</div></div>
+<div class="ttc" id="aclassParser_html_a88e2dc06934858823287b4cf8db8f4ee"><div class="ttname"><a href="classParser.html#a88e2dc06934858823287b4cf8db8f4ee">Parser::parseIdList</a></div><div class="ttdeci">void parseIdList(bool sprawdzZadeklarowanie=false, bool niePowinnaBycZadeklarowana=false)</div><div class="ttdoc">parse : &lt;id list&gt; -&gt; &lt;ident&gt; &lt;id list tail&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:125</div></div>
+<div class="ttc" id="aclassParser_html_a98f0010156d3119af1b8782c5e965a52"><div class="ttname"><a href="classParser.html#a98f0010156d3119af1b8782c5e965a52">Parser::parseOptionalDeclaration</a></div><div class="ttdeci">void parseOptionalDeclaration()</div><div class="ttdoc">parse : &lt;optional declaration&gt; -&gt; &lt;declaration list&gt; | NULL</div><div class="ttdef"><b>Definition:</b> Parser.cpp:79</div></div>
+<div class="ttc" id="aclassParser_html_aa7025dba6804a013d891848565c0e113"><div class="ttname"><a href="classParser.html#aa7025dba6804a013d891848565c0e113">Parser::sprawdzCzyZadeklarowanaWczesniej</a></div><div class="ttdeci">void sprawdzCzyZadeklarowanaWczesniej()</div><div class="ttdoc">Sprawdza czy następna napotkana zmienna była już zadeklarowana wcześniej. Jeśli tak to wypisuje error...</div><div class="ttdef"><b>Definition:</b> Parser.cpp:421</div></div>
+<div class="ttc" id="aclassParser_html_aaf54d7d6491fae50482b57f291639b92"><div class="ttname"><a href="classParser.html#aaf54d7d6491fae50482b57f291639b92">Parser::parseDeclarationList</a></div><div class="ttdeci">void parseDeclarationList()</div><div class="ttdoc">parse : &lt;declaration list&gt; -&gt; &lt;declaration&gt; &lt;declaration list tail&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:91</div></div>
+<div class="ttc" id="aclassParser_html_ab3cc364e8e05522acd9c34c12774e886"><div class="ttname"><a href="classParser.html#ab3cc364e8e05522acd9c34c12774e886">Parser::sprawdzCzyPonownaDeklaracja</a></div><div class="ttdeci">void sprawdzCzyPonownaDeklaracja()</div><div class="ttdoc">Sprawdza czy następna napotkana zmienna była już zadeklarowana i następuje jej ponowna deklaracja....</div><div class="ttdef"><b>Definition:</b> Parser.cpp:410</div></div>
+<div class="ttc" id="aclassParser_html_abdc2076eb52bf456bff6a7f21401996c"><div class="ttname"><a href="classParser.html#abdc2076eb52bf456bff6a7f21401996c">Parser::parseExpressionTail</a></div><div class="ttdeci">void parseExpressionTail()</div><div class="ttdoc">parse : &lt;expression tail&gt; -&gt; NULL | +  &lt;expression tail&gt; | - &lt;expression tail&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:308</div></div>
+<div class="ttc" id="aclassParser_html_ac96f6765bc7387dcc924b811965be3d2"><div class="ttname"><a href="classParser.html#ac96f6765bc7387dcc924b811965be3d2">Parser::parseName</a></div><div class="ttdeci">void parseName()</div><div class="ttdoc">parse &lt;name&gt; -&gt; &lt;ident&gt;;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:73</div></div>
+<div class="ttc" id="aclassParser_html_acc6c0b1c9e52c3a28ce5e10ee08a4886"><div class="ttname"><a href="classParser.html#acc6c0b1c9e52c3a28ce5e10ee08a4886">Parser::parseDeclarationListTail</a></div><div class="ttdeci">void parseDeclarationListTail()</div><div class="ttdoc">parse : &lt;declaration list tail&gt; -&gt; NULL | &lt;declaration&gt; &lt;declaration list&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:104</div></div>
+<div class="ttc" id="aclassParser_html_acf2a9057c5adfdcac9cabfbfd7bf1a02"><div class="ttname"><a href="classParser.html#acf2a9057c5adfdcac9cabfbfd7bf1a02">Parser::parseBool</a></div><div class="ttdeci">void parseBool()</div><div class="ttdoc">parse : &lt;bool&gt; -&gt; &lt;expression&gt; &lt;relation op&gt; &lt;expression&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:375</div></div>
+<div class="ttc" id="aclassParser_html_ad6ec27b97fc809db87e7a9d7502f4d86"><div class="ttname"><a href="classParser.html#ad6ec27b97fc809db87e7a9d7502f4d86">Parser::parseRelationOp</a></div><div class="ttdeci">void parseRelationOp()</div><div class="ttdoc">parse : &lt;relation op&gt; -&gt; &lt; | = | &gt; | &lt;= | &lt;&gt; | &gt;=</div><div class="ttdef"><b>Definition:</b> Parser.cpp:382</div></div>
+<div class="ttc" id="aclassParser_html_ad7be2f45f46e1734331ea02f4a2ab197"><div class="ttname"><a href="classParser.html#ad7be2f45f46e1734331ea02f4a2ab197">Parser::parseOptionalStatement</a></div><div class="ttdeci">void parseOptionalStatement()</div><div class="ttdoc">parse : &lt;optional statement&gt; -&gt; &lt;statement list&gt; &lt;statement&gt; | NULL</div><div class="ttdef"><b>Definition:</b> Parser.cpp:183</div></div>
+<div class="ttc" id="aclassParser_html_aded9fe51f29a91a50d14a541a4dee118"><div class="ttname"><a href="classParser.html#aded9fe51f29a91a50d14a541a4dee118">Parser::parseTermTail</a></div><div class="ttdeci">void parseTermTail()</div><div class="ttdoc">parse :  -&gt; NULL | * &lt;factor&gt;  | / &lt;factor&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:333</div></div>
+<div class="ttc" id="aclassParser_html_ae8cad58e60a2d72614063754ff2b766d"><div class="ttname"><a href="classParser.html#ae8cad58e60a2d72614063754ff2b766d">Parser::parseProgram</a></div><div class="ttdeci">void parseProgram()</div><div class="ttdoc">parse &lt;program&gt; -&gt; PROGRAM &lt;name&gt; &lt;optional declaration&gt; BEGIN &lt;optional statement&gt; END.</div><div class="ttdef"><b>Definition:</b> Parser.cpp:54</div></div>
+<div class="ttc" id="aclassParser_html_aeeb97de27e4d788e60c5f45b19ef3dc5"><div class="ttname"><a href="classParser.html#aeeb97de27e4d788e60c5f45b19ef3dc5">Parser::parseIdent</a></div><div class="ttdeci">void parseIdent()</div><div class="ttdoc">parse : &lt;ident&gt; -&gt; ID</div><div class="ttdef"><b>Definition:</b> Parser.cpp:68</div></div>
+<div class="ttc" id="aclassParser_html_af8d6418d0694392ffefbd7ee486060f8"><div class="ttname"><a href="classParser.html#af8d6418d0694392ffefbd7ee486060f8">Parser::parseExpression</a></div><div class="ttdeci">void parseExpression()</div><div class="ttdoc">parse : &lt;expression&gt; -&gt;  &lt;expression tail&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:302</div></div>
+<div class="ttc" id="aclassParser_html_afe1ed8678beb34ca1672e2dd3802c952"><div class="ttname"><a href="classParser.html#afe1ed8678beb34ca1672e2dd3802c952">Parser::isBeginOfStatemnt</a></div><div class="ttdeci">bool isBeginOfStatemnt(Token token)</div><div class="ttdoc">sprawdza czy token jest jednym z tokenów rozpoczynających &lt;statemnt&gt;</div><div class="ttdef"><b>Definition:</b> Parser.cpp:195</div></div>
+<div class="ttc" id="aclassParser_html_aff7e53d7c2672792bef29c7d80c305a7"><div class="ttname"><a href="classParser.html#aff7e53d7c2672792bef29c7d80c305a7">Parser::parseType</a></div><div class="ttdeci">void parseType()</div><div class="ttdoc">parse : &lt;type&gt; -&gt; INTEGER | REAL</div><div class="ttdef"><b>Definition:</b> Parser.cpp:173</div></div>
+<div class="ttc" id="aclassScanner_html"><div class="ttname"><a href="classScanner.html">Scanner</a></div><div class="ttdoc">Klasa realizująca funkcje skanera kodu.</div><div class="ttdef"><b>Definition:</b> Scanner.h:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+</small></address>
+</body>
+</html>

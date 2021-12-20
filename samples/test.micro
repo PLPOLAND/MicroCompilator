@@ -2,7 +2,7 @@ program max;
 
 -- Reads two integers and prints the maximum
 
-var b : integer;
+var a, b : integer;
 
 begin
 read(a,b);

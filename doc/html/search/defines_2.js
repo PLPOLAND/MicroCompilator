@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['id_5fstring_5flength_0',['ID_STRING_LENGTH',['../Stale_8h.html#ac6eaf148a8d3f37958265a8044aee619',1,'Stale.h']]]
+  ['false_0',['FALSE',['../Stale_8h.html#aa93f0eb578d23995850d61f7d61c55c1',1,'Stale.h']]]
 ];

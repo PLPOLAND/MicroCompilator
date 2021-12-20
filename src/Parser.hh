@@ -11,6 +11,11 @@
 
 using namespace std;
 	
+
+/**
+*@brief Klasa realizująca funkcje parsera kodu Micro
+*
+ */
 class Parser  
 {
 	private:

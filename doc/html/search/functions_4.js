@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['lexicalerror_0',['LexicalError',['../classScanner.html#ac28f5c49e85ed6e30f2c32ee947e6821',1,'Scanner']]],
-  ['listsymboltable_1',['ListSymbolTable',['../classScanner.html#ad382ff3ee8fbd4985665e901d6373e5e',1,'Scanner']]],
-  ['listthisline_2',['ListThisLine',['../classScanner.html#ac033b530c8d7b457d7906d4bc5ba9f96',1,'Scanner']]],
-  ['loadkeywords_3',['LoadKeywords',['../classScanner.html#a8445c3e5f0a8a0e0fc0ffb60f3935e62',1,'Scanner']]],
-  ['lookup_4',['LookUp',['../classScanner.html#a295d25ec85e14081a8220d718773bc2f',1,'Scanner']]]
+  ['getnewline_0',['GetNewLine',['../classScanner.html#a87e927f8cd379dad9ca73111fb1afd2c',1,'Scanner']]],
+  ['getnextchar_1',['GetNextChar',['../classScanner.html#abe06995d648c180e1cfd89a705501006',1,'Scanner']]],
+  ['getnexttoken_2',['GetNextToken',['../classScanner.html#a4188d819bcb9e13ec2f8b765ea6aa47b',1,'Scanner']]],
+  ['getsymbolfromhashtablebyid_3',['getSymbolFromHashTableById',['../classScanner.html#afa525ae600af950f7b74c5a39e729304',1,'Scanner']]],
+  ['gettokenname_4',['getTokenName',['../classScanner.html#acab277100d9ea21f26b77356925f655e',1,'Scanner']]]
 ];

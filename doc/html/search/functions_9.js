@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tolowercase_0',['ToLowerCase',['../classScanner.html#a351afb5a0be1565feffec64d63f5d5de',1,'Scanner']]]
+  ['readfile_0',['readFile',['../main_8cpp.html#ae7e1e9f194362e57d674f271b29d285d',1,'main.cpp']]]
 ];

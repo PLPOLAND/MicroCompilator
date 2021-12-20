@@ -8,7 +8,6 @@ Parser::Parser(std::string program)
     scanner->addProgram(program);
     scanner->LoadKeywords();
     scanner->ListSymbolTable();
-    scanner->printOutProgramCodeWithLines();
     scanner->GetNewLine();
     lookahead = scanner->GetNextToken();
 }

@@ -1,0 +1,78 @@
+1: PROGRAM assign;
+2: VAR a : integer;
+3: BEGIN
+4:     a := 0;
+5: END.
+
+--------- Symbol Table ----------
+-> do
+-> while
+-> then
+-> if
+-> real
+-> integer
+-> var
+-> write
+-> read
+-> end
+-> end.
+-> begin
+-> program
+
+Total: 13
+ 
+----- END Symbol Table ----------
+
+PROGRAM assign;
+ 
+Matched :ProgramSym
+Matched :Id
+Matched :SemiColon
+
+VAR a : integer;
+ 
+Matched :VarSym
+Matched :Id
+Matched :IntSym
+Matched :SemiColon
+
+BEGIN
+ 
+Matched :BeginSym
+
+    a := 0;
+ 
+Matched :Id
+Matched :Assign
+Matched :IntLiteral
+Matched :SemiColon
+
+END.
+ 
+Matched :EndProgramSym
+
+ÿ 
+Matched :EofSym
+
+--------- Symbol Table ----------
+-> a
+-> assign
+-> program
+-> begin
+-> end.
+-> end
+-> read
+-> write
+-> var
+-> integer
+-> real
+-> if
+-> then
+-> while
+-> do
+
+Total: 15
+ 
+----- END Symbol Table ----------
+
+Compilation Successful.

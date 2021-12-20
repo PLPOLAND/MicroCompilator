@@ -30,7 +30,7 @@
 <optional declaration>  -> <declaration list> | NULL
 
 <declaration list>      -> <declaration> <declaration list tail>
-<declaration list tail> -> NULL | <declaration> <declaration list>
+<declaration list tail> -> NULL | <declaration> <declaration list tail>
 
 <declaration>           -> VAR <id list> : <type> ;
 
@@ -92,31 +92,56 @@ first(<ident>)                  = ["id"]
 first(<bool>)                   = ["(", "id", INTNUM, FLOATNUM]
 first(<relation op>)            = ["<", "=" , ">", "<=", "<>", ">="]
 
-/******************************FOLLOW SET***************************************************/
 
+
+
+/********************************FOLLOW SET (pierwsze przejscie)*******************************/
 follow(<program>)               = ["$"]
-follow(<name>)                  = ["VAR"]
+follow(<name>)                  = ["VAR", "BEGIN"] 
 follow(<optional declaration>)  = ["BEGIN"]
-follow(<declaration list>)      = ["BEGIN", "VAR"]
-follow(<declaration list tail>) = ["BEGIN", "VAR"]
-follow(<declaration>)           = ["BEGIN", "VAR"]
-follow(<id list>)               = [":", ",", ")"]
-follow(<id list tail>)          = [",", ":", ")"]
+follow(<declaration list>)      = [] + follow(<optional declaration>)
+follow(<declaration list tail>) = [] + follow(<declaration list>)
+follow(<declaration>)           = ["VAR"] + follow(<declaration list>) + follow(<declaration list tail>)
+follow(<id list>)               = [":", ")"]
+follow(<id list tail>)          = [] + follow(<id list tail>)
 follow(<type>)                  = [";"]
-follow(<optional statement>)    = ["END.", "END;"] 
-follow(<statement list>)        = ["END.", "END;"]
-follow(<statement list tail>)   = ["END.", "END;"]
-follow(<statement>)             = ["END.", "END;", "BEGIN", "id", "READ", "WRITE", "IF", "WHILE"]
+follow(<optional statement>)    = ["END."] 
+follow(<statement list>)        = ["END;"] + follow(<optional statement>)
+follow(<statement list tail>)   = [] + follow(<statement list>)
+follow(<statement>)             = ["BEGIN", "id", "READ", "WRITE", "IF", "WHILE" ] + follow(<statement list>) + follow(<statement list tail>)
 follow(<expression list>)       = [")"]
-follow(<expression list tail>)  = [",", ")"]
-follow(<expression>)            = [",", ";", ")"]
-follow(<term>)                  = ["+", "-", ";", ")"]
-follow(<term tail>)             = ["+", "-", ";", ")"]
-follow(<factor>)                = ["*", "/", ";", ")"]
-follow(<ident>)                 = [":=", ",", ";", ":", "*", "/", "+", "-"]
+follow(<expression list tail>)  = [] + follow(<expression list>)
+follow(<expression>)            = [";", ",", ")", "<", "=" , ">", "<=", "<>", ">="] + follow(<expression list>) + follow(<expression list tail>) + follow(<bool>)
+follow(<expression tail>)       = [] + follow(<expression>)
+follow(<term>)                  = ["+", "-"] + follow(<expression>)+ follow(<expression tail>)
+follow(<term tail>)             = [] + follow(term)
+follow(<factor>)                = ["*", "/"] + follow(<term>) + follow<term tail>)
+follow(<ident>)                 = [";", ",", ":="] + follow(<id list>) + follow(<id list tail>) + follow(<factor>)
 follow(<bool>)                  = [")"]
-follow(<relation op>)           = ["(", "id", "INTNUM", "FLOATNUM"]
+follow(<relation op>)           = ["(", "id", INTNUM, FLOATNUM,]
 
 
-
-
+/********************************FOLLOW SET (Finalna zawartość)*******************************/
+follow(<program>)               = ["$"]
+follow(<name>)                  = ["VAR", "BEGIN"] 
+follow(<optional declaration>)  = ["BEGIN"]
+follow(<declaration list>)      = ["BEGIN"]
+follow(<declaration list tail>) = ["BEGIN"]
+follow(<declaration>)           = ["VAR", "BEGIN"]
+follow(<id list>)               = [":", ")"]
+follow(<id list tail>)          = [":", ")"] 
+follow(<type>)                  = [";"]
+follow(<optional statement>)    = ["END."] 
+follow(<statement list>)        = ["END;", "END."]
+follow(<statement list tail>)   = ["END;", "END."]
+follow(<statement>)             = ["BEGIN", "id", "READ", "WRITE", "IF", "WHILE", "END;", "END." ]
+follow(<expression list>)       = [")"]
+follow(<expression list tail>)  = [")"]
+follow(<expression>)            = [";", ",", ")", "<", "=" , ">", "<=", "<>", ">="]
+follow(<expression tail>)       = [";", ",", ")", "<", "=" , ">", "<=", "<>", ">="]
+follow(<term>)                  = ["+", "-", ";", ",", ")", "<", "=" , ">", "<=", "<>", ">="]
+follow(<term tail>)             = ["+", "-", ";", ",", ")", "<", "=" , ">", "<=", "<>", ">="]
+follow(<factor>)                = ["*", "/", "+", "-", ";", ",", ")", "<", "=" , ">", "<=", "<>", ">="]
+follow(<ident>)                 = [":=", ":", "*", "/", "+", "-", ";", ",", ")", "<", "=" , ">", "<=", "<>", ">="]
+follow(<bool>)                  = [")"]
+follow(<relation op>)           = ["(", "id", INTNUM, FLOATNUM,]

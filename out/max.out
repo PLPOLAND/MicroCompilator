@@ -12,6 +12,7 @@
 12: if (b > a) then
 13: write(b);
 14: end.
+
 --------- Symbol Table ----------
 -> do
 -> while
@@ -33,7 +34,10 @@ Total: 13
 
 program max;
  
-<0, > <11, max> <29, > 
+Matched :ProgramSym
+Matched :Id
+Matched :SemiColon
+
 
  
 
@@ -45,36 +49,76 @@ program max;
 
 var a, b : integer;
  
-<6, > <11, a> <30, > <11, b> <12, > <29, > 
+Matched :VarSym
+Matched :Id
+Matched :Comma
+Matched :Id
+Matched :IntSym
+Matched :SemiColon
+
 
  
 
 begin
  
-<1, > 
+Matched :BeginSym
+
 read(a,b);
  
-<4, > <26, > <11, a> <30, > <11, b> <27, > <29, > 
+Matched :ReadSym
+Matched :LParen
+Matched :Id
+Matched :Comma
+Matched :Id
+Matched :RParen
+Matched :SemiColon
+
 
  
 
 if (a >= b) then
  
-<7, > <26, > <11, a> <23, > <11, b> <27, > <8, > 
+Matched :IfSym
+Matched :LParen
+Matched :Id
+Matched :GreaterEq
+Matched :Id
+Matched :RParen
+Matched :ThenSym
+
 write(a);
  
-<5, > <26, > <11, a> <27, > <29, > 
+Matched :WriteSym
+Matched :LParen
+Matched :Id
+Matched :RParen
+Matched :SemiColon
+
 if (b > a) then
  
-<7, > <26, > <11, b> <22, > <11, a> <27, > <8, > 
+Matched :IfSym
+Matched :LParen
+Matched :Id
+Matched :Greater
+Matched :Id
+Matched :RParen
+Matched :ThenSym
+
 write(b);
  
-<5, > <26, > <11, b> <27, > <29, > 
+Matched :WriteSym
+Matched :LParen
+Matched :Id
+Matched :RParen
+Matched :SemiColon
+
 end.
  
-<2, > 
+Matched :EndProgramSym
+
 ÿ 
-<31, > 
+Matched :EofSym
+
 --------- Symbol Table ----------
 -> b
 -> a
@@ -96,3 +140,5 @@ end.
 Total: 16
  
 ----- END Symbol Table ----------
+
+Compilation Successful.

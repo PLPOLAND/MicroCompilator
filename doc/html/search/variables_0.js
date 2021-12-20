@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hashtable_0',['hashtable',['../classScanner.html#ad092654dcdba5b99f5669cadccd6bde4',1,'Scanner']]]
+  ['czyzadeklarowanonowazmienna_0',['czyZadeklarowanoNowaZmienna',['../classScanner.html#a5dccc3cfcab36ee1a58c54595c06193a',1,'Scanner']]]
 ];
