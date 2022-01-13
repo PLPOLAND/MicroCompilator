@@ -312,7 +312,7 @@ int Scanner::Enter(std::string S, Token Code)
         }
         Symbol sym(S,Code);//utwórz element listy
         int id = hashtable->size()+1;//używane do Hashowania
-        lastSymbolID = (hashtable->emplace(id, sym)).first->first;
+        lastSymbolID = (hashtable->insert(std::make_pair(id, sym))).first->first;
 
         return hashtable->size();
     }
