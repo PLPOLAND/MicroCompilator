@@ -29,9 +29,26 @@ int main(int argc, char const *argv[])
 {
     
     cout << argc<<endl<<endl;
-    string program = "PROGRAM assign; \n VAR a : integer;\n BEGIN \n a := 0;\n END.\n ";
-    program += EOF;
+    string program = "";
+    // program += EOF;
     ofstream* outFile = nullptr;
+    if (argc == 1)
+    {
+        
+        string line;
+        getline(cin,line);
+        while (line != "END." && line !="end.")
+        {
+            program+=line;
+            program+='\n';
+            getline(cin,line);
+        }
+
+        program += line;
+        program += '\n';
+        program+=EOF;
+    }
+    
     if (argc == 2)//jeśli podano nazwę pliku wejściowego, wczytaj ją
     {
         program = readFile(argv[1]); //wczytaj plik wejściowy
