@@ -13,7 +13,7 @@ gramatyka LL(1) i First()/Follow() sety znajdują się w pliku grammar.txt
 
 Klasa Parser realizuje całą funkcjonalność parsera kodu Micro.
 
-Program bez podanych argumentów uruchomi się i przeskanuje kod programu zapisany ręczenie w zmiennej program w main.cpp;
+Program bez podanych argumentów po uruchomieniu będzie oczekiwał na podanie programu w standardowym wejsciu, i będzie wczytywał kolejne linie, tak długo, aż nie napotka lini zawierającej tylko "end." lub "END.", po czym zacznie parsowanie programu.
 Program może wczytać plik tekstowy (podać jako pierwszy argument sciezke do pliku);
 Program może wypisać wyjście na konsole do pliku (podać jako drugi argument sciezke do pliku)(UWAGA! foldery w ścieżce muszą już istnieć!);
 
