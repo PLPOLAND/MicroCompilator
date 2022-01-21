@@ -177,7 +177,7 @@ class Scanner
 		*@param token 
 		*@return std::string 
 		 */
-		std::string getTokenName(Token token);
+		static std::string getTokenName(Token token);
 
 		Symbol getSymbolFromHashTableById(int id);
 

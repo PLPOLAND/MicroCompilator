@@ -4,6 +4,8 @@
 
 #include "Scanner.h"
 #include "Parser.hh"
+#include "parserErr.hh"
+#include "InterCodeGenerator.hpp"
 
 using namespace std;
 
@@ -25,6 +27,14 @@ string readFile(string path){
     return program;
 }
 
+string toLower(string s){
+    for (size_t i = 0; i < s.length(); i++)
+    {
+        s[i] = tolower(s[i]);
+    }
+    return s;
+}
+
 int main(int argc, char const *argv[])
 {
     
@@ -37,7 +47,7 @@ int main(int argc, char const *argv[])
         
         string line;
         getline(cin,line);
-        while (line != "END." && line !="end.")
+        while (toLower(line) != "end.")
         {
             program+=line;
             program+='\n';
@@ -80,11 +90,32 @@ int main(int argc, char const *argv[])
      ************Ciało Parsera***********************
      ***********************************************/
 
-    Parser* parser = new Parser(program);
-    parser->parseProgram();
+    // Parser* parser = new Parser(program);
+    // parser->parseProgram();
 
     /************************************************
      ***********END Ciało Parsera********************
+     ***********************************************/
+    /************************************************
+     ************Ciało Parsera ERROR*****************
+     ***********************************************/
+
+    ParserErr* parser = new ParserErr(program);
+    parser->parseProgram();
+
+    /************************************************
+     ***********END Ciało Parsera ERROR**************
+     ***********************************************/
+
+    /************************************************
+     ************Ciało Generatora Kodu***************
+     ***********************************************/
+
+    // InterCodeGenerator* generator = new InterCodeGenerator(program);
+    // generator->run();
+
+    /************************************************
+     ***********END Ciało Generatora Kodu************
      ***********************************************/
 
     if (outFile != nullptr)

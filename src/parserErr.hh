@@ -1,32 +1,60 @@
-#ifndef PARSER_H
-#define PARSER_H
-
+#ifndef PARSERERR_H
+#define PARSERERR_H
 #include <iostream>
+#include <algorithm>
+#include <vector>
 #include "Token.h"
 #include "Scanner.h"
-
-
-
-
+#include "ParseException.hh"
 
 using namespace std;
-	
 
 /**
-*@brief Klasa realizująca funkcje parsera kodu Micro
-*
+ * @brief Klasa realizująca funkcje parsera kodu Micro z zaawansowanymi metodami "wyjścia" z błędu
+ * 
  */
-class Parser  
+class ParserErr
 {
 	private:
-	///wskaźnik na obiekt realizujący funkcję skanera
-	Scanner* scanner;
-	///Kolejny znaleziony token
-	Token lookahead;
-	
-	public :
-		Parser(std::string program);
-		~Parser();
+		///wskaźnik na obiekt realizujący funkcję skanera
+		Scanner *scanner;
+		///Kolejny znaleziony token
+		Token lookahead;
+
+		unordered_map<string,vector<Token>*> firstSets;
+		unordered_map<string,vector<Token>*> followSets; 
+		
+	public:
+		ParserErr(std::string program);
+		~ParserErr();
+
+		void panicStop();
+
+			/**
+		 * @brief Dodaje firstSety do kontenera
+		 */
+			void makeFirstSets();
+		/**
+		 * @brief Dodaje followSety do kontenera
+		 */
+		void makeFollowSets();
+
+		/**
+		 * @brief Sprawdza czy token przetrzymywany w lookahead jest przetrzymywany w podanej liście.
+		 * 
+		 * @param tokens 
+		 */
+		bool checkIfContains(vector<Token> *tokens);
+
+		void skipUntil(vector<Token>* tokens);
+		void skipAll(vector<Token>* tokens);
+		void doWithPanic(void (ParserErr::*todo)(Token), Token token);
+		void doWithPanic(void (ParserErr::*todo)());
+		void doWithSkip(void (ParserErr::*todo)(Token), Token token, vector<Token> *tokens);
+		void doWithSkip(void (ParserErr::*todo)(), vector<Token> *tokens);
+
+
+
 		/**
 		*@brief Sprawdza czy kolejny Token w kodzie jest tym który otrzymuje jako argument. Następnie prosi scanner o znalezienie kolejnego Tokena.
 		*@param T Token do którego będzie porównywany następny token w kodzie
@@ -171,13 +199,13 @@ class Parser
 		*@brief Sprawdza czy następna napotkana zmienna była już zadeklarowana wcześniej. Jeśli tak to wypisuje error, i kończy parser
 		*
 		 */
-		void sprawdzCzyZadeklarowanaWczesniej();
+		bool sprawdzCzyZadeklarowanaWczesniej();
 
 
 		/**
 		*@brief Sprawdza czy następna napotkana zmienna była już zadeklarowana i następuje jej ponowna deklaracja. Jeśli tak, to wypisuje error i kończy parser
 		*
 		*/
-		void sprawdzCzyPonownaDeklaracja();
+		bool sprawdzCzyPonownaDeklaracja();
 };
 #endif

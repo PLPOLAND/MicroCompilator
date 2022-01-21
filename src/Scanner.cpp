@@ -497,6 +497,9 @@ std::string Scanner::getTokenName(Token token){
         return "Assign";
         break;
         ///";"
+    case Colon:
+        return "Colon";
+        break;
     case SemiColon:
         return "SemiColon";
         break;
@@ -509,6 +512,9 @@ std::string Scanner::getTokenName(Token token){
         break;
     case ErrorSym:
         return "ErrorSym";
+        break;
+    case Null:
+        return "Null";
         break;
     default:
         return "NOT VALID TOKEN!";

@@ -25,17 +25,17 @@
 /*******************USUWANIE LEWEJ REKURENCJI************/
 
 
-<program>               -> PROGRAM <name> <optional declaration> BEGIN <optional statement> END.
+<program>               -> PROGRAM <name> <optional declaration> BEGIN <optional statement> END #EMIT_HALT.
 <name>                  -> <ident>;
-<optional declaration>  -> <declaration list> | NULL
+<optional declaration>  -> #START_DECLARATION_LIST<declaration list> #FINISH_DECLARATION_LIST| NULL
 
 <declaration list>      -> <declaration> <declaration list tail>
 <declaration list tail> -> NULL | <declaration> <declaration list tail>
 
-<declaration>           -> VAR <id list> : <type> ;
+<declaration>           -> VAR <id list> : <type> #SAVE_TYPE_OF_ID_TO_LIST;
 
-<id list>               -> <ident> <id list tail>
-<id list tail>          -> NULL | ,<ident> <id list tail>
+<id list>               -> <ident>#SAVE_ID_TO_DECLARATION_LIST <id list tail>
+<id list tail>          -> NULL | ,<ident>#SAVE_ID_TO_DECLARATION_LIST <id list tail>
 
 <type>                  -> INTEGER | REAL
 

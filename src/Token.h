@@ -6,65 +6,69 @@
  */
 enum Token
 {
-        ///"PROGRAM"
+    ///epsilon
+    Null,
+    ///"PROGRAM"
     ProgramSym,
-        ///"BEGIN"
+    ///"BEGIN"
     BeginSym,
-        ///"END."
+    ///"END."
     EndProgramSym,
-        ///"END"
+    ///"END"
     EndSym,
-        ///"READ"
+    ///"READ"
     ReadSym,
-        ///"WRITE"
-    WriteSym, 
-        ///"VAR"
-    VarSym,   
-        ///"IF"
-    IfSym,    
-        ///"THEN"
-    ThenSym,  
-        ///"WHILE"
-    WhileSym, 
-        ///"DO"
-    DoSym,    
+    ///"WRITE"
+    WriteSym,
+    ///"VAR"
+    VarSym,
+    ///"IF"
+    IfSym,
+    ///"THEN"
+    ThenSym,
+    ///"WHILE"
+    WhileSym,
+    ///"DO"
+    DoSym,
     Id,
-        ///"INTEGER"
-    IntSym, 
+    ///"INTEGER"
+    IntSym,
     IntLiteral,
-        ///"REAL"
-    RealSym, 
+    ///"REAL"
+    RealSym,
     RealLiteral,
-        ///"+"
-    Plus,      
-        ///"-"
-    Minus,     
-        ///"*"
-    Multiply,  
-        ///"/"
-    Devide,    
-        ///"<"
-    Less,      
-        ///"<="
-    LessEq,    
-        ///">"
-    Greater,   
-        ///">="
-    GreaterEq, 
-        /// "="
-    Equal,     
-        ///"<>"
-    Diffrent,  
-        ///"("
-    LParen,    
-        ///")"
-    RParen,    
-        ///":="
-    Assign,    
-        ///";"
-    SemiColon, 
-        ///","
-    Comma,     
+    ///"+"
+    Plus,
+    ///"-"
+    Minus,
+    ///"*"
+    Multiply,
+    ///"/"
+    Devide,
+    ///"<"
+    Less,
+    ///"<="
+    LessEq,
+    ///">"
+    Greater,
+    ///">="
+    GreaterEq,
+    /// "="
+    Equal,
+    ///"<>"
+    Diffrent,
+    ///"("
+    LParen,
+    ///")"
+    RParen,
+    ///":="
+    Assign,
+    ///":"
+    Colon,
+    ///";"
+    SemiColon,
+    ///","
+    Comma,
     EofSym,
     ErrorSym
 };
