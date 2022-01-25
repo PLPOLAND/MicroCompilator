@@ -2,7 +2,6 @@ Kompilowanie projektu : make (wymagany g++)
 Usunięcie plików .o : make clean
 
 Dokumentacja kodu (automatycznie wygenerowana) w folderze:
-PDF -> ./doc/latex/autoGanerated.pdf
 HTML -> ./doc/html/index.html
 
 Komentarz:
@@ -21,4 +20,4 @@ W folderze ./out znajdują się wyjścia dla przeskanowanych wcześniej odpowied
 Plik ./parser to plik wynikowy (skompilowany program) gotowy do uruchomienia.
 
 Dodatkowo bezpośrednio w kodzie została zaprogramowana opcja debug (wypisuje kolejne linie kodu i komunikaty o prawidłowym dopasowaniu słów), domyślnie jest ona włączona,
-ale można ją wyłączyć w pliku "Stale.h" zakomentowująć linię kodu 17 :"#define DEBUG".
+ale można ją wyłączyć w pliku "Stale.h" zakomentowując linię kodu 17 :"#define DEBUG".

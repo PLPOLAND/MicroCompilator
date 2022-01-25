@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['scanner_0',['scanner',['../classParser.html#a0d4316d908278c74512b02d78f500ad1',1,'Parser']]]
+  ['name_277',['name',['../classSymbol.html#aae414c7ddc8c0cfcd3678d5142490f11',1,'Symbol']]],
+  ['numlexeme_278',['NumLexeme',['../classScanner.html#add173a0eb76154342eb13231428ad432',1,'Scanner']]]
 ];

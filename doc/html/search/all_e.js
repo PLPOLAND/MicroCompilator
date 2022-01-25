@@ -1,17 +1,9 @@
 var searchData=
 [
-  ['scan_0',['scan',['../classScanner.html#a4c956a501921fb17b3cd02e6ff9f27ba',1,'Scanner']]],
-  ['scanner_1',['Scanner',['../classScanner.html',1,'']]],
-  ['scanner_2',['scanner',['../classParser.html#a0d4316d908278c74512b02d78f500ad1',1,'Parser']]],
-  ['scanner_3',['Scanner',['../classScanner.html#acc995a4b67a10d2652ce00afed14f497',1,'Scanner']]],
-  ['scanner_2ecpp_4',['Scanner.cpp',['../Scanner_8cpp.html',1,'']]],
-  ['scanner_2eh_5',['Scanner.h',['../Scanner_8h.html',1,'']]],
-  ['semicolon_6',['SemiColon',['../Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1fab887d848b41c2e893ba179c426d09859',1,'Token.h']]],
-  ['sprawdzczyponownadeklaracja_7',['sprawdzCzyPonownaDeklaracja',['../classParser.html#ab3cc364e8e05522acd9c34c12774e886',1,'Parser']]],
-  ['sprawdzczyzadeklarowanawczesniej_8',['sprawdzCzyZadeklarowanaWczesniej',['../classParser.html#aa7025dba6804a013d891848565c0e113',1,'Parser']]],
-  ['stale_2eh_9',['Stale.h',['../Stale_8h.html',1,'']]],
-  ['symbol_10',['Symbol',['../classSymbol.html',1,'Symbol'],['../classSymbol.html#a9bb4fb952a2f62228b34fd5ff45ca108',1,'Symbol::Symbol()'],['../classSymbol.html#a36984e84cf2047e95ee55348575b144c',1,'Symbol::Symbol(std::string name, Token token)']]],
-  ['symbol_2ecpp_11',['Symbol.cpp',['../Symbol_8cpp.html',1,'']]],
-  ['symbol_2eh_12',['Symbol.h',['../Symbol_8h.html',1,'']]],
-  ['syntaxerror_13',['SyntaxError',['../classParser.html#a39d49983c29b48f9a2e1803382c0ff57',1,'Parser']]]
+  ['readfile_123',['readFile',['../main_8cpp.html#ae7e1e9f194362e57d674f271b29d285d',1,'main.cpp']]],
+  ['readsym_124',['ReadSym',['../Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1fa48789071cbcb879a28ae0b5e1902f76b',1,'Token.h']]],
+  ['realliteral_125',['RealLiteral',['../Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1fae6ceec9a5bd3a4100250233f981f17fc',1,'Token.h']]],
+  ['realsym_126',['RealSym',['../Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1fa67539ec97fcbdd6413132bdbdddfdcd3',1,'Token.h']]],
+  ['rparen_127',['RParen',['../Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1faf00591e389ed027c6302ef33d0e7f250',1,'Token.h']]],
+  ['run_128',['run',['../classInterCodeGenerator.html#ae5af884bda00436c94ef2ad7a66edc9e',1,'InterCodeGenerator']]]
 ];

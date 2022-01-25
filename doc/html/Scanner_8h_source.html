@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.3"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Micro Scanner: Plik źródłowy Scanner.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -19,9 +19,10 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr id="projectrow">
-  <td id="projectalign">
-   <div id="projectname">Micro Scanner<span id="projectnumber">&#160;1</span>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Micro Scanner
+   &#160;<span id="projectnumber">1</span>
    </div>
   </td>
  </tr>
@@ -29,22 +30,21 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Wygenerowano przez Doxygen 1.9.3 -->
+<!-- Wygenerowano przez Doxygen 1.8.17 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search",'Szukaj','.html');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Szukaj');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -66,134 +66,137 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">Scanner.h</div></div>
+  <div class="headertitle">
+<div class="title">Scanner.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="Scanner_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SCANNER_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SCANNER_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;cstring&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="Stale_8h.html">Stale.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="Token_8h.html">Token.h</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="Symbol_8h.html">Symbol.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classScanner.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classScanner.html">Scanner</a>  </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classScanner.html#a7f74fe8f4cd6a7e2b729d8e185af1872">   20</a></span>        std::string <a class="code hl_variable" href="classScanner.html#a7f74fe8f4cd6a7e2b729d8e185af1872">programString</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classScanner.html#a852900c5b131f61d0ac602705add57e4">   22</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="classScanner.html#a852900c5b131f61d0ac602705add57e4">programStringPointer</a> = 0;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classScanner.html#add623df9b43b78cb6f97afc66581927b">   25</a></span>        std::string <a class="code hl_variable" href="classScanner.html#add623df9b43b78cb6f97afc66581927b">tokenBuffer</a>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classScanner.html#affe2258887076e242a135b4942ed20f0">   28</a></span>        <span class="keywordtype">char</span> <a class="code hl_variable" href="classScanner.html#affe2258887076e242a135b4942ed20f0">LineBuffer</a>[<a class="code hl_define" href="Stale_8h.html#af0f2173e3b202ddf5756531b4471dcb2">MAX_LINE_LENGTH</a> + 1];</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classScanner.html#a0ab26e8b01ead1516e40df610c30f1bc">   31</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="classScanner.html#a0ab26e8b01ead1516e40df610c30f1bc">LineLength</a>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classScanner.html#a02862de2258163f48b65bc9b971e1584">   33</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="classScanner.html#a02862de2258163f48b65bc9b971e1584">LinePtr</a>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classScanner.html#a665e9ebc0d32d85196f3fe79741ad4e2">   35</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="classScanner.html#a665e9ebc0d32d85196f3fe79741ad4e2">LineCount</a>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classScanner.html#a41cad1a826eae7ca06e3caa158f19689">   37</a></span>        <span class="keywordtype">char</span> <a class="code hl_variable" href="classScanner.html#a41cad1a826eae7ca06e3caa158f19689">lastChar</a>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classScanner.html#aa74835f3991214633d9b9da472c12cf4">   40</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="classScanner.html#aa74835f3991214633d9b9da472c12cf4">lastSymbolID</a> = 0;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classScanner.html#add173a0eb76154342eb13231428ad432">   42</a></span>        std::string <a class="code hl_variable" href="classScanner.html#add173a0eb76154342eb13231428ad432">NumLexeme</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classScanner.html#a5dccc3cfcab36ee1a58c54595c06193a">   45</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="classScanner.html#a5dccc3cfcab36ee1a58c54595c06193a">czyZadeklarowanoNowaZmienna</a> = <span class="keyword">false</span>;   </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">//TODO czy to na pewno o to chodziło???</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classScanner.html#ad092654dcdba5b99f5669cadccd6bde4">   48</a></span>        std::unordered_map&lt;int, Symbol&gt; *<a class="code hl_variable" href="classScanner.html#ad092654dcdba5b99f5669cadccd6bde4">hashtable</a>;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_function" href="classScanner.html#acc995a4b67a10d2652ce00afed14f497">Scanner</a>();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_function" href="classScanner.html#a39f85e20f3ca942fd0a8e4bce88c27c7">~Scanner</a>();</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#a351afb5a0be1565feffec64d63f5d5de">ToLowerCase</a>();</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#ac033b530c8d7b457d7906d4bc5ba9f96">ListThisLine</a>();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#a87e927f8cd379dad9ca73111fb1afd2c">GetNewLine</a>();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#abe06995d648c180e1cfd89a705501006">GetNextChar</a>(<span class="keywordtype">char</span> *c);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#a739382d4287341e6999284f5efe81f23">PutNextChar</a>();</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#a0c9aa35c727763193dd5c025acc0a6fe">ClearBuffer</a>();</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#a3b1d419bd706fcb1db35ae3e1a30b91f">BufferChar</a>(<span class="keywordtype">char</span> c);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#ac28f5c49e85ed6e30f2c32ee947e6821">LexicalError</a>(<span class="keywordtype">char</span> c);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#a2696c355b1632b58cf9c03f8cbca568d">BufferName</a>(<span class="keywordtype">char</span> c);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="classScanner.html#abb315507f613b6e80e2c3e5ac6a316af">BufferNumLiterals</a>(<span class="keywordtype">char</span> c);</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <a class="code hl_enumeration" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> <a class="code hl_function" href="classScanner.html#a64b9f34739b046b1a0c5969274a48972">CheckReserved</a>();</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <a class="code hl_enumeration" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> <a class="code hl_function" href="classScanner.html#a4188d819bcb9e13ec2f8b765ea6aa47b">GetNextToken</a>();</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#a4c956a501921fb17b3cd02e6ff9f27ba">scan</a>(std::string program);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="classScanner.html#ada46be693f1347447ea9e1e4d3a42a5e">Enter</a>(std::string S, <a class="code hl_enumeration" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> Code);</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#a8445c3e5f0a8a0e0fc0ffb60f3935e62">LoadKeywords</a>();</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#ad382ff3ee8fbd4985665e901d6373e5e">ListSymbolTable</a>();</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="classScanner.html#a295d25ec85e14081a8220d718773bc2f">LookUp</a>(std::string S);</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#a6ed2785b4bc36f05e8b204d69ea291ec">printOutProgramCodeWithLines</a>();</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#a561ba513fc2de6a14561bc61c42c531d">printTokenName</a>(<a class="code hl_enumeration" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> token);</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        std::string <a class="code hl_function" href="classScanner.html#acab277100d9ea21f26b77356925f655e">getTokenName</a>(<a class="code hl_enumeration" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> token);</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <a class="code hl_class" href="classSymbol.html">Symbol</a> <a class="code hl_function" href="classScanner.html#afa525ae600af950f7b74c5a39e729304">getSymbolFromHashTableById</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classScanner.html#a303460074fc47e00975b53207e9321ec">addProgram</a>(std::string program);</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>};</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aStale_8h_html"><div class="ttname"><a href="Stale_8h.html">Stale.h</a></div></div>
-<div class="ttc" id="aStale_8h_html_af0f2173e3b202ddf5756531b4471dcb2"><div class="ttname"><a href="Stale_8h.html#af0f2173e3b202ddf5756531b4471dcb2">MAX_LINE_LENGTH</a></div><div class="ttdeci">#define MAX_LINE_LENGTH</div><div class="ttdef"><b>Definition:</b> Stale.h:12</div></div>
-<div class="ttc" id="aSymbol_8h_html"><div class="ttname"><a href="Symbol_8h.html">Symbol.h</a></div></div>
-<div class="ttc" id="aToken_8h_html"><div class="ttname"><a href="Token_8h.html">Token.h</a></div></div>
-<div class="ttc" id="aToken_8h_html_a6a9e93b081bad7fc74c17306fb168c1f"><div class="ttname"><a href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a></div><div class="ttdeci">Token</div><div class="ttdoc">Tokeny.</div><div class="ttdef"><b>Definition:</b> Token.h:8</div></div>
-<div class="ttc" id="aclassScanner_html"><div class="ttname"><a href="classScanner.html">Scanner</a></div><div class="ttdoc">Klasa realizująca funkcje skanera kodu.</div><div class="ttdef"><b>Definition:</b> Scanner.h:16</div></div>
-<div class="ttc" id="aclassScanner_html_a02862de2258163f48b65bc9b971e1584"><div class="ttname"><a href="classScanner.html#a02862de2258163f48b65bc9b971e1584">Scanner::LinePtr</a></div><div class="ttdeci">int LinePtr</div><div class="ttdef"><b>Definition:</b> Scanner.h:33</div></div>
-<div class="ttc" id="aclassScanner_html_a0ab26e8b01ead1516e40df610c30f1bc"><div class="ttname"><a href="classScanner.html#a0ab26e8b01ead1516e40df610c30f1bc">Scanner::LineLength</a></div><div class="ttdeci">int LineLength</div><div class="ttdoc">Przechowuje długość aktualnie zbuforowanej linii.</div><div class="ttdef"><b>Definition:</b> Scanner.h:31</div></div>
-<div class="ttc" id="aclassScanner_html_a0c9aa35c727763193dd5c025acc0a6fe"><div class="ttname"><a href="classScanner.html#a0c9aa35c727763193dd5c025acc0a6fe">Scanner::ClearBuffer</a></div><div class="ttdeci">void ClearBuffer()</div><div class="ttdoc">Czyści bufor przeznaczony do bufforowania Tokenów.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:78</div></div>
-<div class="ttc" id="aclassScanner_html_a2696c355b1632b58cf9c03f8cbca568d"><div class="ttname"><a href="classScanner.html#a2696c355b1632b58cf9c03f8cbca568d">Scanner::BufferName</a></div><div class="ttdeci">void BufferName(char c)</div><div class="ttdoc">Bufforuje wyraz, (wyraz składa się ze znaków alfanumerycznych lub '_' lub '.' )</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:96</div></div>
+<a href="Scanner_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SCANNER_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SCANNER_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Stale_8h.html">Stale.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Token_8h.html">Token.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Symbol_8h.html">Symbol.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classScanner.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classScanner.html">Scanner</a>  </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classScanner.html#a7f74fe8f4cd6a7e2b729d8e185af1872">   20</a></span>&#160;        std::string <a class="code" href="classScanner.html#a7f74fe8f4cd6a7e2b729d8e185af1872">programString</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classScanner.html#a852900c5b131f61d0ac602705add57e4">   22</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classScanner.html#a852900c5b131f61d0ac602705add57e4">programStringPointer</a> = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classScanner.html#add623df9b43b78cb6f97afc66581927b">   25</a></span>&#160;        std::string <a class="code" href="classScanner.html#add623df9b43b78cb6f97afc66581927b">tokenBuffer</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classScanner.html#affe2258887076e242a135b4942ed20f0">   28</a></span>&#160;        <span class="keywordtype">char</span> <a class="code" href="classScanner.html#affe2258887076e242a135b4942ed20f0">LineBuffer</a>[<a class="code" href="Stale_8h.html#af0f2173e3b202ddf5756531b4471dcb2">MAX_LINE_LENGTH</a> + 1];</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classScanner.html#a0ab26e8b01ead1516e40df610c30f1bc">   31</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classScanner.html#a0ab26e8b01ead1516e40df610c30f1bc">LineLength</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classScanner.html#a02862de2258163f48b65bc9b971e1584">   33</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classScanner.html#a02862de2258163f48b65bc9b971e1584">LinePtr</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classScanner.html#a665e9ebc0d32d85196f3fe79741ad4e2">   35</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classScanner.html#a665e9ebc0d32d85196f3fe79741ad4e2">LineCount</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classScanner.html#a41cad1a826eae7ca06e3caa158f19689">   37</a></span>&#160;        <span class="keywordtype">char</span> <a class="code" href="classScanner.html#a41cad1a826eae7ca06e3caa158f19689">lastChar</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classScanner.html#aa74835f3991214633d9b9da472c12cf4">   40</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classScanner.html#aa74835f3991214633d9b9da472c12cf4">lastSymbolID</a> = 0;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classScanner.html#add173a0eb76154342eb13231428ad432">   42</a></span>&#160;        std::string <a class="code" href="classScanner.html#add173a0eb76154342eb13231428ad432">NumLexeme</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classScanner.html#a5dccc3cfcab36ee1a58c54595c06193a">   45</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classScanner.html#a5dccc3cfcab36ee1a58c54595c06193a">czyZadeklarowanoNowaZmienna</a> = <span class="keyword">false</span>;   </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">//TODO czy to na pewno o to chodziło???</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classScanner.html#ad092654dcdba5b99f5669cadccd6bde4">   48</a></span>&#160;        std::unordered_map&lt;int, Symbol&gt; *<a class="code" href="classScanner.html#ad092654dcdba5b99f5669cadccd6bde4">hashtable</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="classScanner.html#acc995a4b67a10d2652ce00afed14f497">Scanner</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="classScanner.html#a39f85e20f3ca942fd0a8e4bce88c27c7">~Scanner</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#a351afb5a0be1565feffec64d63f5d5de">ToLowerCase</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#ac033b530c8d7b457d7906d4bc5ba9f96">ListThisLine</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#a87e927f8cd379dad9ca73111fb1afd2c">GetNewLine</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#abe06995d648c180e1cfd89a705501006">GetNextChar</a>(<span class="keywordtype">char</span> *c);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#a739382d4287341e6999284f5efe81f23">PutNextChar</a>();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#a0c9aa35c727763193dd5c025acc0a6fe">ClearBuffer</a>();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#a3b1d419bd706fcb1db35ae3e1a30b91f">BufferChar</a>(<span class="keywordtype">char</span> c);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#ac28f5c49e85ed6e30f2c32ee947e6821">LexicalError</a>(<span class="keywordtype">char</span> c);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#a2696c355b1632b58cf9c03f8cbca568d">BufferName</a>(<span class="keywordtype">char</span> c);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classScanner.html#abb315507f613b6e80e2c3e5ac6a316af">BufferNumLiterals</a>(<span class="keywordtype">char</span> c);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> <a class="code" href="classScanner.html#a64b9f34739b046b1a0c5969274a48972">CheckReserved</a>();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> <a class="code" href="classScanner.html#a4188d819bcb9e13ec2f8b765ea6aa47b">GetNextToken</a>();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#a4c956a501921fb17b3cd02e6ff9f27ba">scan</a>(std::string program);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classScanner.html#ada46be693f1347447ea9e1e4d3a42a5e">Enter</a>(std::string S, <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> Code);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#a8445c3e5f0a8a0e0fc0ffb60f3935e62">LoadKeywords</a>();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#ad382ff3ee8fbd4985665e901d6373e5e">ListSymbolTable</a>();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classScanner.html#a295d25ec85e14081a8220d718773bc2f">LookUp</a>(std::string S);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#a6ed2785b4bc36f05e8b204d69ea291ec">printOutProgramCodeWithLines</a>();</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#a561ba513fc2de6a14561bc61c42c531d">printTokenName</a>(<a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> token);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="classScanner.html#acab277100d9ea21f26b77356925f655e">getTokenName</a>(<a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> token);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <a class="code" href="classSymbol.html">Symbol</a> <a class="code" href="classScanner.html#afa525ae600af950f7b74c5a39e729304">getSymbolFromHashTableById</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classScanner.html#a303460074fc47e00975b53207e9321ec">addProgram</a>(std::string program);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;};</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassScanner_html_a295d25ec85e14081a8220d718773bc2f"><div class="ttname"><a href="classScanner.html#a295d25ec85e14081a8220d718773bc2f">Scanner::LookUp</a></div><div class="ttdeci">int LookUp(std::string S)</div><div class="ttdoc">Returns id in hashTable of the entry for S, or 0 if it is not found.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:161</div></div>
-<div class="ttc" id="aclassScanner_html_a303460074fc47e00975b53207e9321ec"><div class="ttname"><a href="classScanner.html#a303460074fc47e00975b53207e9321ec">Scanner::addProgram</a></div><div class="ttdeci">void addProgram(std::string program)</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:553</div></div>
-<div class="ttc" id="aclassScanner_html_a351afb5a0be1565feffec64d63f5d5de"><div class="ttname"><a href="classScanner.html#a351afb5a0be1565feffec64d63f5d5de">Scanner::ToLowerCase</a></div><div class="ttdeci">void ToLowerCase()</div><div class="ttdoc">Convert characters to lower case characters.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:17</div></div>
-<div class="ttc" id="aclassScanner_html_a39f85e20f3ca942fd0a8e4bce88c27c7"><div class="ttname"><a href="classScanner.html#a39f85e20f3ca942fd0a8e4bce88c27c7">Scanner::~Scanner</a></div><div class="ttdeci">~Scanner()</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:12</div></div>
-<div class="ttc" id="aclassScanner_html_a3b1d419bd706fcb1db35ae3e1a30b91f"><div class="ttname"><a href="classScanner.html#a3b1d419bd706fcb1db35ae3e1a30b91f">Scanner::BufferChar</a></div><div class="ttdeci">void BufferChar(char c)</div><div class="ttdoc">Dodaje znak z parametru do bufora tokenBuffer.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:83</div></div>
-<div class="ttc" id="aclassScanner_html_a4188d819bcb9e13ec2f8b765ea6aa47b"><div class="ttname"><a href="classScanner.html#a4188d819bcb9e13ec2f8b765ea6aa47b">Scanner::GetNextToken</a></div><div class="ttdeci">Token GetNextToken()</div><div class="ttdoc">Znajduje kolejny Token w tekscie programu.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:175</div></div>
+<div class="ttc" id="aclassScanner_html_a0ab26e8b01ead1516e40df610c30f1bc"><div class="ttname"><a href="classScanner.html#a0ab26e8b01ead1516e40df610c30f1bc">Scanner::LineLength</a></div><div class="ttdeci">int LineLength</div><div class="ttdoc">Przechowuje długość aktualnie zbuforowanej linii.</div><div class="ttdef"><b>Definition:</b> Scanner.h:31</div></div>
 <div class="ttc" id="aclassScanner_html_a41cad1a826eae7ca06e3caa158f19689"><div class="ttname"><a href="classScanner.html#a41cad1a826eae7ca06e3caa158f19689">Scanner::lastChar</a></div><div class="ttdeci">char lastChar</div><div class="ttdoc">Ostatni zbuforowany znak.</div><div class="ttdef"><b>Definition:</b> Scanner.h:37</div></div>
-<div class="ttc" id="aclassScanner_html_a4c956a501921fb17b3cd02e6ff9f27ba"><div class="ttname"><a href="classScanner.html#a4c956a501921fb17b3cd02e6ff9f27ba">Scanner::scan</a></div><div class="ttdeci">void scan(std::string program)</div><div class="ttdoc">Przeprowadza procedurę skanowania podanego programu.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:518</div></div>
-<div class="ttc" id="aclassScanner_html_a561ba513fc2de6a14561bc61c42c531d"><div class="ttname"><a href="classScanner.html#a561ba513fc2de6a14561bc61c42c531d">Scanner::printTokenName</a></div><div class="ttdeci">void printTokenName(Token token)</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:380</div></div>
-<div class="ttc" id="aclassScanner_html_a5dccc3cfcab36ee1a58c54595c06193a"><div class="ttname"><a href="classScanner.html#a5dccc3cfcab36ee1a58c54595c06193a">Scanner::czyZadeklarowanoNowaZmienna</a></div><div class="ttdeci">bool czyZadeklarowanoNowaZmienna</div><div class="ttdoc">Zmienna przechowująca czy ostatnio znalezione id zostało dodane do listy(true), czy była już wcześnie...</div><div class="ttdef"><b>Definition:</b> Scanner.h:45</div></div>
-<div class="ttc" id="aclassScanner_html_a64b9f34739b046b1a0c5969274a48972"><div class="ttname"><a href="classScanner.html#a64b9f34739b046b1a0c5969274a48972">Scanner::CheckReserved</a></div><div class="ttdeci">Token CheckReserved()</div><div class="ttdoc">Check is the symbol into already reserved Symbols.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:147</div></div>
-<div class="ttc" id="aclassScanner_html_a665e9ebc0d32d85196f3fe79741ad4e2"><div class="ttname"><a href="classScanner.html#a665e9ebc0d32d85196f3fe79741ad4e2">Scanner::LineCount</a></div><div class="ttdeci">int LineCount</div><div class="ttdoc">Numer szeregowy aktualnej linii.</div><div class="ttdef"><b>Definition:</b> Scanner.h:35</div></div>
-<div class="ttc" id="aclassScanner_html_a6ed2785b4bc36f05e8b204d69ea291ec"><div class="ttname"><a href="classScanner.html#a6ed2785b4bc36f05e8b204d69ea291ec">Scanner::printOutProgramCodeWithLines</a></div><div class="ttdeci">void printOutProgramCodeWithLines()</div><div class="ttdoc">Wypisuje kod programu z ponumerowanymi liniamii.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:356</div></div>
-<div class="ttc" id="aclassScanner_html_a739382d4287341e6999284f5efe81f23"><div class="ttname"><a href="classScanner.html#a739382d4287341e6999284f5efe81f23">Scanner::PutNextChar</a></div><div class="ttdeci">void PutNextChar()</div><div class="ttdoc">Zmniejsza znacznik pozycji zbuforowanego znaku.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:73</div></div>
 <div class="ttc" id="aclassScanner_html_a7f74fe8f4cd6a7e2b729d8e185af1872"><div class="ttname"><a href="classScanner.html#a7f74fe8f4cd6a7e2b729d8e185af1872">Scanner::programString</a></div><div class="ttdeci">std::string programString</div><div class="ttdoc">zacachowany kod programu.</div><div class="ttdef"><b>Definition:</b> Scanner.h:20</div></div>
-<div class="ttc" id="aclassScanner_html_a8445c3e5f0a8a0e0fc0ffb60f3935e62"><div class="ttname"><a href="classScanner.html#a8445c3e5f0a8a0e0fc0ffb60f3935e62">Scanner::LoadKeywords</a></div><div class="ttdeci">void LoadKeywords()</div><div class="ttdoc">Dodaje Słowa kluczowe do hashListy.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:326</div></div>
-<div class="ttc" id="aclassScanner_html_a852900c5b131f61d0ac602705add57e4"><div class="ttname"><a href="classScanner.html#a852900c5b131f61d0ac602705add57e4">Scanner::programStringPointer</a></div><div class="ttdeci">int programStringPointer</div><div class="ttdoc">Przechowuje index kolejnego znaku do wczytania do buforuLini.</div><div class="ttdef"><b>Definition:</b> Scanner.h:22</div></div>
-<div class="ttc" id="aclassScanner_html_a87e927f8cd379dad9ca73111fb1afd2c"><div class="ttname"><a href="classScanner.html#a87e927f8cd379dad9ca73111fb1afd2c">Scanner::GetNewLine</a></div><div class="ttdeci">void GetNewLine()</div><div class="ttdoc">get a new line from cached program</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:34</div></div>
 <div class="ttc" id="aclassScanner_html_aa74835f3991214633d9b9da472c12cf4"><div class="ttname"><a href="classScanner.html#aa74835f3991214633d9b9da472c12cf4">Scanner::lastSymbolID</a></div><div class="ttdeci">int lastSymbolID</div><div class="ttdoc">Zmienna przechowująca id(w hashTable) ostatnio znaleziony symbol.</div><div class="ttdef"><b>Definition:</b> Scanner.h:40</div></div>
+<div class="ttc" id="aclassScanner_html_a02862de2258163f48b65bc9b971e1584"><div class="ttname"><a href="classScanner.html#a02862de2258163f48b65bc9b971e1584">Scanner::LinePtr</a></div><div class="ttdeci">int LinePtr</div><div class="ttdef"><b>Definition:</b> Scanner.h:33</div></div>
+<div class="ttc" id="aclassScanner_html_a3b1d419bd706fcb1db35ae3e1a30b91f"><div class="ttname"><a href="classScanner.html#a3b1d419bd706fcb1db35ae3e1a30b91f">Scanner::BufferChar</a></div><div class="ttdeci">void BufferChar(char c)</div><div class="ttdoc">Dodaje znak z parametru do bufora tokenBuffer.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:83</div></div>
+<div class="ttc" id="aclassScanner_html_add173a0eb76154342eb13231428ad432"><div class="ttname"><a href="classScanner.html#add173a0eb76154342eb13231428ad432">Scanner::NumLexeme</a></div><div class="ttdeci">std::string NumLexeme</div><div class="ttdoc">Do tymczasowego przechowawania wartości zmiennej numerycznej (w postaci stringa)</div><div class="ttdef"><b>Definition:</b> Scanner.h:42</div></div>
+<div class="ttc" id="aclassScanner_html_a39f85e20f3ca942fd0a8e4bce88c27c7"><div class="ttname"><a href="classScanner.html#a39f85e20f3ca942fd0a8e4bce88c27c7">Scanner::~Scanner</a></div><div class="ttdeci">~Scanner()</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:12</div></div>
+<div class="ttc" id="aStale_8h_html"><div class="ttname"><a href="Stale_8h.html">Stale.h</a></div></div>
+<div class="ttc" id="aclassScanner_html"><div class="ttname"><a href="classScanner.html">Scanner</a></div><div class="ttdoc">Klasa realizująca funkcje skanera kodu.</div><div class="ttdef"><b>Definition:</b> Scanner.h:15</div></div>
 <div class="ttc" id="aclassScanner_html_abb315507f613b6e80e2c3e5ac6a316af"><div class="ttname"><a href="classScanner.html#abb315507f613b6e80e2c3e5ac6a316af">Scanner::BufferNumLiterals</a></div><div class="ttdeci">int BufferNumLiterals(char c)</div><div class="ttdoc">Bufforuje liczby, (liczba składa się z cyfry lub '.')</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:111</div></div>
-<div class="ttc" id="aclassScanner_html_abe06995d648c180e1cfd89a705501006"><div class="ttname"><a href="classScanner.html#abe06995d648c180e1cfd89a705501006">Scanner::GetNextChar</a></div><div class="ttdeci">void GetNextChar(char *c)</div><div class="ttdoc">Pobiera kolejny znak z zbuforowanej linii, jeśli brak takich to buforuje kolejną linie i podaje jej p...</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:65</div></div>
-<div class="ttc" id="aclassScanner_html_ac033b530c8d7b457d7906d4bc5ba9f96"><div class="ttname"><a href="classScanner.html#ac033b530c8d7b457d7906d4bc5ba9f96">Scanner::ListThisLine</a></div><div class="ttdeci">void ListThisLine()</div><div class="ttdoc">produce a listing of the source program</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:24</div></div>
-<div class="ttc" id="aclassScanner_html_ac28f5c49e85ed6e30f2c32ee947e6821"><div class="ttname"><a href="classScanner.html#ac28f5c49e85ed6e30f2c32ee947e6821">Scanner::LexicalError</a></div><div class="ttdeci">void LexicalError(char c)</div><div class="ttdoc">Wypisuje informacje o błędzie lexykalnym na podanym znaku.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:91</div></div>
-<div class="ttc" id="aclassScanner_html_acab277100d9ea21f26b77356925f655e"><div class="ttname"><a href="classScanner.html#acab277100d9ea21f26b77356925f655e">Scanner::getTokenName</a></div><div class="ttdeci">std::string getTokenName(Token token)</div><div class="ttdoc">Zwraca podany token jako string Służy do zmiany tokena na string zawierający jego nazwę.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:384</div></div>
 <div class="ttc" id="aclassScanner_html_acc995a4b67a10d2652ce00afed14f497"><div class="ttname"><a href="classScanner.html#acc995a4b67a10d2652ce00afed14f497">Scanner::Scanner</a></div><div class="ttdeci">Scanner()</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:3</div></div>
-<div class="ttc" id="aclassScanner_html_ad092654dcdba5b99f5669cadccd6bde4"><div class="ttname"><a href="classScanner.html#ad092654dcdba5b99f5669cadccd6bde4">Scanner::hashtable</a></div><div class="ttdeci">std::unordered_map&lt; int, Symbol &gt; * hashtable</div><div class="ttdoc">hash tablica</div><div class="ttdef"><b>Definition:</b> Scanner.h:48</div></div>
+<div class="ttc" id="aclassScanner_html_a665e9ebc0d32d85196f3fe79741ad4e2"><div class="ttname"><a href="classScanner.html#a665e9ebc0d32d85196f3fe79741ad4e2">Scanner::LineCount</a></div><div class="ttdeci">int LineCount</div><div class="ttdoc">Numer szeregowy aktualnej linii.</div><div class="ttdef"><b>Definition:</b> Scanner.h:35</div></div>
+<div class="ttc" id="aclassScanner_html_a2696c355b1632b58cf9c03f8cbca568d"><div class="ttname"><a href="classScanner.html#a2696c355b1632b58cf9c03f8cbca568d">Scanner::BufferName</a></div><div class="ttdeci">void BufferName(char c)</div><div class="ttdoc">Bufforuje wyraz, (wyraz składa się ze znaków alfanumerycznych lub '_' lub '.' )</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:96</div></div>
+<div class="ttc" id="aclassScanner_html_a0c9aa35c727763193dd5c025acc0a6fe"><div class="ttname"><a href="classScanner.html#a0c9aa35c727763193dd5c025acc0a6fe">Scanner::ClearBuffer</a></div><div class="ttdeci">void ClearBuffer()</div><div class="ttdoc">Czyści bufor przeznaczony do bufforowania Tokenów.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:78</div></div>
+<div class="ttc" id="aclassScanner_html_ac033b530c8d7b457d7906d4bc5ba9f96"><div class="ttname"><a href="classScanner.html#ac033b530c8d7b457d7906d4bc5ba9f96">Scanner::ListThisLine</a></div><div class="ttdeci">void ListThisLine()</div><div class="ttdoc">produce a listing of the source program</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:24</div></div>
+<div class="ttc" id="aclassScanner_html_a5dccc3cfcab36ee1a58c54595c06193a"><div class="ttname"><a href="classScanner.html#a5dccc3cfcab36ee1a58c54595c06193a">Scanner::czyZadeklarowanoNowaZmienna</a></div><div class="ttdeci">bool czyZadeklarowanoNowaZmienna</div><div class="ttdoc">Zmienna przechowująca czy ostatnio znalezione id zostało dodane do listy(true), czy była już wcześnie...</div><div class="ttdef"><b>Definition:</b> Scanner.h:45</div></div>
+<div class="ttc" id="aToken_8h_html_a6a9e93b081bad7fc74c17306fb168c1f"><div class="ttname"><a href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a></div><div class="ttdeci">Token</div><div class="ttdoc">Tokeny.</div><div class="ttdef"><b>Definition:</b> Token.h:7</div></div>
+<div class="ttc" id="aclassScanner_html_affe2258887076e242a135b4942ed20f0"><div class="ttname"><a href="classScanner.html#affe2258887076e242a135b4942ed20f0">Scanner::LineBuffer</a></div><div class="ttdeci">char LineBuffer[MAX_LINE_LENGTH+1]</div><div class="ttdoc">używany do przechowywania kolejnych linii programu</div><div class="ttdef"><b>Definition:</b> Scanner.h:28</div></div>
 <div class="ttc" id="aclassScanner_html_ad382ff3ee8fbd4985665e901d6373e5e"><div class="ttname"><a href="classScanner.html#ad382ff3ee8fbd4985665e901d6373e5e">Scanner::ListSymbolTable</a></div><div class="ttdeci">void ListSymbolTable()</div><div class="ttdoc">Wypisuje wszystkie Symbole przechowywane w HashTable.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:343</div></div>
 <div class="ttc" id="aclassScanner_html_ada46be693f1347447ea9e1e4d3a42a5e"><div class="ttname"><a href="classScanner.html#ada46be693f1347447ea9e1e4d3a42a5e">Scanner::Enter</a></div><div class="ttdeci">int Enter(std::string S, Token Code)</div><div class="ttdoc">Put S unconditionally into the symbol table and returns index of the entry for S.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:304</div></div>
-<div class="ttc" id="aclassScanner_html_add173a0eb76154342eb13231428ad432"><div class="ttname"><a href="classScanner.html#add173a0eb76154342eb13231428ad432">Scanner::NumLexeme</a></div><div class="ttdeci">std::string NumLexeme</div><div class="ttdoc">Do tymczasowego przechowawania wartości zmiennej numerycznej (w postaci stringa)</div><div class="ttdef"><b>Definition:</b> Scanner.h:42</div></div>
+<div class="ttc" id="aclassScanner_html_abe06995d648c180e1cfd89a705501006"><div class="ttname"><a href="classScanner.html#abe06995d648c180e1cfd89a705501006">Scanner::GetNextChar</a></div><div class="ttdeci">void GetNextChar(char *c)</div><div class="ttdoc">Pobiera kolejny znak z zbuforowanej linii, jeśli brak takich to buforuje kolejną linie i podaje jej p...</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:65</div></div>
+<div class="ttc" id="aclassScanner_html_a852900c5b131f61d0ac602705add57e4"><div class="ttname"><a href="classScanner.html#a852900c5b131f61d0ac602705add57e4">Scanner::programStringPointer</a></div><div class="ttdeci">int programStringPointer</div><div class="ttdoc">Przechowuje index kolejnego znaku do wczytania do buforuLini.</div><div class="ttdef"><b>Definition:</b> Scanner.h:22</div></div>
+<div class="ttc" id="aclassScanner_html_ac28f5c49e85ed6e30f2c32ee947e6821"><div class="ttname"><a href="classScanner.html#ac28f5c49e85ed6e30f2c32ee947e6821">Scanner::LexicalError</a></div><div class="ttdeci">void LexicalError(char c)</div><div class="ttdoc">Wypisuje informacje o błędzie lexykalnym na podanym znaku.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:91</div></div>
 <div class="ttc" id="aclassScanner_html_add623df9b43b78cb6f97afc66581927b"><div class="ttname"><a href="classScanner.html#add623df9b43b78cb6f97afc66581927b">Scanner::tokenBuffer</a></div><div class="ttdeci">std::string tokenBuffer</div><div class="ttdoc">Buffor uzywany do znajdywania kolejnych tokenów.</div><div class="ttdef"><b>Definition:</b> Scanner.h:25</div></div>
-<div class="ttc" id="aclassScanner_html_afa525ae600af950f7b74c5a39e729304"><div class="ttname"><a href="classScanner.html#afa525ae600af950f7b74c5a39e729304">Scanner::getSymbolFromHashTableById</a></div><div class="ttdeci">Symbol getSymbolFromHashTableById(int id)</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:558</div></div>
-<div class="ttc" id="aclassScanner_html_affe2258887076e242a135b4942ed20f0"><div class="ttname"><a href="classScanner.html#affe2258887076e242a135b4942ed20f0">Scanner::LineBuffer</a></div><div class="ttdeci">char LineBuffer[MAX_LINE_LENGTH+1]</div><div class="ttdoc">używany do przechowywania kolejnych linii programu</div><div class="ttdef"><b>Definition:</b> Scanner.h:28</div></div>
-<div class="ttc" id="aclassSymbol_html"><div class="ttname"><a href="classSymbol.html">Symbol</a></div><div class="ttdoc">Klasa Przechowująca dane (nazwę i token) - elemnt hashtable.</div><div class="ttdef"><b>Definition:</b> Symbol.h:13</div></div>
-</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassScanner_html_a6ed2785b4bc36f05e8b204d69ea291ec"><div class="ttname"><a href="classScanner.html#a6ed2785b4bc36f05e8b204d69ea291ec">Scanner::printOutProgramCodeWithLines</a></div><div class="ttdeci">void printOutProgramCodeWithLines()</div><div class="ttdoc">Wypisuje kod programu z ponumerowanymi liniamii.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:356</div></div>
+<div class="ttc" id="aclassScanner_html_a87e927f8cd379dad9ca73111fb1afd2c"><div class="ttname"><a href="classScanner.html#a87e927f8cd379dad9ca73111fb1afd2c">Scanner::GetNewLine</a></div><div class="ttdeci">void GetNewLine()</div><div class="ttdoc">get a new line from cached program</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:34</div></div>
+<div class="ttc" id="aclassScanner_html_a4188d819bcb9e13ec2f8b765ea6aa47b"><div class="ttname"><a href="classScanner.html#a4188d819bcb9e13ec2f8b765ea6aa47b">Scanner::GetNextToken</a></div><div class="ttdeci">Token GetNextToken()</div><div class="ttdoc">Znajduje kolejny Token w tekscie programu.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:175</div></div>
+<div class="ttc" id="aStale_8h_html_af0f2173e3b202ddf5756531b4471dcb2"><div class="ttname"><a href="Stale_8h.html#af0f2173e3b202ddf5756531b4471dcb2">MAX_LINE_LENGTH</a></div><div class="ttdeci">#define MAX_LINE_LENGTH</div><div class="ttdef"><b>Definition:</b> Stale.h:12</div></div>
+<div class="ttc" id="aSymbol_8h_html"><div class="ttname"><a href="Symbol_8h.html">Symbol.h</a></div></div>
+<div class="ttc" id="aclassScanner_html_a64b9f34739b046b1a0c5969274a48972"><div class="ttname"><a href="classScanner.html#a64b9f34739b046b1a0c5969274a48972">Scanner::CheckReserved</a></div><div class="ttdeci">Token CheckReserved()</div><div class="ttdoc">Check is the symbol into already reserved Symbols.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:147</div></div>
+<div class="ttc" id="aclassScanner_html_afa525ae600af950f7b74c5a39e729304"><div class="ttname"><a href="classScanner.html#afa525ae600af950f7b74c5a39e729304">Scanner::getSymbolFromHashTableById</a></div><div class="ttdeci">Symbol getSymbolFromHashTableById(int id)</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:564</div></div>
+<div class="ttc" id="aclassScanner_html_a739382d4287341e6999284f5efe81f23"><div class="ttname"><a href="classScanner.html#a739382d4287341e6999284f5efe81f23">Scanner::PutNextChar</a></div><div class="ttdeci">void PutNextChar()</div><div class="ttdoc">Zmniejsza znacznik pozycji zbuforowanego znaku.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:73</div></div>
+<div class="ttc" id="aclassScanner_html_a8445c3e5f0a8a0e0fc0ffb60f3935e62"><div class="ttname"><a href="classScanner.html#a8445c3e5f0a8a0e0fc0ffb60f3935e62">Scanner::LoadKeywords</a></div><div class="ttdeci">void LoadKeywords()</div><div class="ttdoc">Dodaje Słowa kluczowe do hashListy.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:326</div></div>
+<div class="ttc" id="aclassScanner_html_a4c956a501921fb17b3cd02e6ff9f27ba"><div class="ttname"><a href="classScanner.html#a4c956a501921fb17b3cd02e6ff9f27ba">Scanner::scan</a></div><div class="ttdeci">void scan(std::string program)</div><div class="ttdoc">Przeprowadza procedurę skanowania podanego programu.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:524</div></div>
+<div class="ttc" id="aclassScanner_html_a303460074fc47e00975b53207e9321ec"><div class="ttname"><a href="classScanner.html#a303460074fc47e00975b53207e9321ec">Scanner::addProgram</a></div><div class="ttdeci">void addProgram(std::string program)</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:559</div></div>
+<div class="ttc" id="aclassScanner_html_ad092654dcdba5b99f5669cadccd6bde4"><div class="ttname"><a href="classScanner.html#ad092654dcdba5b99f5669cadccd6bde4">Scanner::hashtable</a></div><div class="ttdeci">std::unordered_map&lt; int, Symbol &gt; * hashtable</div><div class="ttdoc">hash tablica</div><div class="ttdef"><b>Definition:</b> Scanner.h:48</div></div>
+<div class="ttc" id="aToken_8h_html"><div class="ttname"><a href="Token_8h.html">Token.h</a></div></div>
+<div class="ttc" id="aclassSymbol_html"><div class="ttname"><a href="classSymbol.html">Symbol</a></div><div class="ttdoc">Klasa Przechowująca dane (nazwę i token) - elemnt hashtable.</div><div class="ttdef"><b>Definition:</b> Symbol.h:12</div></div>
+<div class="ttc" id="aclassScanner_html_a561ba513fc2de6a14561bc61c42c531d"><div class="ttname"><a href="classScanner.html#a561ba513fc2de6a14561bc61c42c531d">Scanner::printTokenName</a></div><div class="ttdeci">void printTokenName(Token token)</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:380</div></div>
+<div class="ttc" id="aclassScanner_html_acab277100d9ea21f26b77356925f655e"><div class="ttname"><a href="classScanner.html#acab277100d9ea21f26b77356925f655e">Scanner::getTokenName</a></div><div class="ttdeci">static std::string getTokenName(Token token)</div><div class="ttdoc">Zwraca podany token jako string Służy do zmiany tokena na string zawierający jego nazwę.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:384</div></div>
+<div class="ttc" id="aclassScanner_html_a351afb5a0be1565feffec64d63f5d5de"><div class="ttname"><a href="classScanner.html#a351afb5a0be1565feffec64d63f5d5de">Scanner::ToLowerCase</a></div><div class="ttdeci">void ToLowerCase()</div><div class="ttdoc">Convert characters to lower case characters.</div><div class="ttdef"><b>Definition:</b> Scanner.cpp:17</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano przez&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

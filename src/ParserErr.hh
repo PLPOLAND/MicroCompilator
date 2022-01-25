@@ -23,7 +23,8 @@ class ParserErr
 
 		unordered_map<string,vector<Token>*> firstSets;
 		unordered_map<string,vector<Token>*> followSets; 
-		
+		///Flaga informująca o tym, że kompilacja przebiegła bez problemów.
+		bool compilationCorrect = true;
 	public:
 		ParserErr(std::string program);
 		~ParserErr();

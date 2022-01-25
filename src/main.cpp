@@ -4,7 +4,7 @@
 
 #include "Scanner.h"
 #include "Parser.hh"
-#include "parserErr.hh"
+#include "ParserErr.hh"
 #include "InterCodeGenerator.hpp"
 
 using namespace std;

@@ -1,4 +1,4 @@
-#include "parserErr.hh"
+#include "ParserErr.hh"
 
 ParserErr::ParserErr(std::string program)
 {
@@ -35,7 +35,7 @@ ParserErr::ParserErr(std::string program)
 	
 ParserErr::~ParserErr()
 {
-	
+	delete scanner;
 }
 
 void ParserErr::makeFirstSets(){
@@ -384,6 +384,16 @@ void ParserErr::SyntaxError(Token T)
     cout << "Syntax Error : on line: " << scanner->LineCount << ", at token: ";
     scanner->printTokenName(T);
     cout << endl;
+    scanner->ListThisLine();
+    for (int i = 0; i < scanner->LinePtr; i++)
+    {
+        cout<< "-";
+    }
+    cout << "^" 
+         << endl
+         << endl;
+
+    compilationCorrect = false;
 
     
 }
@@ -436,6 +446,7 @@ void ParserErr::doWithPanic(void (ParserErr::*todo)(Token), Token token){
     }
     catch(ParseException* ex)
     {
+        compilationCorrect = false;
         std::cerr << ex->what() << '\n';
         cout<<ex->getErrorMsg();
         panicStop();
@@ -449,6 +460,7 @@ void ParserErr::doWithPanic(void (ParserErr::*todo)()){
     }
     catch(ParseException* ex)
     {
+        compilationCorrect = false;
         std::cerr << ex->what() << '\n';
         cout<<ex->getErrorMsg();
         panicStop();
@@ -464,6 +476,7 @@ void ParserErr::doWithSkip(void (ParserErr::*todo)(Token), Token token, vector<T
     }
     catch (ParseException *ex)
     {
+        compilationCorrect = false;
         std::cerr << ex->what() << '\n';
         cout << ex->getErrorMsg();
     //skipping
@@ -478,6 +491,7 @@ void ParserErr::doWithSkip(void (ParserErr::*todo)(), vector<Token> *tokens)
     }
     catch (ParseException *ex)
     {
+        compilationCorrect = false;
         std::cerr << ex->what() << '\n';
         cout << ex->getErrorMsg();
     //skipping
@@ -501,8 +515,17 @@ void ParserErr::parseProgram()
     // Match(Token::EofSym);
 
     scanner->ListSymbolTable();
-    cout << endl
-         << "Compilation Successful." << endl;
+    if (compilationCorrect)
+    {
+        cout << endl
+             << "Compilation Successful." << endl;
+    }
+    else{
+        cout << endl
+             << "ERRORS occurred!"<< endl;
+             exit(-1);
+    }
+    
 }
 
 void ParserErr::parseIdent()
@@ -911,7 +934,7 @@ bool ParserErr::sprawdzCzyPonownaDeklaracja()
     if (scanner->czyZadeklarowanoNowaZmienna == false)
     {
         cout << "##########################"
-             << "WARNING"
+             << "ERROR"
              << "##########################" << endl;
         cout << "Zmienna: " << scanner->getSymbolFromHashTableById(scanner->lastSymbolID).name << " została już zadeklarowana!" << endl;
         this->SyntaxError(Token::Id);
@@ -924,7 +947,7 @@ bool ParserErr::sprawdzCzyZadeklarowanaWczesniej()
     if (scanner->czyZadeklarowanoNowaZmienna == true)
     {
         cout << "##########################"
-             << "WARNING"
+             << "ERROR"
              << "##########################" << endl;
         cout << "Zmienna: " << scanner->getSymbolFromHashTableById(scanner->lastSymbolID).name << " nie została jeszcze zadeklarowana!" << endl;
         this->SyntaxError(Token::Id);
