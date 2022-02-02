@@ -1,10 +1,10 @@
-#include "InterCodeGenerator.hpp"
+#include "InterCodeGenerator.hh"
 
+int InterCodeGenerator::labelId = 0;
 
 using namespace std;
 
 InterCodeGenerator::InterCodeGenerator(string kod){
-	this->kod = kod;
     this->scanner = new Scanner();
     scanner->addProgram(kod);
     scanner->LoadKeywords();
@@ -42,23 +42,14 @@ InterCodeGenerator::~InterCodeGenerator()
 }
 
 void InterCodeGenerator::run(){
-    if (check(ProgramSym))
-    {
-        
-    }
-    
-}
+    parseProgram();
 
-/**
- * @brief Sprawdza czy następny wczytany token jest tym podanym w argumencie
- * 
- * @param token oczekiwany token
- * @return true - jeśli następny wczytany token jest tym podanym w argumencie
- * @return false - jeśli następny wczytany token nie jest tym podanym w argumencie
- */
-bool InterCodeGenerator::check(Token token)
-{
-    return this->lookahead == token;
+    zapiszDeklaracjeZmiennych();
+    out.flush();
+    string outString = out.str();
+    ;
+    cout << outString;
+    cout <<"halt"<<endl;
 }
 
 void InterCodeGenerator::makeFirstSets()
@@ -172,8 +163,8 @@ void InterCodeGenerator::makeFirstSets()
     tmp = new vector<Token>();
     tmp->push_back(Token::LParen);
     tmp->push_back(Token::Id);
-    tmp->push_back(Token::IntSym);
-    tmp->push_back(Token::RealSym);
+    tmp->push_back(Token::IntLiteral);
+    tmp->push_back(Token::RealLiteral);
     firstSets.insert({"term", tmp});
     //first(<term tail>)
     tmp = new vector<Token>();
@@ -185,8 +176,8 @@ void InterCodeGenerator::makeFirstSets()
     tmp = new vector<Token>();
     tmp->push_back(Token::LParen);
     tmp->push_back(Token::Id);
-    tmp->push_back(Token::IntSym);
-    tmp->push_back(Token::RealSym);
+    tmp->push_back(Token::IntLiteral);
+    tmp->push_back(Token::RealLiteral);
     firstSets.insert({"factor", tmp});
     //first(<ident>)
     tmp = new vector<Token>();
@@ -196,8 +187,8 @@ void InterCodeGenerator::makeFirstSets()
     tmp = new vector<Token>();
     tmp->push_back(Token::LParen);
     tmp->push_back(Token::Id);
-    tmp->push_back(Token::IntSym);
-    tmp->push_back(Token::RealSym);
+    tmp->push_back(Token::IntLiteral);
+    tmp->push_back(Token::RealLiteral);
     firstSets.insert({"bool", tmp});
     //first(<relationop>)
     tmp = new vector<Token>();
@@ -374,8 +365,805 @@ void InterCodeGenerator::makeFollowSets()
     tmp = new vector<Token>();
     tmp->push_back(Token::LParen);
     tmp->push_back(Token::Id);
-    tmp->push_back(Token::IntSym);
-    tmp->push_back(Token::RealSym);
+    tmp->push_back(Token::IntLiteral);
+    tmp->push_back(Token::RealLiteral);
     followSets.insert({"relationop", tmp});
 }
 
+void InterCodeGenerator::Match(Token T)
+{
+
+    if (this->lookahead == T)
+    {
+        D("Matched :");
+        D_LN(scanner->getTokenName(T));
+        this->lookahead = scanner->GetNextToken();
+    }
+    else
+    {
+        // cout << "ERROR on Match: Symbol: ";
+        // scanner->printTokenName(T);
+        // cout << " expected but ";
+        // scanner->printTokenName(lookahead);
+        // cout << "found" << endl;
+        SyntaxError(T);
+        throw new ParseException(T, lookahead);
+    }
+}
+
+void InterCodeGenerator::SyntaxError(Token T)
+{
+    cout << "Syntax Error : on line: " << scanner->LineCount << ", at token: ";
+    scanner->printTokenName(T);
+    cout << endl;
+    scanner->ListThisLine();
+    for (int i = 0; i < scanner->LinePtr; i++)
+    {
+        cout << "-";
+    }
+    cout << "^"
+         << endl
+         << endl;
+
+    compilationCorrect = false;
+}
+
+void InterCodeGenerator::panicStop()
+{
+    cout << endl
+         << "PANIC STOP!!!" << endl
+         << endl
+         << endl;
+    exit(1);
+}
+
+bool InterCodeGenerator::checkIfContains(vector<Token> *tokens)
+{
+    if (find(tokens->begin(), tokens->end(), this->lookahead) == tokens->end())
+    {
+        return false;
+    }
+    return true;
+}
+
+void InterCodeGenerator::skipUntil(vector<Token> *tokens)
+{
+
+    while (find(tokens->begin(), tokens->end(), this->lookahead) == tokens->end())
+    {
+        this->lookahead = scanner->GetNextToken();
+        if (this->lookahead == Token::EofSym)
+        {
+            panicStop();
+        }
+    }
+}
+void InterCodeGenerator::skipAll(vector<Token> *tokens)
+{
+
+    while (find(tokens->begin(), tokens->end(), this->lookahead) != tokens->end())
+    {
+        this->lookahead = scanner->GetNextToken();
+        if (this->lookahead == Token::EofSym)
+        {
+            panicStop();
+        }
+    }
+}
+
+void InterCodeGenerator::doWithPanic(void (InterCodeGenerator::*todo)(Token), Token token)
+{
+    try
+    {
+        (this->*todo)(token);
+    }
+    catch (ParseException *ex)
+    {
+        compilationCorrect = false;
+        std::cerr << ex->what() << '\n';
+        cout << ex->getErrorMsg();
+        panicStop();
+    }
+}
+void InterCodeGenerator::doWithPanic(void (InterCodeGenerator::*todo)())
+{
+    try
+    {
+        (this->*todo)();
+    }
+    catch (ParseException *ex)
+    {
+        compilationCorrect = false;
+        std::cerr << ex->what() << '\n';
+        cout << ex->getErrorMsg();
+        panicStop();
+    }
+}
+
+void InterCodeGenerator::doWithSkip(void (InterCodeGenerator::*todo)(Token), Token token, vector<Token> *tokens)
+{
+    try
+    {
+        (this->*todo)(token);
+    }
+    catch (ParseException *ex)
+    {
+        compilationCorrect = false;
+        std::cerr << ex->what() << '\n';
+        cout << ex->getErrorMsg();
+        //skipping
+        skipUntil(tokens);
+    }
+}
+void InterCodeGenerator::doWithSkip(void (InterCodeGenerator::*todo)(), vector<Token> *tokens)
+{
+    try
+    {
+        (this->*todo)();
+    }
+    catch (ParseException *ex)
+    {
+        compilationCorrect = false;
+        std::cerr << ex->what() << '\n';
+        cout << ex->getErrorMsg();
+        //skipping
+        skipUntil(tokens);
+    }
+}
+
+void InterCodeGenerator::parseProgram()
+{
+    doWithPanic(&InterCodeGenerator::Match, ProgramSym);
+
+    doWithPanic(&InterCodeGenerator::parseName);
+    doWithSkip(&InterCodeGenerator::parseOptionalDeclaration, followSets.at("optionaldeclaration"));
+    doWithPanic(&InterCodeGenerator::Match, BeginSym);
+
+    doWithSkip(&InterCodeGenerator::parseOptionalStatement, followSets.at("statementlist"));
+    doWithPanic(&InterCodeGenerator::Match, EndProgramSym);
+    doWithPanic(&InterCodeGenerator::Match, EofSym);
+    // Match(Token::EndProgramSym);
+    // Match(Token::EofSym);
+
+    scanner->ListSymbolTable();
+    if (compilationCorrect)
+    {
+        cout << endl
+             << "Compilation Successful." << endl;
+    }
+    else
+    {
+        cout << endl
+             << "ERRORS occurred!" << endl;
+        exit(-1);
+    }
+}
+
+void InterCodeGenerator::parseIdent()
+{
+    doWithPanic(&InterCodeGenerator::Match, Token::Id);
+}
+
+void InterCodeGenerator::parseName()
+{
+    doWithPanic(&InterCodeGenerator::parseIdent);
+    doWithPanic(&InterCodeGenerator::Match, Token::SemiColon);
+}
+
+void InterCodeGenerator::parseOptionalDeclaration()
+{
+    if (this->lookahead == Token::VarSym) // <declaration list>
+    {
+        parseDeclarationList();
+    }
+    else
+    {
+        ; //NULL
+    }
+}
+
+void InterCodeGenerator::parseDeclarationList()
+{
+    
+    doWithSkip(&InterCodeGenerator::parseDeclaration, followSets.at("declaration"));
+    if (this->lookahead == Token::VarSym) //<devlaration list tail>
+    {
+        parseDeclarationListTail();
+    }
+    else
+    {
+        ; //NULL
+    }
+
+    if (checkIfContains(followSets.at("declarationlist")))
+    {
+        //TODO?
+        skipUntil(followSets.at("declarationlist"));
+    }
+}
+
+void InterCodeGenerator::parseDeclarationListTail()
+{
+    doWithSkip(&InterCodeGenerator::parseDeclaration, followSets.at("declaration"));
+    if (this->lookahead == Token::VarSym) //<devlaration list tail>
+    {
+        parseDeclarationListTail();
+    }
+    else
+    {
+        ; //NULL
+    }
+}
+
+void InterCodeGenerator::parseDeclaration()
+{
+    vector<Zmienna*> zmienne_tmp;
+    Match(Token::VarSym);     //VAR
+    parseIdList(false, true, &zmienne_tmp); //<id list>
+    parseType(&zmienne_tmp);   //:<type>
+    Match(Token::SemiColon);  //;
+    for(auto& zmienna : zmienne_tmp){
+        this->zmienne.push_back(zmienna);
+    }
+    
+}
+
+void InterCodeGenerator::parseIdList(bool sprawdzZadeklarowanie, bool niePowinnaBycZadeklarowana, vector<Zmienna *> *zmienne)
+{
+    if (sprawdzZadeklarowanie == true)
+    {
+        if (this->sprawdzCzyZadeklarowanaWczesniej())
+        {
+            panicStop();
+        }
+    }
+    if (niePowinnaBycZadeklarowana == true) //sprawdz czy dodano nową zmienną
+    {
+        if (this->sprawdzCzyPonownaDeklaracja())
+        {
+            skipUntil(followSets.at("ident"));
+        }
+    }
+
+    if (checkIfContains(this->firstSets.at("idlist")))
+    {
+        if (zmienne!=nullptr)
+        {
+            zmienne->push_back(new Zmienna(this->scanner->tokenBuffer));
+        }
+        
+        doWithPanic(&InterCodeGenerator::Match, Token::Id); //<ident>
+    }
+
+    // if (this->lookahead == Token::Comma)
+    // {
+    parseIdListTail(sprawdzZadeklarowanie, niePowinnaBycZadeklarowana, zmienne); //<id list tail>
+    // }
+    // else
+    // {
+    //     ; //NULL
+    // }
+}
+
+void InterCodeGenerator::parseIdListTail(bool sprawdzZadeklarowanie, bool niePowinnaBycZadeklarowana, vector<Zmienna *> *zmienne)
+{
+    if (checkIfContains(this->firstSets.at("idlisttail")))
+    {
+        doWithSkip(&InterCodeGenerator::Match, Token::Comma, followSets.at("idlisttail")); //,
+
+        if (niePowinnaBycZadeklarowana == true) //sprawdz czy dodano nową zmienną
+        {
+            if (this->sprawdzCzyPonownaDeklaracja())
+            {
+                skipUntil(followSets.at("ident"));
+            }
+        }
+        if (sprawdzZadeklarowanie == true)
+        {
+            if (this->sprawdzCzyZadeklarowanaWczesniej())
+            {
+                panicStop();
+            }
+        }
+
+        if (checkIfContains(this->firstSets.at("idlist")))
+        {
+            if (zmienne != nullptr)
+            {
+                zmienne->push_back(new Zmienna(this->scanner->tokenBuffer));
+            }
+            doWithPanic(&InterCodeGenerator::Match, Token::Id); //<ident>
+        }
+
+        // if (this->lookahead == Token::Comma)
+        // {
+        parseIdListTail(sprawdzZadeklarowanie, niePowinnaBycZadeklarowana); //<id list tail>
+        // }
+    }
+    else
+    {
+        ; //NULL
+    }
+}
+
+void InterCodeGenerator::parseType(vector<Zmienna*>* zmienne)
+{
+    if (this->lookahead == Token::IntSym)
+    { //INTEGER
+        for (auto &zmienna : *zmienne) // access by reference to avoid copying
+        {
+            zmienna->setType(false);
+        }
+        doWithPanic(&InterCodeGenerator::Match, Token::IntSym);
+    }
+    else
+    {
+        for (auto &zmienna : *zmienne) // access by reference to avoid copying
+        {
+            zmienna->setType(true);
+        }
+        doWithPanic(&InterCodeGenerator::Match, Token::RealSym);
+    }
+}
+
+void InterCodeGenerator::parseOptionalStatement()
+{
+
+    if (checkIfContains(this->firstSets.at("statement")))
+    {
+        parseStatementList(); // <statement list>
+    }
+    else
+    {
+        ; //NULL
+    }
+}
+
+// bool InterCodeGenerator::isBeginOfStatemnt(Token token)
+// {
+//     if (token == BeginSym || token == Token::Id || token == Token::ReadSym || token == Token::WriteSym || token == Token::IfSym || token == Token::WhileSym)
+//     {
+//         return true;
+//     }
+//     else
+//     {
+//         return false;
+//     }
+// }
+
+void InterCodeGenerator::parseStatementList()
+{
+    vector<Token> *tmp = this->followSets.at("statementlist");
+    doWithSkip(&InterCodeGenerator::parseStatement, tmp); //<statement>
+    parseStatementListTail();                    //<statement list tail>
+}
+
+void InterCodeGenerator::parseStatementListTail()
+{
+    if (checkIfContains(this->firstSets.at("statement")))
+    {
+        doWithSkip(&InterCodeGenerator::parseStatement, this->followSets.at("statementlist")); //<statement>
+        parseStatementListTail();                                                     //<statement list tail>
+    }
+    else
+    { //NULL
+        if (checkIfContains(this->followSets.at("expression")))
+        {
+            SyntaxError(this->lookahead);
+            skipAll(followSets.at("expression"));
+        }
+        if (checkIfContains(this->firstSets.at("statementlisttail")))
+        {
+            parseStatementListTail();
+        }
+    }
+}
+
+void InterCodeGenerator::parseStatement()
+{
+    if (this->lookahead == Token::BeginSym) //BEGIN <statement list> END;
+    {
+        Match(Token::BeginSym);
+        parseStatementList();
+        Match(Token::EndSym);
+        Match(Token::SemiColon);
+    }
+    else if (this->lookahead == Token::Id) //<ident> := <expression>;
+    {
+        if (this->sprawdzCzyZadeklarowanaWczesniej())
+        {
+            panicStop();
+        }
+        Zmienna* z = new Zmienna(this->scanner->tokenBuffer); //zapisz zmienną.  //TODO
+        
+        Match(Token::Id);
+
+        Match(Token::Assign);
+        string toAssign = parseExpression();
+        Match(Token::SemiColon);
+
+        this->zapiszAssign( z, toAssign);
+
+    }
+    else if (this->lookahead == Token::ReadSym) //READ( <id list>);
+    {
+        Match(Token::ReadSym);
+        Match(Token::LParen);
+
+        vector<Zmienna*> tmp;
+
+        parseIdList(true, false, &tmp);
+        Match(Token::RParen);
+        Match(Token::SemiColon);
+
+        for(auto zmienna : tmp){
+            zapiszRead(zmienna);
+        }
+
+    }
+    else if (this->lookahead == Token::WriteSym) //WRITE( <expression list>);
+    {
+        Match(Token::WriteSym);
+        Match(Token::LParen);
+        vector<string*> expressions;
+        parseExpressionList(&expressions);
+        Match(Token::RParen);
+        Match(Token::SemiColon);
+        for(auto expr : expressions){
+            zapiszWrite(*expr);
+        }
+    }
+    else if (this->lookahead == Token::IfSym) //IF(<bool>) THEN <statement>
+    {
+        Match(Token::IfSym);
+        Match(Token::LParen);
+        parseBool();
+        Match(Token::RParen);
+        Match(Token::ThenSym);
+        parseStatement();
+    }
+    else if (this->lookahead == Token::WhileSym) //WHILE(<bool>) DO <statement>
+    {
+        string whileLabel = startWhile();
+        Match(Token::WhileSym);
+        Match(Token::LParen);
+        string endWhileLabel = parseBool();
+        Match(Token::RParen);
+        Match(Token::DoSym);
+        parseStatement();
+
+        endWhile(whileLabel, endWhileLabel);
+    }
+    else
+    {
+        this->SyntaxError(this->lookahead);
+    }
+}
+
+void InterCodeGenerator::parseExpressionList(vector<string *>* expressions)
+{
+    string* expression = new string(parseExpression());         //<experssion>
+    expressions->push_back(expression);
+    parseExpressionListTail(expressions); //<expression list tail>
+}
+
+void InterCodeGenerator::parseExpressionListTail(vector<string *>* expressions)
+{
+    if (this->lookahead == Token::Comma) // , <expression> <expression list tail>
+    {
+        Match(Comma);
+        string *expression = new string(parseExpression()); //<experssion>
+        expressions->push_back(expression);
+        parseExpressionListTail(expressions);              //<expression list tail>
+    }
+    else //NULL
+    {
+        ;
+    }
+}
+
+string InterCodeGenerator::parseExpression()
+{
+    string toReturn ="", tail = "";
+    toReturn = parseTerm();
+    tail = parseExpressionTail();
+
+    if (tail == "")
+    {
+        return toReturn;
+    }
+    else{
+        string expresionRightSide = toReturn + " ";
+        expresionRightSide+= tail;
+
+        int idTMP = this->getTmp(false);
+        string tmp = this->tmp_zmienne[idTMP]->getID(); // weź nową zmienną tymczasową //TODO uzależnić typ zmiennej!
+        Zmienna *zmienna = this->tmp_zmienne[idTMP];
+
+        zapiszAssign(zmienna, expresionRightSide);
+        return tmp;
+    }
+    
+}
+
+string InterCodeGenerator::parseExpressionTail()
+{
+    string toReturn = "", tail = "";
+    Token operacja = Token::Null;
+    if (this->checkIfContains(firstSets.at("expressiontail")))
+    {
+        if (this->lookahead == Token::Plus) // + | -
+        {
+            Match(Token::Plus);
+            operacja = Token::Plus;
+        }
+        else if (this->lookahead == Token::Minus)
+        {
+            Match(Token::Minus);
+            operacja = Token::Minus;
+        }
+    }
+    else
+    {
+        return ""; //NULL
+    }
+    toReturn += parseTerm();              //<term>
+    tail = parseExpressionTail();    //<expression tail>
+    if (tail == "")
+    {
+        if (operacja== Token::Minus)
+        {
+            return "- " + toReturn;
+            
+        }
+        else if (operacja == Token::Plus)
+        {
+            return "+ " + toReturn;
+        }
+        else {
+            return toReturn;
+        }
+    }
+    else{
+        int idTMP = this->getTmp(false);
+        string tmp = this->tmp_zmienne[idTMP]->getID(); // weź nową zmienną tymczasową //TODO uzależnić typ zmiennej!
+        Zmienna *zmienna = this->tmp_zmienne[idTMP];
+
+        // if (operacja == Token::Minus)
+        // {
+        //     toReturn = "- " + toReturn;
+        // }
+        // else if (operacja == Token::Plus)
+        // {
+        //     toReturn = "+ " + toReturn;
+        // }
+        toReturn +=" ";
+        zapiszAssign(zmienna, toReturn + tail );
+        if (operacja == Token::Minus)
+        {
+            return "- " + tmp;
+        }
+        else if (operacja == Token::Plus)
+        {
+            return "+ " + tmp;
+        }
+        else
+        {
+            return tmp;
+        }
+    }
+    
+}
+
+string InterCodeGenerator::parseTerm()
+{
+    string toReturn = "", idR = "";
+    toReturn = parseFactor(); //<factor>
+    idR = parseTermTail(); //<term tail>
+    return toReturn;
+}
+
+string InterCodeGenerator::parseTermTail()
+{
+    string toReturn = "", tail = "";
+    if (checkIfContains(firstSets.at("termtail")))
+    {
+        if (this->lookahead == Token::Multiply) // *
+        {
+            Match(Token::Multiply);
+            toReturn+="* ";
+        }
+        else if (this->lookahead == Token::Devide) // /
+        {
+            Match(Token::Devide);
+            toReturn+="/ ";
+        }
+    }
+    else
+    {
+        return ""; //NULL
+    }
+
+    toReturn = parseFactor();
+    tail = parseTermTail();
+    if (tail == "")
+    {
+        return toReturn;
+    }
+    else
+    {
+        string tmp = this->tmp_zmienne[this->getTmp(false)]->getID(); // weź nową zmienną tymczasową //TODO uzależnić typ zmiennej!
+        Zmienna *zmienna = this->tmp_zmienne[this->getTmp(false)];
+        zapiszAssign(zmienna, toReturn);
+
+        return tmp;
+    }
+}
+
+string InterCodeGenerator::parseFactor()
+{
+    if (checkIfContains(firstSets.at("factor")))
+    {
+        if (this->lookahead == Token::LParen)
+        {
+            Match(Token::LParen);
+            parseExpression();//TODO
+            Match(Token::RParen);
+            return "ERROR";
+        }
+        else if (this->lookahead == Token::IntLiteral)
+        {
+            Match(Token::IntLiteral);
+            return scanner->NumLexeme;
+        }
+        else if (this->lookahead == Token::RealLiteral)
+        {
+            Match(Token::RealLiteral);
+            return scanner->NumLexeme;
+        }
+        else if (this->lookahead == Token::Id)
+        {
+            if (this->sprawdzCzyZadeklarowanaWczesniej())
+            {
+                panicStop();
+                
+            }
+            string id = scanner->tokenBuffer;
+            Match(Token::Id);
+            return id;
+        }
+    }
+    else
+    {
+        throw new ParseException(this->firstSets.at("factor"));
+        
+    }
+    panicStop();
+    return "";
+}
+
+string InterCodeGenerator::parseBool()
+{
+    string notLabel = getLabel();
+    string idLeft = parseExpression();//TODO zapisanie id, zapisanie "operatora", zapisanie id, zapisanie warunku przeciwnego z jumpem.
+    parseRelationOp();
+    string idRight = parseExpression();
+    return notLabel;
+}
+
+void InterCodeGenerator::parseRelationOp()
+{
+    if (checkIfContains(this->firstSets.at("relationop")))
+    {
+        if (this->lookahead == Token::Less)
+        {
+            Match(Token::Less);
+        }
+        else if (this->lookahead == Token::Equal)
+        {
+            Match(Token::Equal);
+        }
+        else if (this->lookahead == Token::Greater)
+        {
+            Match(Token::Greater);
+        }
+        else if (this->lookahead == Token::LessEq)
+        {
+            Match(Token::LessEq);
+        }
+        else if (this->lookahead == Token::Diffrent)
+        {
+            Match(Token::Diffrent);
+        }
+        else
+        {
+            Match(Token::GreaterEq);
+        }
+    }
+    else
+    {
+        throw new ParseException(this->firstSets.at("relationop"));
+    }
+}
+
+bool InterCodeGenerator::sprawdzCzyPonownaDeklaracja()
+{
+    if (scanner->czyZadeklarowanoNowaZmienna == false)
+    {
+        cout << "##########################"
+             << "ERROR"
+             << "##########################" << endl;
+        cout << "Zmienna: " << scanner->getSymbolFromHashTableById(scanner->lastSymbolID).name << " została już zadeklarowana!" << endl;
+        this->SyntaxError(Token::Id);
+        return true;
+    }
+    return false;
+}
+bool InterCodeGenerator::sprawdzCzyZadeklarowanaWczesniej()
+{
+    if (scanner->czyZadeklarowanoNowaZmienna == true)
+    {
+        cout << "##########################"
+             << "ERROR"
+             << "##########################" << endl;
+        cout << "Zmienna: " << scanner->getSymbolFromHashTableById(scanner->lastSymbolID).name << " nie została jeszcze zadeklarowana!" << endl;
+        this->SyntaxError(Token::Id);
+        return true;
+    }
+    return false;
+}
+
+
+int InterCodeGenerator::getTmp(bool type){
+
+    int id = tmp_zmienne.size();
+    string sId = "temp";
+    sId += to_string(id);
+
+    Zmienna* zmienna = new Zmienna(sId);
+    zmienna->setType(type);
+    this->tmp_zmienne.push_back(zmienna);
+    this->zmienne.push_back(zmienna);
+    return id;
+}
+
+string InterCodeGenerator::getLabel(){
+    return "Label" + to_string(labelId++);
+}
+
+void InterCodeGenerator::zapiszDeklaracjeZmiennych()
+{
+
+    for(auto& zmienna : zmienne){
+        cout << zmienna->getDeclaration()<<endl;
+    }
+
+}
+
+void InterCodeGenerator::zapiszRead(Zmienna *zmienna)
+{
+    out << "Read "<< zmienna->getID()<<endl;
+}
+
+void InterCodeGenerator::endWhile(string startwhileLabel, string endwhileLabel)
+{
+    out << "J " << startwhileLabel<<endl;
+    out << endwhileLabel<<":"<<endl;
+}
+
+string InterCodeGenerator::startWhile(){
+    string label = getLabel();
+    out << label<<endl;
+    return label;
+}
+
+void InterCodeGenerator::zapiszAssign(Zmienna *zmienna, string toAssign)
+{
+
+    out << zmienna->getID() << " := " << toAssign<<endl;
+    D_LN(zmienna->getID() << " := " << toAssign << endl);
+}
+
+void InterCodeGenerator::zapiszWrite(string expression){
+    out << "Write " << expression << endl;
+}

@@ -5,7 +5,7 @@
 #include "Scanner.h"
 #include "Parser.hh"
 #include "ParserErr.hh"
-#include "InterCodeGenerator.hpp"
+#include "InterCodeGenerator.hh"
 
 using namespace std;
 
@@ -100,8 +100,8 @@ int main(int argc, char const *argv[])
      ************Ciało Parsera ERROR*****************
      ***********************************************/
 
-    ParserErr* parser = new ParserErr(program);
-    parser->parseProgram();
+    // ParserErr* parser = new ParserErr(program);
+    // parser->parseProgram();
 
     /************************************************
      ***********END Ciało Parsera ERROR**************
@@ -111,8 +111,8 @@ int main(int argc, char const *argv[])
      ************Ciało Generatora Kodu***************
      ***********************************************/
 
-    // InterCodeGenerator* generator = new InterCodeGenerator(program);
-    // generator->run();
+    InterCodeGenerator* generator = new InterCodeGenerator(program);
+    generator->run();
 
     /************************************************
      ***********END Ciało Generatora Kodu************
