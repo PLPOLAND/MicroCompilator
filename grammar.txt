@@ -52,8 +52,8 @@
                          | IF(<bool>) THEN <statement>
                          | WHILE(<bool>) DO <statement>
 
-<expression list>       -> <expression> <expression list tail>
-<expression list tail>  -> NULL | , <expression> <expression list tail>
+<expression list>       -> <expression>#GENERATE_WRITE <expression list tail>
+<expression list tail>  -> NULL | , <expression>#GENERATE_WRITE <expression list tail>
 
 <expression>            -> <term> <expression tail>
 <expression tail>       -> NULL | + <term> <expression tail> | -<term> <expression tail>
@@ -63,7 +63,7 @@
 
 <factor>                -> ( <expression> ) | <ident> | INTNUM | FLOATNUM
 <ident>                 -> ID
-<bool>                  -> <expression> <relation op> <expression>
+<bool>                  -> <expression> <relation op> <expression> #GENERATE_JUMP_WHITH_OPPOSITE_OP
 <relation op>           -> < | = | > | <= | <> | >=
 
 /********************************FIRST SET***************************************************/

@@ -78,38 +78,37 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;istream&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classParseException.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classParseException.html">ParseException</a>: <span class="keyword">public</span> exception</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classParseException.html#a9f52a59fc39686e6ecd1dd5e4edc8a47">   13</a></span>&#160;    <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> <a class="code" href="classParseException.html#a9f52a59fc39686e6ecd1dd5e4edc8a47">searched</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classParseException.html#af986aaf1e1b3c238cfd2e1752d6f8b99">   14</a></span>&#160;    vector&lt;Token&gt;* <a class="code" href="classParseException.html#af986aaf1e1b3c238cfd2e1752d6f8b99">searched_list</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classParseException.html#a8df9dfe1aa905da2839cc4641e52048b">   15</a></span>&#160;    <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> <a class="code" href="classParseException.html#a8df9dfe1aa905da2839cc4641e52048b">found</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="classParseException.html">ParseException</a>(<a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> _searched, <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> _found = <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1fa727b8a8d744d88f4d9596d91abfdf277">Token::Null</a>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="classParseException.html">ParseException</a>(vector&lt;Token&gt;* _searched);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        ~<a class="code" href="classParseException.html">ParseException</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">string</span> getErrorMsg();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> getSerched();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> getFound();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classParseException.html#a30b9d5ee2b2a45df9d0ceaf31545acb1">   25</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classParseException.html#a30b9d5ee2b2a45df9d0ceaf31545acb1">what</a>() <span class="keyword">const</span> throw()</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;Didn&#39;t found expected Token!&quot;</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classParseException.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classParseException.html">ParseException</a>: <span class="keyword">public</span> exception</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classParseException.html#a9f52a59fc39686e6ecd1dd5e4edc8a47">   16</a></span>&#160;    <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> <a class="code" href="classParseException.html#a9f52a59fc39686e6ecd1dd5e4edc8a47">searched</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classParseException.html#af986aaf1e1b3c238cfd2e1752d6f8b99">   17</a></span>&#160;    vector&lt;Token&gt;* <a class="code" href="classParseException.html#af986aaf1e1b3c238cfd2e1752d6f8b99">searched_list</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classParseException.html#a8df9dfe1aa905da2839cc4641e52048b">   18</a></span>&#160;    <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> <a class="code" href="classParseException.html#a8df9dfe1aa905da2839cc4641e52048b">found</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="classParseException.html">ParseException</a>(<a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> _searched, <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> _found = <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1fa727b8a8d744d88f4d9596d91abfdf277">Token::Null</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classParseException.html">ParseException</a>(vector&lt;Token&gt;* _searched);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        ~<a class="code" href="classParseException.html">ParseException</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">string</span> getErrorMsg();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> getSerched();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a> getFound();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classParseException.html#a30b9d5ee2b2a45df9d0ceaf31545acb1">   28</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classParseException.html#a30b9d5ee2b2a45df9d0ceaf31545acb1">what</a>() <span class="keyword">const</span> throw()</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;Didn&#39;t found expected Token!&quot;</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aToken_8h_html_a6a9e93b081bad7fc74c17306fb168c1f"><div class="ttname"><a href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1f">Token</a></div><div class="ttdeci">Token</div><div class="ttdoc">Tokeny.</div><div class="ttdef"><b>Definition:</b> Token.h:7</div></div>
-<div class="ttc" id="aclassParseException_html_a9f52a59fc39686e6ecd1dd5e4edc8a47"><div class="ttname"><a href="classParseException.html#a9f52a59fc39686e6ecd1dd5e4edc8a47">ParseException::searched</a></div><div class="ttdeci">Token searched</div><div class="ttdef"><b>Definition:</b> ParseException.hh:13</div></div>
+<div class="ttc" id="aclassParseException_html_a9f52a59fc39686e6ecd1dd5e4edc8a47"><div class="ttname"><a href="classParseException.html#a9f52a59fc39686e6ecd1dd5e4edc8a47">ParseException::searched</a></div><div class="ttdeci">Token searched</div><div class="ttdef"><b>Definition:</b> ParseException.hh:16</div></div>
 <div class="ttc" id="aScanner_8h_html"><div class="ttname"><a href="Scanner_8h.html">Scanner.h</a></div></div>
-<div class="ttc" id="aclassParseException_html_af986aaf1e1b3c238cfd2e1752d6f8b99"><div class="ttname"><a href="classParseException.html#af986aaf1e1b3c238cfd2e1752d6f8b99">ParseException::searched_list</a></div><div class="ttdeci">vector&lt; Token &gt; * searched_list</div><div class="ttdef"><b>Definition:</b> ParseException.hh:14</div></div>
-<div class="ttc" id="aclassParseException_html_a8df9dfe1aa905da2839cc4641e52048b"><div class="ttname"><a href="classParseException.html#a8df9dfe1aa905da2839cc4641e52048b">ParseException::found</a></div><div class="ttdeci">Token found</div><div class="ttdef"><b>Definition:</b> ParseException.hh:15</div></div>
+<div class="ttc" id="aclassParseException_html_af986aaf1e1b3c238cfd2e1752d6f8b99"><div class="ttname"><a href="classParseException.html#af986aaf1e1b3c238cfd2e1752d6f8b99">ParseException::searched_list</a></div><div class="ttdeci">vector&lt; Token &gt; * searched_list</div><div class="ttdef"><b>Definition:</b> ParseException.hh:17</div></div>
+<div class="ttc" id="aclassParseException_html_a8df9dfe1aa905da2839cc4641e52048b"><div class="ttname"><a href="classParseException.html#a8df9dfe1aa905da2839cc4641e52048b">ParseException::found</a></div><div class="ttdeci">Token found</div><div class="ttdef"><b>Definition:</b> ParseException.hh:18</div></div>
 <div class="ttc" id="aToken_8h_html"><div class="ttname"><a href="Token_8h.html">Token.h</a></div></div>
 <div class="ttc" id="aToken_8h_html_a6a9e93b081bad7fc74c17306fb168c1fa727b8a8d744d88f4d9596d91abfdf277"><div class="ttname"><a href="Token_8h.html#a6a9e93b081bad7fc74c17306fb168c1fa727b8a8d744d88f4d9596d91abfdf277">Null</a></div><div class="ttdeci">@ Null</div><div class="ttdoc">epsilon</div><div class="ttdef"><b>Definition:</b> Token.h:10</div></div>
-<div class="ttc" id="aclassParseException_html_a30b9d5ee2b2a45df9d0ceaf31545acb1"><div class="ttname"><a href="classParseException.html#a30b9d5ee2b2a45df9d0ceaf31545acb1">ParseException::what</a></div><div class="ttdeci">const char * what() const</div><div class="ttdef"><b>Definition:</b> ParseException.hh:25</div></div>
-<div class="ttc" id="aclassParseException_html"><div class="ttname"><a href="classParseException.html">ParseException</a></div><div class="ttdef"><b>Definition:</b> ParseException.hh:10</div></div>
+<div class="ttc" id="aclassParseException_html_a30b9d5ee2b2a45df9d0ceaf31545acb1"><div class="ttname"><a href="classParseException.html#a30b9d5ee2b2a45df9d0ceaf31545acb1">ParseException::what</a></div><div class="ttdeci">const char * what() const</div><div class="ttdef"><b>Definition:</b> ParseException.hh:28</div></div>
+<div class="ttc" id="aclassParseException_html"><div class="ttname"><a href="classParseException.html">ParseException</a></div><div class="ttdoc">Klasa &quot;Wyjątek&quot; używana do sygnalizacji o błędzie parsowania.</div><div class="ttdef"><b>Definition:</b> ParseException.hh:13</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">

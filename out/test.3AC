@@ -1,0 +1,33 @@
+integer a
+integer b
+integer c
+integer temp0
+integer temp1
+integer temp2
+integer temp3
+integer temp4
+integer temp5
+integer temp6
+Read a
+Read b
+temp0 := b * c
+temp1 := a * temp0
+temp2 := c + a
+temp3 := a * temp2
+temp4 := temp1 + temp3
+c := temp4
+Label0:
+JE a b Label1
+JGE a b Label2
+temp5 := b - a
+b := temp5
+Label2:
+JGE b a Label3
+temp6 := a - b
+a := temp6
+Label3:
+J Label0
+Label1:
+Write a
+Write c
+halt

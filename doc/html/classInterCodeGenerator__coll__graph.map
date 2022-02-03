@@ -1,4 +1,4 @@
 <map id="InterCodeGenerator" name="InterCodeGenerator">
-<area shape="rect" id="node1" title=" " alt="" coords="39,468,226,663"/>
+<area shape="rect" id="node1" title="Klasa odpowiadająca za Parsowanie i Generowanie kodu 3AC." alt="" coords="39,468,226,824"/>
 <area shape="rect" id="node2" href="$classScanner.html" title="Klasa realizująca funkcje skanera kodu." alt="" coords="5,5,260,405"/>
 </map>

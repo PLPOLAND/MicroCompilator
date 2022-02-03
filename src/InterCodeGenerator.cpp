@@ -44,12 +44,30 @@ InterCodeGenerator::~InterCodeGenerator()
 void InterCodeGenerator::run(){
     parseProgram();
 
-    zapiszDeklaracjeZmiennych();
+    string deklaracjeZmiennych = generujTekstDeklaracjiZmiennych();
     out.flush();
     string outString = out.str();
-    ;
-    cout << outString;
-    cout <<"halt"<<endl;
+
+    deklaracjeZmiennych = this->deleteZleZnaki(deklaracjeZmiennych);
+    outString = this->deleteZleZnaki(outString);
+    
+    ofstream plik3AC;
+    plik3AC.open(nazwaProgramu);
+    if (plik3AC.good())
+    {
+        plik3AC<<deklaracjeZmiennych;
+        plik3AC << outString;
+        plik3AC<< "halt";
+    }
+    plik3AC.close();
+
+    cout << endl
+         << endl
+         << "Kod programu:" << endl
+         << endl
+         << deklaracjeZmiennych
+         << outString
+         <<"halt"<<endl;
 }
 
 void InterCodeGenerator::makeFirstSets()
@@ -541,7 +559,12 @@ void InterCodeGenerator::parseProgram()
 
 void InterCodeGenerator::parseIdent()
 {
+    if (nazwaProgramu == ".3AC")
+    {
+        nazwaProgramu = this->deleteZleZnaki(scanner->tokenBuffer) + nazwaProgramu;
+    }
     doWithPanic(&InterCodeGenerator::Match, Token::Id);
+    
 }
 
 void InterCodeGenerator::parseName()
@@ -577,7 +600,7 @@ void InterCodeGenerator::parseDeclarationList()
 
     if (checkIfContains(followSets.at("declarationlist")))
     {
-        //TODO?
+        
         skipUntil(followSets.at("declarationlist"));
     }
 }
@@ -597,7 +620,7 @@ void InterCodeGenerator::parseDeclarationListTail()
 
 void InterCodeGenerator::parseDeclaration()
 {
-    vector<Zmienna*> zmienne_tmp;
+    vector<Variable*> zmienne_tmp;
     Match(Token::VarSym);     //VAR
     parseIdList(false, true, &zmienne_tmp); //<id list>
     parseType(&zmienne_tmp);   //:<type>
@@ -608,7 +631,7 @@ void InterCodeGenerator::parseDeclaration()
     
 }
 
-void InterCodeGenerator::parseIdList(bool sprawdzZadeklarowanie, bool niePowinnaBycZadeklarowana, vector<Zmienna *> *zmienne)
+void InterCodeGenerator::parseIdList(bool sprawdzZadeklarowanie, bool niePowinnaBycZadeklarowana, vector<Variable *> *zmienne)
 {
     if (sprawdzZadeklarowanie == true)
     {
@@ -629,7 +652,7 @@ void InterCodeGenerator::parseIdList(bool sprawdzZadeklarowanie, bool niePowinna
     {
         if (zmienne!=nullptr)
         {
-            zmienne->push_back(new Zmienna(this->scanner->tokenBuffer));
+            zmienne->push_back(new Variable(this->scanner->tokenBuffer));
         }
         
         doWithPanic(&InterCodeGenerator::Match, Token::Id); //<ident>
@@ -645,7 +668,7 @@ void InterCodeGenerator::parseIdList(bool sprawdzZadeklarowanie, bool niePowinna
     // }
 }
 
-void InterCodeGenerator::parseIdListTail(bool sprawdzZadeklarowanie, bool niePowinnaBycZadeklarowana, vector<Zmienna *> *zmienne)
+void InterCodeGenerator::parseIdListTail(bool sprawdzZadeklarowanie, bool niePowinnaBycZadeklarowana, vector<Variable *> *zmienne)
 {
     if (checkIfContains(this->firstSets.at("idlisttail")))
     {
@@ -670,14 +693,14 @@ void InterCodeGenerator::parseIdListTail(bool sprawdzZadeklarowanie, bool niePow
         {
             if (zmienne != nullptr)
             {
-                zmienne->push_back(new Zmienna(this->scanner->tokenBuffer));
+                zmienne->push_back(new Variable(this->scanner->tokenBuffer));
             }
             doWithPanic(&InterCodeGenerator::Match, Token::Id); //<ident>
         }
 
         // if (this->lookahead == Token::Comma)
         // {
-        parseIdListTail(sprawdzZadeklarowanie, niePowinnaBycZadeklarowana); //<id list tail>
+        parseIdListTail(sprawdzZadeklarowanie, niePowinnaBycZadeklarowana, zmienne); //<id list tail>
         // }
     }
     else
@@ -686,7 +709,7 @@ void InterCodeGenerator::parseIdListTail(bool sprawdzZadeklarowanie, bool niePow
     }
 }
 
-void InterCodeGenerator::parseType(vector<Zmienna*>* zmienne)
+void InterCodeGenerator::parseType(vector<Variable*>* zmienne)
 {
     if (this->lookahead == Token::IntSym)
     { //INTEGER
@@ -774,7 +797,7 @@ void InterCodeGenerator::parseStatement()
         {
             panicStop();
         }
-        Zmienna* z = new Zmienna(this->scanner->tokenBuffer); //zapisz zmienną.  //TODO
+        Variable* z = new Variable(this->scanner->tokenBuffer); //zapisz zmienną.
         
         Match(Token::Id);
 
@@ -790,7 +813,7 @@ void InterCodeGenerator::parseStatement()
         Match(Token::ReadSym);
         Match(Token::LParen);
 
-        vector<Zmienna*> tmp;
+        vector<Variable*> tmp;
 
         parseIdList(true, false, &tmp);
         Match(Token::RParen);
@@ -817,10 +840,11 @@ void InterCodeGenerator::parseStatement()
     {
         Match(Token::IfSym);
         Match(Token::LParen);
-        parseBool();
+        string endLabel = parseBool();
         Match(Token::RParen);
         Match(Token::ThenSym);
         parseStatement();
+        endIF(endLabel);
     }
     else if (this->lookahead == Token::WhileSym) //WHILE(<bool>) DO <statement>
     {
@@ -875,10 +899,16 @@ string InterCodeGenerator::parseExpression()
     else{
         string expresionRightSide = toReturn + " ";
         expresionRightSide+= tail;
-
-        int idTMP = this->getTmp(false);
-        string tmp = this->tmp_zmienne[idTMP]->getID(); // weź nową zmienną tymczasową //TODO uzależnić typ zmiennej!
-        Zmienna *zmienna = this->tmp_zmienne[idTMP];
+        Variable *zmienna1 = Variable::findZmiennaOfId(&zmienne, toReturn);
+        Variable *zmienna2 = Variable::findZmiennaOfId(&zmienne, tail.substr(2));
+        if (zmienna1->getType() != zmienna2->getType())
+        {
+            this->mismatchError();
+        }
+        
+        int idTMP = this->getTmp(zmienna1->getType());
+        string tmp = this->tmp_zmienne[idTMP]->getID(); // weź nową zmienną tymczasową 
+        Variable *zmienna = this->tmp_zmienne[idTMP];
 
         zapiszAssign(zmienna, expresionRightSide);
         return tmp;
@@ -925,18 +955,17 @@ string InterCodeGenerator::parseExpressionTail()
         }
     }
     else{
-        int idTMP = this->getTmp(false);
-        string tmp = this->tmp_zmienne[idTMP]->getID(); // weź nową zmienną tymczasową //TODO uzależnić typ zmiennej!
-        Zmienna *zmienna = this->tmp_zmienne[idTMP];
 
-        // if (operacja == Token::Minus)
-        // {
-        //     toReturn = "- " + toReturn;
-        // }
-        // else if (operacja == Token::Plus)
-        // {
-        //     toReturn = "+ " + toReturn;
-        // }
+        Variable *zmienna1 = Variable::findZmiennaOfId(&zmienne, toReturn);
+        Variable *zmienna2 = Variable::findZmiennaOfId(&zmienne, tail.substr(2));
+        if (zmienna1->getType() != zmienna2->getType())
+        {
+            this->mismatchError();
+        }
+
+        int idTMP = this->getTmp(zmienna1->getType());
+        string tmp = this->tmp_zmienne[idTMP]->getID(); 
+        Variable *zmienna = this->tmp_zmienne[idTMP];
         toReturn +=" ";
         zapiszAssign(zmienna, toReturn + tail );
         if (operacja == Token::Minus)
@@ -957,26 +986,51 @@ string InterCodeGenerator::parseExpressionTail()
 
 string InterCodeGenerator::parseTerm()
 {
-    string toReturn = "", idR = "";
+    string toReturn = "", tail = "";
     toReturn = parseFactor(); //<factor>
-    idR = parseTermTail(); //<term tail>
-    return toReturn;
+    tail = parseTermTail(); //<term tail>
+
+    if (tail == "")
+    {
+        return toReturn;
+    }
+    else
+    {
+        string expresionRightSide = toReturn + " ";
+        expresionRightSide += tail;
+
+        Variable *zmienna1 = Variable::findZmiennaOfId(&zmienne, toReturn);
+        Variable *zmienna2 = Variable::findZmiennaOfId(&zmienne, tail.substr(2));
+        if (zmienna1->getType() != zmienna2->getType())
+        {
+            this->mismatchError();
+        }
+
+        int idTMP = this->getTmp(zmienna1->getType());
+        string tmp = this->tmp_zmienne[idTMP]->getID(); // weź nową zmienną tymczasową 
+        Variable *zmienna = this->tmp_zmienne[idTMP];
+
+        zapiszAssign(zmienna, expresionRightSide);
+        return tmp;
+    }
 }
 
 string InterCodeGenerator::parseTermTail()
 {
     string toReturn = "", tail = "";
+
+    Token operacja = Token::Null; //TODO uzależnić typ zmiennej!
     if (checkIfContains(firstSets.at("termtail")))
     {
         if (this->lookahead == Token::Multiply) // *
         {
             Match(Token::Multiply);
-            toReturn+="* ";
+            operacja = Token::Multiply;
         }
         else if (this->lookahead == Token::Devide) // /
         {
             Match(Token::Devide);
-            toReturn+="/ ";
+            operacja = Token::Devide;
         }
     }
     else
@@ -988,16 +1042,50 @@ string InterCodeGenerator::parseTermTail()
     tail = parseTermTail();
     if (tail == "")
     {
-        return toReturn;
+        if (operacja == Token::Multiply)
+        {
+            return "* " + toReturn;
+        }
+        else if (operacja == Token::Devide)
+        {
+            return "/ " + toReturn;
+        }
+        else
+        {
+            return toReturn;
+        }
     }
     else
     {
-        string tmp = this->tmp_zmienne[this->getTmp(false)]->getID(); // weź nową zmienną tymczasową //TODO uzależnić typ zmiennej!
-        Zmienna *zmienna = this->tmp_zmienne[this->getTmp(false)];
-        zapiszAssign(zmienna, toReturn);
 
-        return tmp;
+        Variable *zmienna1 = Variable::findZmiennaOfId(&zmienne, toReturn);
+        Variable *zmienna2 = Variable::findZmiennaOfId(&zmienne, tail.substr(2));
+        if (zmienna1->getType() != zmienna2->getType())
+        {
+            this->mismatchError();
+        }
+
+        int idTMP = this->getTmp(zmienna1->getType());
+        string tmp = this->tmp_zmienne[idTMP]->getID(); // weź nową zmienną tymczasową 
+        Variable *zmienna = this->tmp_zmienne[idTMP];
+
+        
+        toReturn += " ";
+        zapiszAssign(zmienna, toReturn + tail);
+        if (operacja == Token::Multiply)
+        {
+            return "* " + tmp;
+        }
+        else if (operacja == Token::Devide)
+        {
+            return "/ " + tmp;
+        }
+        else
+        {
+            return tmp;
+        }
     }
+    
 }
 
 string InterCodeGenerator::parseFactor()
@@ -1007,9 +1095,9 @@ string InterCodeGenerator::parseFactor()
         if (this->lookahead == Token::LParen)
         {
             Match(Token::LParen);
-            parseExpression();//TODO
+            string expr = parseExpression();
             Match(Token::RParen);
-            return "ERROR";
+            return expr;
         }
         else if (this->lookahead == Token::IntLiteral)
         {
@@ -1045,44 +1133,52 @@ string InterCodeGenerator::parseFactor()
 string InterCodeGenerator::parseBool()
 {
     string notLabel = getLabel();
-    string idLeft = parseExpression();//TODO zapisanie id, zapisanie "operatora", zapisanie id, zapisanie warunku przeciwnego z jumpem.
-    parseRelationOp();
+    string idLeft = parseExpression();
+    Token op = parseRelationOp();
     string idRight = parseExpression();
+    generateBool(notLabel,idLeft,idRight,op);
     return notLabel;
 }
 
-void InterCodeGenerator::parseRelationOp()
+Token InterCodeGenerator::parseRelationOp()
 {
     if (checkIfContains(this->firstSets.at("relationop")))
     {
         if (this->lookahead == Token::Less)
         {
             Match(Token::Less);
+            return Token::Less;
         }
         else if (this->lookahead == Token::Equal)
         {
             Match(Token::Equal);
+            return Token::Equal;
         }
         else if (this->lookahead == Token::Greater)
         {
             Match(Token::Greater);
+            return Token::Greater;
         }
         else if (this->lookahead == Token::LessEq)
         {
             Match(Token::LessEq);
+            return Token::LessEq;
         }
         else if (this->lookahead == Token::Diffrent)
         {
             Match(Token::Diffrent);
+            return Token::Diffrent;
         }
         else
         {
             Match(Token::GreaterEq);
+            return Token::GreaterEq;
         }
     }
     else
     {
         throw new ParseException(this->firstSets.at("relationop"));
+        return Token::Null;
     }
 }
 
@@ -1091,7 +1187,7 @@ bool InterCodeGenerator::sprawdzCzyPonownaDeklaracja()
     if (scanner->czyZadeklarowanoNowaZmienna == false)
     {
         cout << "##########################"
-             << "ERROR"
+             << "##########ERROR###########"
              << "##########################" << endl;
         cout << "Zmienna: " << scanner->getSymbolFromHashTableById(scanner->lastSymbolID).name << " została już zadeklarowana!" << endl;
         this->SyntaxError(Token::Id);
@@ -1104,7 +1200,7 @@ bool InterCodeGenerator::sprawdzCzyZadeklarowanaWczesniej()
     if (scanner->czyZadeklarowanoNowaZmienna == true)
     {
         cout << "##########################"
-             << "ERROR"
+             << "##########ERROR###########"
              << "##########################" << endl;
         cout << "Zmienna: " << scanner->getSymbolFromHashTableById(scanner->lastSymbolID).name << " nie została jeszcze zadeklarowana!" << endl;
         this->SyntaxError(Token::Id);
@@ -1120,7 +1216,7 @@ int InterCodeGenerator::getTmp(bool type){
     string sId = "temp";
     sId += to_string(id);
 
-    Zmienna* zmienna = new Zmienna(sId);
+    Variable* zmienna = new Variable(sId);
     zmienna->setType(type);
     this->tmp_zmienne.push_back(zmienna);
     this->zmienne.push_back(zmienna);
@@ -1131,16 +1227,17 @@ string InterCodeGenerator::getLabel(){
     return "Label" + to_string(labelId++);
 }
 
-void InterCodeGenerator::zapiszDeklaracjeZmiennych()
+string InterCodeGenerator::generujTekstDeklaracjiZmiennych()
 {
-
+    stringstream tmp;
     for(auto& zmienna : zmienne){
-        cout << zmienna->getDeclaration()<<endl;
+        tmp << zmienna->getDeclaration()<<endl;
     }
-
+    tmp.flush();
+    return tmp.str();
 }
 
-void InterCodeGenerator::zapiszRead(Zmienna *zmienna)
+void InterCodeGenerator::zapiszRead(Variable *zmienna)
 {
     out << "Read "<< zmienna->getID()<<endl;
 }
@@ -1151,19 +1248,75 @@ void InterCodeGenerator::endWhile(string startwhileLabel, string endwhileLabel)
     out << endwhileLabel<<":"<<endl;
 }
 
-string InterCodeGenerator::startWhile(){
+string InterCodeGenerator::startWhile()
+{
     string label = getLabel();
-    out << label<<endl;
+    out << label <<":"<< endl;
     return label;
 }
 
-void InterCodeGenerator::zapiszAssign(Zmienna *zmienna, string toAssign)
+void InterCodeGenerator::zapiszAssign(Variable *zmienna, string toAssign)
 {
 
-    out << zmienna->getID() << " := " << toAssign<<endl;
-    D_LN(zmienna->getID() << " := " << toAssign << endl);
+    out << zmienna->getID() << " := " << toAssign << endl;
 }
 
-void InterCodeGenerator::zapiszWrite(string expression){
+void InterCodeGenerator::zapiszWrite(string expression)
+{
     out << "Write " << expression << endl;
+}
+
+void InterCodeGenerator::generateBool(string label, string id1, string id2, Token op)
+{
+    if (op == Token::Less)
+    {
+        out << "JGE " << id1 << " " << id2 << " "  << label << endl;
+    }
+    else if (op == Token::Equal)
+    {
+        out << "JNE " << id1 << " " << id2 << " "  << label << endl;
+    }
+    else if (op == Token::Greater)
+    {
+        out << "JLE " << id1 << " " << id2 << " "  << label << endl;
+    }
+    else if (op == Token::LessEq)
+    {
+        out << "JG " << id1 << " " << id2 << " "  << label << endl;
+    }
+    else if (op == Token::Diffrent)
+    {
+        out << "JE " << id1 << " " << id2 << " "  << label << endl;
+    }
+    else if (op == Token::GreaterEq)
+    {
+        out << "JL " << id1 << " " << id2 << " "  << label << endl;
+    }
+}
+
+void InterCodeGenerator::endIF(string endIfLabel)
+{
+    out << endIfLabel << ":" << endl;
+}
+
+void InterCodeGenerator::mismatchError(){
+    cout << "##########################"
+         << "##########ERROR###########"
+         << "##########################" << endl;
+    cout << "Mismatch Error!";
+    this->SyntaxError(Token::Id);
+}
+
+string InterCodeGenerator::deleteZleZnaki(string str)
+{
+    string ret = "";
+    for (size_t i = 0; i < str.length(); i++)
+    {
+        if (str.at(i) != 0)
+        {
+            ret += str.at(i);
+        }
+        
+    }
+    return ret;
 }

@@ -34,6 +34,266 @@ Total: 13
 
 program max;
  
+
+first(relationop): 
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+first(ident): 
+- Id
+
+first(factor): 
+- LParen
+- Id
+- IntLiteral
+- RealLiteral
+
+first(termtail): 
+- Multiply
+- Devide
+- Null
+
+first(bool): 
+- LParen
+- Id
+- IntLiteral
+- RealLiteral
+
+first(term): 
+- LParen
+- Id
+- IntLiteral
+- RealLiteral
+
+first(expressiontail): 
+- Plus
+- Minus
+- Null
+
+first(expressionlisttail): 
+- Comma
+- Null
+
+first(expressionlist): 
+- LParen
+- Id
+- IntSym
+- RealSym
+
+first(program): 
+- ProgramSym
+
+first(name): 
+- Id
+
+first(type): 
+- IntSym
+- RealSym
+
+first(statementlisttail): 
+- BeginSym
+- Id
+- ReadSym
+- WriteSym
+- IfSym
+- WhileSym
+- Null
+
+first(declarationlist): 
+- VarSym
+
+first(declaration): 
+- VarSym
+
+first(expression): 
+- LParen
+- Id
+- IntSym
+- RealSym
+
+first(declarationlisttail): 
+- VarSym
+- Null
+
+first(idlist): 
+- Id
+
+first(optionalstatement): 
+- BeginSym
+- Id
+- ReadSym
+- WriteSym
+- IfSym
+- WhileSym
+
+first(optionalDeclaration): 
+- VarSym
+- Null
+
+first(idlisttail): 
+- Comma
+- Null
+
+first(statement): 
+- BeginSym
+- Id
+- ReadSym
+- WriteSym
+- IfSym
+- WhileSym
+
+first(statementlist): 
+- BeginSym
+- Id
+- ReadSym
+- WriteSym
+- IfSym
+- WhileSym
+
+follow(relationop): 
+- LParen
+- Id
+- IntLiteral
+- RealLiteral
+
+follow(ident): 
+- Assign
+- Colon
+- Multiply
+- Devide
+- Plus
+- Minus
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(factor): 
+- Multiply
+- Devide
+- Plus
+- Minus
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(termtail): 
+- Plus
+- Minus
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(expressiontail): 
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(expressionlisttail): 
+- RParen
+
+follow(expressionlist): 
+- RParen
+
+follow(program): 
+- Null
+
+follow(name): 
+- VarSym
+- BeginSym
+
+follow(type): 
+- SemiColon
+
+follow(statementlisttail): 
+- EndProgramSym
+- EndSym
+
+follow(bool): 
+- RParen
+
+follow(term): 
+- Plus
+- Minus
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(optionaldeclaration): 
+- BeginSym
+
+follow(declarationlist): 
+- BeginSym
+
+follow(declaration): 
+- VarSym
+- BeginSym
+
+follow(expression): 
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(declarationlisttail): 
+- BeginSym
+
+follow(idlist): 
+- Colon
+- RParen
+
+follow(optionalstatement): 
+- EndProgramSym
+
+follow(idlisttail): 
+- Colon
+- RParen
+
+follow(statement): 
+- BeginSym
+- Id
+- ReadSym
+- WriteSym
+- IfSym
+- WhileSym
+- EndProgramSym
+- EndSym
+
+follow(statementlist): 
+- EndProgramSym
+- EndSym
 Matched :ProgramSym
 Matched :Id
 Matched :SemiColon
@@ -142,3 +402,18 @@ Total: 16
 ----- END Symbol Table ----------
 
 Compilation Successful.
+
+
+Kod programu:
+
+integer a
+integer b
+Read a
+Read b
+JL a b Label0
+Write a
+Label0:
+JLE b a Label1
+Write b
+Label1:
+halt

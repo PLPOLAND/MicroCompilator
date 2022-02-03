@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kod_269',['kod',['../classInterCodeGenerator.html#ae1763133394add685a345375098cec92',1,'InterCodeGenerator']]]
+  ['hashtable_318',['hashtable',['../classScanner.html#ad092654dcdba5b99f5669cadccd6bde4',1,'Scanner']]]
 ];

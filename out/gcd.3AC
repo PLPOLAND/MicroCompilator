@@ -1,0 +1,25 @@
+integer a
+integer b
+integer c
+integer temp0
+integer temp1
+integer temp2
+integer temp3
+Read a
+Read b
+Label0:
+JE a b Label1
+JGE a b Label2
+temp0 := a - c
+temp1 := b - temp0
+b := temp1
+Label2:
+JGE b a Label3
+temp2 := b - c
+temp3 := a - temp2
+a := temp3
+Label3:
+J Label0
+Label1:
+Write a
+halt

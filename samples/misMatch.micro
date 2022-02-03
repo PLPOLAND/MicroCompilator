@@ -1,0 +1,21 @@
+program misMatch;
+
+-- Finds the greatest common divisor (gcd) of a and b
+
+var a, b : integer;
+var c : real;
+
+begin
+read(a, b);
+
+c := a * b * c + (a * (c + a));
+
+while (a <> b) do
+    begin
+        if (a < b) then
+            b := b - a;
+        if (b < a) then
+            a := a - b;
+    end;
+write(a,c);
+end.

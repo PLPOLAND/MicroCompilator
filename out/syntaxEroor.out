@@ -1,0 +1,386 @@
+1: program max;
+2: 
+3: -- Reads two integers and prints the maximum
+4: 
+5: var a, b : integer;
+6: 
+7: begin
+8: read(a,b);
+9: 
+10: if (a >= b) then
+11: write(a);
+12: if (b > a) then
+13: write(b);
+14: end;
+
+--------- Symbol Table ----------
+-> do
+-> while
+-> then
+-> if
+-> real
+-> integer
+-> var
+-> write
+-> read
+-> end
+-> end.
+-> begin
+-> program
+
+Total: 13
+ 
+----- END Symbol Table ----------
+
+program max;
+ 
+
+first(relationop): 
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+first(ident): 
+- Id
+
+first(factor): 
+- LParen
+- Id
+- IntLiteral
+- RealLiteral
+
+first(termtail): 
+- Multiply
+- Devide
+- Null
+
+first(bool): 
+- LParen
+- Id
+- IntLiteral
+- RealLiteral
+
+first(term): 
+- LParen
+- Id
+- IntLiteral
+- RealLiteral
+
+first(expressiontail): 
+- Plus
+- Minus
+- Null
+
+first(expressionlisttail): 
+- Comma
+- Null
+
+first(expressionlist): 
+- LParen
+- Id
+- IntSym
+- RealSym
+
+first(program): 
+- ProgramSym
+
+first(name): 
+- Id
+
+first(type): 
+- IntSym
+- RealSym
+
+first(statementlisttail): 
+- BeginSym
+- Id
+- ReadSym
+- WriteSym
+- IfSym
+- WhileSym
+- Null
+
+first(declarationlist): 
+- VarSym
+
+first(declaration): 
+- VarSym
+
+first(expression): 
+- LParen
+- Id
+- IntSym
+- RealSym
+
+first(declarationlisttail): 
+- VarSym
+- Null
+
+first(idlist): 
+- Id
+
+first(optionalstatement): 
+- BeginSym
+- Id
+- ReadSym
+- WriteSym
+- IfSym
+- WhileSym
+
+first(optionalDeclaration): 
+- VarSym
+- Null
+
+first(idlisttail): 
+- Comma
+- Null
+
+first(statement): 
+- BeginSym
+- Id
+- ReadSym
+- WriteSym
+- IfSym
+- WhileSym
+
+first(statementlist): 
+- BeginSym
+- Id
+- ReadSym
+- WriteSym
+- IfSym
+- WhileSym
+
+follow(relationop): 
+- LParen
+- Id
+- IntLiteral
+- RealLiteral
+
+follow(ident): 
+- Assign
+- Colon
+- Multiply
+- Devide
+- Plus
+- Minus
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(factor): 
+- Multiply
+- Devide
+- Plus
+- Minus
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(termtail): 
+- Plus
+- Minus
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(expressiontail): 
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(expressionlisttail): 
+- RParen
+
+follow(expressionlist): 
+- RParen
+
+follow(program): 
+- Null
+
+follow(name): 
+- VarSym
+- BeginSym
+
+follow(type): 
+- SemiColon
+
+follow(statementlisttail): 
+- EndProgramSym
+- EndSym
+
+follow(bool): 
+- RParen
+
+follow(term): 
+- Plus
+- Minus
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(optionaldeclaration): 
+- BeginSym
+
+follow(declarationlist): 
+- BeginSym
+
+follow(declaration): 
+- VarSym
+- BeginSym
+
+follow(expression): 
+- SemiColon
+- Comma
+- Greater
+- GreaterEq
+- Equal
+- Diffrent
+- Less
+- LessEq
+
+follow(declarationlisttail): 
+- BeginSym
+
+follow(idlist): 
+- Colon
+- RParen
+
+follow(optionalstatement): 
+- EndProgramSym
+
+follow(idlisttail): 
+- Colon
+- RParen
+
+follow(statement): 
+- BeginSym
+- Id
+- ReadSym
+- WriteSym
+- IfSym
+- WhileSym
+- EndProgramSym
+- EndSym
+
+follow(statementlist): 
+- EndProgramSym
+- EndSym
+Matched :ProgramSym
+Matched :Id
+Matched :SemiColon
+
+
+ 
+
+-- Reads two integers and prints the maximum
+ 
+
+
+ 
+
+var a, b : integer;
+ 
+Matched :VarSym
+Matched :Id
+Matched :Comma
+Matched :Id
+Matched :IntSym
+Matched :SemiColon
+
+
+ 
+
+begin
+ 
+Matched :BeginSym
+
+read(a,b);
+ 
+Matched :ReadSym
+Matched :LParen
+Matched :Id
+Matched :Comma
+Matched :Id
+Matched :RParen
+Matched :SemiColon
+
+
+ 
+
+if (a >= b) then
+ 
+Matched :IfSym
+Matched :LParen
+Matched :Id
+Matched :GreaterEq
+Matched :Id
+Matched :RParen
+Matched :ThenSym
+
+write(a);
+ 
+Matched :WriteSym
+Matched :LParen
+Matched :Id
+Matched :RParen
+Matched :SemiColon
+
+if (b > a) then
+ 
+Matched :IfSym
+Matched :LParen
+Matched :Id
+Matched :Greater
+Matched :Id
+Matched :RParen
+Matched :ThenSym
+
+write(b);
+ 
+Matched :WriteSym
+Matched :LParen
+Matched :Id
+Matched :RParen
+Matched :SemiColon
+
+end;
+ 
+Syntax Error : on line: 14, at token: EndProgramSym
+
+end;
+ 
+--^
+
+Error! Expected: EndProgramSym but found: EndSym
+PANIC STOP!!!
+
+

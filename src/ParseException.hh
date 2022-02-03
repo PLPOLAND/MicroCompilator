@@ -6,7 +6,10 @@
 #include <istream>
 
 using namespace std;
-
+/**
+ * @brief Klasa "Wyjątek" używana do sygnalizacji o błędzie parsowania.
+ * 
+ */
 class ParseException: public exception
 {
 	private:

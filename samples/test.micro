@@ -1,15 +1,20 @@
-program max;
+program test;
 
--- Reads two integers and prints the maximum
+-- Finds the greatest common divisor (gcd) of a and b
 
-var a, b : integer;
-var a, b : integer;
+var a, b, c : integer;
 
 begin
-read(a,b);;
+read(a, b);
 
-if (a >= b) then
-write(a);
-if (b > a) then
-write(b);
+c := a * b * c + (a * (c + a));
+
+while (a <> b) do
+    begin
+        if (a < b) then
+            b := b - a;
+        if (b < a) then
+            a := a - b;
+    end;
+write(a,c);
 end.

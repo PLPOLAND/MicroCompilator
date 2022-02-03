@@ -1,14 +1,14 @@
 <map id="Stale.h" name="Stale.h">
-<area shape="rect" id="node1" title=" " alt="" coords="447,5,513,32"/>
-<area shape="rect" id="node2" href="$Scanner_8h.html" title=" " alt="" coords="437,80,523,107"/>
-<area shape="rect" id="node3" href="$InterCodeGenerator_8hpp.html" title=" " alt="" coords="5,229,184,256"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="479,304,561,331"/>
-<area shape="rect" id="node6" href="$ParseException_8hh.html" title=" " alt="" coords="235,155,378,181"/>
-<area shape="rect" id="node7" href="$ParserErr_8hh.html" title=" " alt="" coords="381,229,483,256"/>
-<area shape="rect" id="node10" href="$Parser_8hh.html" title=" " alt="" coords="479,155,561,181"/>
-<area shape="rect" id="node12" href="$Scanner_8cpp.html" title=" " alt="" coords="723,155,824,181"/>
-<area shape="rect" id="node4" href="$InterCodeGenerator_8cpp.html" title=" " alt="" coords="6,304,183,331"/>
-<area shape="rect" id="node9" href="$ParseException_8cpp.html" title=" " alt="" coords="208,229,357,256"/>
-<area shape="rect" id="node8" href="$ParserErr_8cpp.html" title=" " alt="" coords="346,304,454,331"/>
-<area shape="rect" id="node11" href="$Parser_8cpp.html" title=" " alt="" coords="557,229,648,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="442,5,509,32"/>
+<area shape="rect" id="node2" href="$Scanner_8h.html" title=" " alt="" coords="432,80,519,107"/>
+<area shape="rect" id="node3" href="$InterCodeGenerator_8hh.html" title=" " alt="" coords="9,229,179,256"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="474,304,557,331"/>
+<area shape="rect" id="node6" href="$ParseException_8hh.html" title=" " alt="" coords="231,155,373,181"/>
+<area shape="rect" id="node7" href="$ParserErr_8hh.html" title=" " alt="" coords="377,229,478,256"/>
+<area shape="rect" id="node10" href="$Parser_8hh.html" title=" " alt="" coords="474,155,557,181"/>
+<area shape="rect" id="node12" href="$Scanner_8cpp.html" title=" " alt="" coords="718,155,819,181"/>
+<area shape="rect" id="node4" href="$InterCodeGenerator_8cpp.html" title=" " alt="" coords="5,304,183,331"/>
+<area shape="rect" id="node9" href="$ParseException_8cpp.html" title=" " alt="" coords="203,229,353,256"/>
+<area shape="rect" id="node8" href="$ParserErr_8cpp.html" title=" " alt="" coords="341,304,449,331"/>
+<area shape="rect" id="node11" href="$Parser_8cpp.html" title=" " alt="" coords="553,229,643,256"/>
 </map>

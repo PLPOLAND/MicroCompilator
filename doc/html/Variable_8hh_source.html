@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Micro Scanner: Plik źródłowy Variable.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Micro Scanner
+   &#160;<span id="projectnumber">1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Variable.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Variable_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ZMIENNA_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ZMIENNA_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classVariable.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classVariable.html">Variable</a>  </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classVariable.html#a49f3e8fc47e9bb6728b8802fcbc6ea93">   14</a></span>&#160;        std::string <a class="code" href="classVariable.html#a49f3e8fc47e9bb6728b8802fcbc6ea93">ID</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classVariable.html#a421082a9511751f5cc827be7af188496">   16</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classVariable.html#a421082a9511751f5cc827be7af188496">typ</a>  = <span class="keyword">false</span>;  </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="classVariable.html#a024e245d257116ce1cfc49ff7952118e">Variable</a>(std::string nazwa);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="classVariable.html#acfc14d0ad77af53025f890b4d3a7745a">~Variable</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        std::string <a class="code" href="classVariable.html#ac032636aa746f9ac1385054058807b67">getDeclaration</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classVariable.html#a8b1e5c991cee928657bb62f3d7a3a77a">setID</a>(std::string);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classVariable.html#a0b3067161a133d7bf64b45c6b0097a7c">setType</a>(<span class="keywordtype">bool</span> type);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::string <a class="code" href="classVariable.html#a4b6cd9ec48a0daa6f3d45bf62b8f0e0f">getID</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classVariable.html#a450f4cf31dfff665430a8ea29fb848a4">getType</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">static</span> <a class="code" href="classVariable.html">Variable</a> * <a class="code" href="classVariable.html#a33cb64bb6ebece72134c680ca647129f">findZmiennaOfId</a>(std::vector&lt;Variable*&gt;* zmienne, std::string <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassVariable_html_a4b6cd9ec48a0daa6f3d45bf62b8f0e0f"><div class="ttname"><a href="classVariable.html#a4b6cd9ec48a0daa6f3d45bf62b8f0e0f">Variable::getID</a></div><div class="ttdeci">std::string getID()</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> Variable.cpp:19</div></div>
+<div class="ttc" id="aclassVariable_html_a024e245d257116ce1cfc49ff7952118e"><div class="ttname"><a href="classVariable.html#a024e245d257116ce1cfc49ff7952118e">Variable::Variable</a></div><div class="ttdeci">Variable(std::string nazwa)</div><div class="ttdef"><b>Definition:</b> Variable.cpp:3</div></div>
+<div class="ttc" id="aclassVariable_html_ac032636aa746f9ac1385054058807b67"><div class="ttname"><a href="classVariable.html#ac032636aa746f9ac1385054058807b67">Variable::getDeclaration</a></div><div class="ttdeci">std::string getDeclaration()</div><div class="ttdef"><b>Definition:</b> Variable.cpp:25</div></div>
+<div class="ttc" id="aclassVariable_html_a49f3e8fc47e9bb6728b8802fcbc6ea93"><div class="ttname"><a href="classVariable.html#a49f3e8fc47e9bb6728b8802fcbc6ea93">Variable::ID</a></div><div class="ttdeci">std::string ID</div><div class="ttdef"><b>Definition:</b> Variable.hh:14</div></div>
+<div class="ttc" id="aclassVariable_html_a450f4cf31dfff665430a8ea29fb848a4"><div class="ttname"><a href="classVariable.html#a450f4cf31dfff665430a8ea29fb848a4">Variable::getType</a></div><div class="ttdeci">bool getType()</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> Variable.cpp:22</div></div>
+<div class="ttc" id="aclassVariable_html_a421082a9511751f5cc827be7af188496"><div class="ttname"><a href="classVariable.html#a421082a9511751f5cc827be7af188496">Variable::typ</a></div><div class="ttdeci">bool typ</div><div class="ttdoc">typ zeminnej (true = real; false = integer)</div><div class="ttdef"><b>Definition:</b> Variable.hh:16</div></div>
+<div class="ttc" id="aclassVariable_html"><div class="ttname"><a href="classVariable.html">Variable</a></div><div class="ttdoc">Klasa przechowująca informacje o zmiennej.</div><div class="ttdef"><b>Definition:</b> Variable.hh:11</div></div>
+<div class="ttc" id="aclassVariable_html_a0b3067161a133d7bf64b45c6b0097a7c"><div class="ttname"><a href="classVariable.html#a0b3067161a133d7bf64b45c6b0097a7c">Variable::setType</a></div><div class="ttdeci">void setType(bool type)</div><div class="ttdoc">setter</div><div class="ttdef"><b>Definition:</b> Variable.cpp:16</div></div>
+<div class="ttc" id="aclassVariable_html_a8b1e5c991cee928657bb62f3d7a3a77a"><div class="ttname"><a href="classVariable.html#a8b1e5c991cee928657bb62f3d7a3a77a">Variable::setID</a></div><div class="ttdeci">void setID(std::string)</div><div class="ttdoc">setter</div><div class="ttdef"><b>Definition:</b> Variable.cpp:13</div></div>
+<div class="ttc" id="aclassVariable_html_acfc14d0ad77af53025f890b4d3a7745a"><div class="ttname"><a href="classVariable.html#acfc14d0ad77af53025f890b4d3a7745a">Variable::~Variable</a></div><div class="ttdeci">~Variable()</div><div class="ttdef"><b>Definition:</b> Variable.cpp:8</div></div>
+<div class="ttc" id="aclassVariable_html_a33cb64bb6ebece72134c680ca647129f"><div class="ttname"><a href="classVariable.html#a33cb64bb6ebece72134c680ca647129f">Variable::findZmiennaOfId</a></div><div class="ttdeci">static Variable * findZmiennaOfId(std::vector&lt; Variable * &gt; *zmienne, std::string id)</div><div class="ttdoc">Znajduje zmienną w podanym kontenerze, według podanego id. Jeśli nie znajdzie odpowiedniej zmiennej z...</div><div class="ttdef"><b>Definition:</b> Variable.cpp:33</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

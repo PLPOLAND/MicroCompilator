@@ -2,17 +2,17 @@ program gcd;
 
 -- Finds the greatest common divisor (gcd) of a and b
 
-var a, b : integer;
+var a, b, c : integer;
 
 begin
 read(a, b);
 
 while (a <> b) do
-begin
-if (a < b) then
-b := b - a;
-if (b < a) then
-a := a - b;
-end;
+    begin
+        if (a < b) then
+            b := b - a - c;
+        if (b < a) then
+            a := a - b - c;
+    end;
 write(a);
 end.

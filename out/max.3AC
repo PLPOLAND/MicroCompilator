@@ -1,0 +1,11 @@
+integer a
+integer b
+Read a
+Read b
+JL a b Label0
+Write a
+Label0:
+JLE b a Label1
+Write b
+Label1:
+halt

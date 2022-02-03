@@ -1,4 +1,4 @@
-PROGRAM assign;
+PROGRAM minitest;
 VAR a : integer;
 BEGIN
     a := 0;
